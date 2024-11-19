@@ -1,0 +1,264 @@
+<app-navbar></app-navbar>
+
+<section class="home-bnr-scn">
+    <div class="bnr-cnt">
+        <h1>Where Your Dreams<br>Become a Reality!</h1>
+    </div>
+
+        <div id="carouselExampleIndicators" class="carousel slide background-crsl" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="dsk" src="../../../assets/Homepage/hdr-imgs/crsl-dsk-1.webp" alt="Image 1">
+                    <img class="mob" src="../../../assets/Homepage/hdr-imgs/crsl-mob-1.webp" alt="Image 1">
+                </div>
+                <div class="carousel-item">
+                    <img class="dsk" src="../../../assets/Homepage/hdr-imgs/crsl-dsk-2.webp" alt="Image 2">
+                    <img class="mob" src="../../../assets/Homepage/hdr-imgs/crsl-mob-2.webp" alt="Image 2">
+                </div>
+                <div class="carousel-item">
+                    <img class="dsk" src="../../../assets/Homepage/hdr-imgs/crsl-dsk-3.webp" alt="Image 3">
+                    <img class="mob" src="../../../assets/Homepage/hdr-imgs/crsl-mob-3.webp" alt="Image 3">
+                </div>
+                <div class="carousel-item">
+                    <img class="dsk" src="../../../assets/Homepage/hdr-imgs/crsl-dsk-4.webp" alt="Image 4">
+                    <img class="mob" src="../../../assets/Homepage/hdr-imgs/crsl-mob-4.webp" alt="Image 4">
+                </div>
+                <div class="carousel-item">
+                    <img class="dsk" src="../../../assets/Homepage/hdr-imgs/crsl-dsk-5.webp" alt="Image 5">
+                    <img class="mob" src="../../../assets/Homepage/hdr-imgs/crsl-mob-5.webp" alt="Image 5">
+                </div>
+            </div>
+        </div>
+
+</section>
+
+<section class="vsn-msn-scn">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 col-sm-12">
+                <h2>Vision & Mission</h2>
+                <h4>To equip and inspire aspiring IAS officers across India with the knowledge, skills and confidence needed to succeed. We strive to develop a dynamic learning environment, shaping the future with ethical, dedicated leaders for the country.</h4>
+                <p>Veranda IAS provides a vibrant environment for Civil Services Exam aspirants through rigorous preparation. We provide pre-planned class schedules every month with follow up test series for both prelims and mains examinations, peer group learning, guest lectures to make them a service-ready candidate.</p>
+            </div>
+            <div class="col-lg-7 col-md-12 col-sm-12 carousel-col">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="misn-cd">
+                            <img src="../../../assets/Homepage/sagayam.jpg" alt="">
+                            <div>
+                                <i>“I am immensely pleased to be part of this unique and novel holistic residential programme. It is a first of its kind in the nation & I genuinely hope & truly believe that the students who are here will utilise the opportunity to the best of their advantage. I hope they set clear goals, plan meticulously, work hard, strain every nerve & crack the UPSC CSE.”</i>
+                                <h5>Sagayam IAS (VR)</h5>
+                                <h6>Chief Mentor of Veranda IAS</h6>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="misn-cd">
+                            <img src="../../../assets/Homepage/bharat_seeman.jpg" alt="">
+                            <div>
+                                <i>“Today, it's possible for the daughter of a farmer in a remote village or a student studying in less renowned colleges in obscure towns to master the intricacies of preparing the subjects for UPSC exams. There are brilliant minds scattered throughout India, waiting to be nurtured, so that they can contribute meaningfully to our nation's governance and progress as a bureaucrat.”</i>
+                                <h5>Bharat Seeman</h5>
+                                <h6>CEO of Veranda IAS</h6>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="explore-scn">
+    <div class="container">
+        <h2>Explore Our Courses</h2>
+        <h5>Our courses for UPSC Civil Services Examination are designed in a way to empower aspirants through comprehensive and inclusive learning in both residential and online modes</h5>
+        <div class="explore-cds">
+            <owl-carousel-o [options]="customOptions">
+              <ng-container *ngFor="let course of courses">
+                <ng-template carouselSlide>
+                  <div class="cd">
+                    <img [src]="course.imgSrc" alt="{{ course.title }}">
+                    <div>
+                      <h4>{{ course.title }}</h4>
+                      <p>{{ course.description }}</p>
+                      <a [routerLink]="course.courseLink">Explore Now <img src="./assets/Homepage/right-arrow.png" alt="">
+                      </a>
+                    </div>
+                  </div>
+                </ng-template>
+              </ng-container>
+            </owl-carousel-o>
+          </div>          
+    </div>
+</section>
+<section class="promising-scn">
+    <div class="promising-imgs">
+        <img class="title-img" src="./assets/Homepage/Promising-brand-title.png" alt="">
+        <img class="sdnt-img" src="./assets/Homepage/Promising-Brand-image.png" alt="">
+    </div>
+    <div class="container promising-dtls">
+        <div class="count-flx">
+            <div class="dtls">
+                <div>10+</div>
+                <small>Successful Students</small>
+            </div>
+            <div class="dtls">
+                <div>100+</div>
+                <small>Experienced Faculty</small>
+            </div>
+            <div class="dtls">
+                <div>150+</div>
+                <small>Residential Students</small>
+            </div>
+            <div class="dtls">
+                <div>100+</div>
+                <small>Online Students</small>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="infra-scn">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+<h2>Our Infrastructure</h2>
+<h5>Discover cutting-edge facilities, meticulously designed to foster an ideal educational environment, dedicated to supporting your success</h5>
+<ul>
+    <li *ngFor="let facility of facilities"><img src="./assets/Homepage/blue-tick.png">{{ facility }}</li>
+  </ul>  
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 vdo-clmn">
+                <iframe src="https://www.youtube.com/embed/wyyLK25u4So?si=DBmaDFAmUJfX7w8i" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="why-scn">
+    <div class="container">
+        <h2>Why Veranda IAS?</h2>
+        <h5>At Veranda IAS, we are passionate about your success in the UPSC examination. We offer a distinguished and comprehensive approach to UPSC preparation, setting us apart as a leading choice for aspirants across India.</h5>
+<div class="why-cds">
+    <div *ngFor="let reason of reasons" class="cd">
+      <div class="img-area">
+        <img [src]="reason.imgSrc" alt="">
+      </div>
+      <div class="txt-area">
+        <h4>{{ reason.title }}</h4>
+        <p>{{ reason.description }}</p>
+      </div>
+    </div>
+  </div>
+  <div id="carouselExampleDark" class="carousel carousel-dark slide why-carousel">
+    <div class="carousel-inner">
+      <div *ngFor="let reason of reasons; let i = index" class="carousel-item" [class.active]="i === 0" [attr.data-bs-interval]="i === 0 ? 10000 : 2000">
+        <div class="cd">
+          <div class="img-area">
+            <img [src]="reason.imgSrc" class="d-block w-100" alt="">
+          </div>
+          <div class="txt-area">
+            <h4>{{ reason.title }}</h4>
+            <p>{{ reason.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-indicators">
+        <button *ngFor="let reason of reasons; let i = index" type="button" [attr.data-bs-target]="'#carouselExampleDark'" [attr.data-bs-slide-to]="i" [class.active]="i === 0" [attr.aria-current]="i === 0 ? 'true' : null" [attr.aria-label]="'Slide ' + (i + 1)"></button>
+      </div>
+  </div>  
+    </div>
+</section>
+<section class="upcoming-scn">
+    <div class="container">
+        <h2>What’s Upcoming?</h2>
+        <h5>At Veranda IAS, we are passionate about your success in the UPSC examination. We offer a distinguished and comprehensive approach to UPSC preparation, setting us apart as a leading choice for aspirants across India.</h5>
+        <div class="row upcmng-rw">
+           <div class="col-lg-4 col-md-6 col-sm-12 fst-cd">
+ <div class="wrkshp-cd">
+<img src="./assets/Homepage/3-hr-workshop-live.jpg" alt="">
+<div class="wrshp-txt">
+    <h6>When to Start TNPSC Group-1 Preparation?</h6>
+    <div>
+        <p>23 November 2024</p>
+        <small>Saturday • 6 PM - 7 PM</small>
+    </div>
+    <button routerLink="/webinar">Register Now</button>
+</div>
+</div> 
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 scnd-cd">
+                <div class="mini-cds">
+                    <img src="./assets/Homepage/test-icon.png" alt="">
+                    <div>
+                        <h6>Vikas Prelims Test Series 2024 - UPSC CSP 2025</h6>
+                        <small>Details about the Prelims Test Series is Coming Soon</small>
+                    </div>
+                </div>
+                <div class="mini-cds">
+                    <img src="./assets/Homepage/test-icon.png" alt="">
+                    <div>
+                        <h6>Vikas Mains Test Series 2025 - UPSC CSM 2025</h6>
+                        <small>Details about the Prelims Test Series is Coming Soon</small>
+                    </div>
+                </div>
+                <div class="mini-cds">
+                    <img src="./assets/Homepage/test-icon.png" alt="">
+                    <div>
+                        <h6>CSAT & Current Affairs Session</h6>
+                        <small>Details about the CSAT & CA Session is Coming Soon</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 thrd-cd">
+                <div class="dates-cd">
+                    <h5>Important Dates</h5>
+                    <div class="dt-dtls">
+                        <p>22 Jan 2025</p>
+                        <small>UPSC CSE Exam 2025 Official Notification</small>
+                    </div>
+                    <div class="dt-dtls">
+                        <p>11 Feb 2025</p>
+                        <small>Last Date for Receipt of UPSC CSE 2025 Applications</small>
+                    </div>
+                    <div class="dt-dtls">
+                        <p>25 May 2025</p>
+                        <small>UPSC CSE (Prelims) Exam 2025</small>
+                    </div>
+                    <div class="dt-dtls">
+                        <p>22 Aug 2025</p>
+                        <small>UPSC CSE (Mains) Exam 2025</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="two-cta-scn">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 padding-rsts">
+                <div class="cta-dtls">
+                    <h2>Explore Our Online Courses</h2>
+                <a routerLink="/courses">Know More</a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 clmn-end padding-rsts">
+                <div class="cta-dtls">
+                    <h2>Explore Our Residential Courses</h2>
+                <a routerLink="/courses">Know More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>
+
+
+
+
+
+
+
+
+

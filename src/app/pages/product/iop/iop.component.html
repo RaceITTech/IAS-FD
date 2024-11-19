@@ -1,0 +1,134 @@
+<app-navbar></app-navbar>
+  <div class="container">
+    <div class="row procuct-rw">
+      <div class="col-lg-5 col-md-12 col-sm-12  stick-col">
+          <!-- <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./assets/Coursepage/creatives/hand_books.jpg" class="book-img">
+              <div class="preview">
+                <button  (click)="previewBooks()">Preview Book </button>
+              </div>
+            </div>            
+        </div> -->
+        <div class="img-prvw-flx">
+        <div class="img-preview-icons" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+         <div class="preview-hold active" id="v-pills-preview1-tab" data-bs-toggle="pill" data-bs-target="#v-pills-preview1" type="button" role="tab" aria-controls="v-pills-preview1" aria-selected="true">
+          <img src="./assets/Coursepage/creatives/iop-1.webp" class="preview-hold-img" alt="Book_img">
+         </div>
+         <div class="preview-hold" id="v-pills-preview2-tab" data-bs-toggle="pill" data-bs-target="#v-pills-preview2" type="button" role="tab" aria-controls="v-pills-preview2" aria-selected="false">
+          <img src="./assets/Coursepage/creatives/iop-2.webp" class="preview-hold-img" alt="Book_img">
+         </div>
+        </div>
+        <div class="tab-content" id="v-pills-tabContent">
+         <div class="tab-pane fade show active" id="v-pills-preview1" role="tabpanel" aria-labelledby="v-pills-preview1-tab" tabindex="0">
+          <img src="./assets/Coursepage/creatives/iop-1.webp" class="book-img" alt="Book_img">
+         </div>
+         <div class="tab-pane fade" id="v-pills-preview2" role="tabpanel" aria-labelledby="v-pills-preview2-tab" tabindex="0">
+          <img src="./assets/Coursepage/creatives/iop-2.webp" class="book-img" alt="Book_img">
+         </div>        
+        </div>
+       </div>
+      </div>
+      <div class="col-lg-7 col-md-12 col-sm-12 product-cont-area ">
+        <div class="hdng-area">
+          <h1>Integrated Online Programme</h1>
+          <p>by Veranda IAS</p>
+        </div>
+  
+        <div class="price-flex-area">
+          <div>
+          <h2>35,400</h2>
+          <del>47,200</del>
+          <b>(25% OFF)</b>
+          </div>
+          <span>(inclusive of GST)</span>
+        </div>
+        
+        <div class="btns-flx">
+          <a (click)="onBuyClick()">Buy Now</a>
+          <!-- <a href="" download>Watch Demo Video</a> -->
+        </div>
+
+        <div class="pro-dtls-area">
+            <h3>About the Course</h3>
+    <p>The Integrated Online Programme of Veranda IAS offers the most extensive and integrated learning experience seamlessly encompassing every stage of the UPSC exam – Prelims, Mains and Interview – for UPSC aspirants. Effortlessly reducing your burden, this course meticulously manages your preparation time, ensuring the utmost learning and prioritising your success in the upcoming UPSC in a well-structured manner. It provides a reliable learning structure of comprehensive classes taught by our accomplished faculty with specially designed pedagogy that aids the understanding of basic to advanced level topics according to the demand of the UPSC syllabus.</p>
+          </div>
+
+        <div class="specification-area">
+            <h3>Key Features</h3>
+          <p>Course Validity : <span>365 Days</span></p>
+          <p>LMS Access : <span>365 Days</span></p>
+          <p>Class Sessions : <span>360</span></p>
+          <p>Circle Sessions : <span>90</span></p>
+          <p>Star Mentorship Sessions : <span>13</span></p>
+          <p>Special Sessions : <span>5</span></p>
+        </div>
+
+        <div class="specification-area">
+            <h3>Key Deliverables</h3>
+          <p>Recorded Videos : <span>Yes</span></p>
+          <p>Study Materials : <span>Yes</span></p>
+          <p>Basic Circle Tests : <span>Yes</span></p>
+          <p>Extreme Circle Tests : <span>Yes</span></p>
+          <p>Residential Campus Access : <span>Yes</span></p>
+          <p>Test Discussion : <span>Yes</span></p>
+        </div>
+
+        <div class="str-mntrs-area">
+            <h3>Star Mentors</h3>
+            <div id="mentorsCarousel" class="carousel slide mentors-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div *ngFor="let data of starMentors; let i = index" class="carousel-item" [ngClass]="{'active': i === 0}">
+                        <p>{{ data.description }}</p>
+                      <h4>{{ data.title }}</h4>
+                  </div>
+                </div>
+                <button class="carousel-control-prev control-btns" type="button" data-bs-target="#mentorsCarousel" data-bs-slide="prev">
+                    <span><img src="./assets/Coursepage/previous.png" alt=""></span>
+                  </button>
+                  <button class="carousel-control-next control-btns" type="button" data-bs-target="#mentorsCarousel" data-bs-slide="next">
+                    <span><img src="./assets/Coursepage/next.png" alt=""></span>
+                  </button>
+              </div>
+              
+        </div>
+
+<div class="testimonial-area">
+    <h3>Testimonials</h3>
+    <div class="testi-gd">
+      <div class="testi-cd" *ngFor="let testimonial of testimonials">
+        <p>{{ testimonial.message }}</p>
+        <div>
+          <h5>{{ testimonial.name }}</h5>
+          <h6>{{ testimonial.position }}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+        <div class="faq-area">
+          <h3>Frequently Asked Questions</h3>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item" *ngFor="let faq of faqs; let i = index">
+              <div class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                  [attr.data-bs-target]="'#collapse' + i" 
+                  [attr.aria-controls]="'collapse' + i" 
+                  aria-expanded="false">
+                  <h5>{{ faq.question }}</h5>
+                </button>
+              </div>
+              <div [id]="'collapse' + i" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  {{ faq.answer }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+  <app-footer></app-footer>
+  

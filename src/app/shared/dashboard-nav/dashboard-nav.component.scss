@@ -1,0 +1,66 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    } @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    } @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    } @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+  
+  .container-fluid{
+    position: relative;
+    z-index: 2;
+    font-family: 'Montserrat', sans-serif;
+    background: #EFEFEF !important;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14);
+    padding: .8em 1em;
+    margin: 0; 
+  }
+  
+  .hdr-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .brand img{
+      width: 100%;
+    }
+    button{
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      border: none;
+        border-radius: 5px;
+        background: red;
+        color: #fff;
+        padding: 6px 30px;
+        @include screen('mobile'){
+          padding: 5px;
+          border-radius: 50px;
+        }
+        span{
+          @include screen('mobile'){
+            display: none;
+          }
+        }
+        img{
+          width: 20px;
+          @include screen('mobile'){
+            width: 25px;
+          }
+        }
+      }
+  }

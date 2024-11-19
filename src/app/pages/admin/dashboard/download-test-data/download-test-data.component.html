@@ -1,0 +1,27 @@
+<ng-http-loader></ng-http-loader>
+<section class="form-scn">
+        <form #downloadForm="ngForm">
+        <div class="dwld-hdr">
+          <h2>Download Test Data</h2>
+          <div class="action-btns">
+            <button (click)="downloadTestsData()">Download Tests Data</button>
+            <button (click)="downloadAllData()">Download All Data</button>
+          </div>
+        </div>
+        <div class="frm-flds-area">
+            <div class="frm-flds">
+              <div class="lbl-fld-flx">
+                <label>Test</label>
+                <select name="testName" ngModel required #testName="ngModel">
+                  <option value="" hidden selected>-- select --</option>
+                  <option *ngFor="let data of tests" [value]=data.test>{{data.test}}</option>
+                </select>
+            </div>
+            </div>
+        <div class="Submit-btn">
+            <button *ngIf="!downloadClicked" [disabled]="downloadForm.invalid" [ngClass]="downloadForm.valid ? 'valid':''" (click)="downloadTestWiseData(downloadForm)">Download</button>
+            <button *ngIf="downloadClicked" class="valid">Please Wait...</button>
+        </div>
+        </div>
+        </form>
+  </section>

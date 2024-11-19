@@ -1,0 +1,439 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    }
+    @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    }
+    @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    }
+    @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+
+.form-control:focus,.form-select:focus,.form-check-input:focus{
+    box-shadow: none;
+}
+.log-in-scn{
+    padding: 1.5em 0;
+    .login-card{
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border-radius: 15px;
+        overflow: hidden;
+        // height:90vh;
+    }
+    .login-rw{
+        margin: 0;
+        @include screen('tablet'){
+            flex-direction: column-reverse;
+        }
+        @include screen('mobile'){
+            flex-direction: column-reverse;
+        }
+        .login-area{
+padding:2em;
+// height: 90vh;
+@include screen('mobile'){
+           padding: 1.5em; 
+}
+.form-1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    .ias-logo{
+        width: 200px;
+        margin-bottom: 2em;
+        @include screen('mobile'){
+            width: 175px;
+            margin: auto auto 1em auto;
+            display: block;
+        }
+    }
+    span{
+        padding: .5em 1.5em;
+        border-radius: 50px;
+        color: #fff;
+        background:#003177;
+        @include screen('mobile'){
+            margin: auto;
+            display: block;
+            width: max-content;
+        }
+    }
+    p{
+        margin:5em 0 0 0;
+        color: #A9A0B3;
+        font-size: 14px;
+        width: 350px;
+        @include screen('mobile'){
+            margin-top: 3em;
+        }
+        a{
+            font-weight: 500;
+            color: #003177;
+            text-decoration: none;
+        }
+    }
+    .phone-fld{
+        margin-top: 4em;
+        @include screen('mobile'){
+            margin-top: 2em;
+        }
+        h3{
+            color:#292727;
+        }
+        h6{
+            color: #A9A0B3;
+            margin-bottom: 0;
+        }
+        .inpt-area{
+            margin-top: 2em;
+            @include screen('mobile'){
+            margin-top: 1em;
+            }
+            .form-control{
+                width: 400px;
+                @include screen('mobile'){
+            width: 100%;
+                }
+            }
+            button{
+                margin-top: 2em;
+                color: #fff;
+                background:#336699;
+                border: none;
+                border-radius: 8px;
+                padding: 8px 24px;
+            }
+            .valid{
+                background: #003177;
+            }
+        }
+    }
+    .otp-fld{
+        margin-top: 4em;
+        @include screen('mobile'){
+            margin-top: 2em;
+        }
+        h3{
+            color:#292727;
+        }
+        h6{
+            color: #A9A0B3;
+            margin-bottom: 0;
+            em{
+                color: #000;
+                font-style: normal;
+            }
+        }
+        .inpt-area{
+            margin-top: 2em;
+            @include screen('mobile'){
+            margin-top: 1em;
+            }
+            ::ng-deep .ng-otp-input-wrapper{
+                display: flex;
+                gap: .5em;
+                margin-bottom: .5em;
+                ::ng-deep .otp-input{
+                    background: #F4F4F4;
+                    border: none;
+                    width: 40px;
+                    height: 40px;
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+            }
+            .response-area{
+                font-size: 14px;
+                color: red;
+                div{
+                    margin-bottom: .5em;
+                }
+            }
+            .resend-btn{
+                margin: 0;
+                padding: 0;
+                border: none;
+                background: none;
+                color: #003177;
+                font-weight: 600;
+                text-decoration: underline;
+            }
+            .resend-btn-invalid{
+                margin: 0;
+                padding: 0;
+                border: none;
+                background: none;
+                color: #292727;
+                font-weight: 600;
+                text-decoration: underline;
+            }
+            button{
+                margin: 2em 0 0 0;
+                color: #fff;
+                background:#003177;
+                border: none;
+                border-radius: 8px;
+                padding: 8px 24px;
+            }
+        }
+    }
+}
+.form-2{
+    .inpt-flds-gd{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 1em 2em;
+        margin-top: 1em;
+        @include screen('mobile'){
+           grid-template-columns: repeat(1,1fr); 
+        }
+        label{
+            color: #292727;
+            margin-bottom: .3em;
+        }
+    }
+    button{
+        margin-top: 2em;
+        color: #fff;
+        background:#336699;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 24px;
+    }
+    .valid{
+        background: #003177;
+    }
+}
+.form-3{
+    width: 80%;
+    color:#292727;
+    @include screen('tablet'){
+        width: 100%;
+        margin: auto;
+    }
+    @include screen('mobile'){
+         width: 100%;   
+    }
+    h4{
+margin-bottom: 1em;
+@include screen('mobile'){
+       font-size: 16px;     
+}
+    }
+    h2{
+margin-bottom: .8em;
+font-weight: 600;
+@include screen('mobile'){
+       font-size: 24px;     
+}
+    }
+    p{
+        margin-bottom: 1em;
+    }
+    ul{
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: .5em;
+        @include screen('mobile'){
+            grid-template-columns: repeat(1,1fr);
+        }
+        li{
+            font-weight: 600;
+            list-style-type: none;
+            em{
+                font-weight: 400;
+                font-style: normal;
+            }
+        }
+    }
+    .course-fee-flex{
+        display: flex;
+        justify-content: space-between;
+        h6{
+            margin-bottom: 0;
+        }
+        .course-fee-dtls{
+            @include screen('mobile'){
+            display: grid;
+            gap: .5em;
+            }
+            div{
+                display: flex;
+                align-items: flex-end;
+                gap: 1em;
+            }
+            .pri-dis{
+                h1{
+                    margin-bottom: 0;
+                    font-size: 32px;
+                    @include screen('mobile'){
+            font-size: 28px;
+                    }
+                }
+                del{
+                    color: #0047B3;
+                    font-weight: 700;
+                }
+            }
+            .strike-pri{
+                color:#767B7F;
+                del{
+                    font-size: 20px;
+                    font-weight: 600;
+                    @include screen('mobile'){
+            font-size: 18px;
+                    }
+                }
+                em{
+                    font-size: 14px;
+                    font-style: normal;
+                }
+            }
+        }
+    }
+    .slot-selection{
+        h6{
+            margin-bottom: 0;
+        }  
+        .form-check{
+            display: flex;
+            gap: .8em;
+            margin-top: .8em;
+            .form-check-input{
+                border: solid #000000;
+            }
+        }
+    }
+    button{
+        font-weight: 500;
+        padding: 8px;
+        width: 100%;
+        background: #336699;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+    }
+    .valid{
+        color: #fff;
+        background: #003177;
+    }
+}
+    }
+    .details-col{
+        padding: 2em;
+        background:#CEF1FF;
+    }
+    .img-area{
+        background-image: url(../../../assets/slot-booking/slot-bkng-img.webp);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        @include screen('tablet'){
+            display: none;
+        }
+        @include screen('mobile'){
+            display: none;
+        }
+    }
+    .personal-details{
+        @include screen('tablet'){
+            width: 80%;
+            margin: auto;
+        }
+        h4{
+margin-bottom: .5em;
+        }
+        .dtls-gd{
+            display: grid;
+            div{
+                display:grid;
+                border-bottom: solid 1px#A198AC;
+                padding: 0 0 .5em 0;
+                margin: 0 0 .5em 0;                
+                label{
+                    color: #A198AC;
+                }
+                small{
+                    color:#292727;
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+            }
+            div:last-child{
+                border: none;
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+    }
+}
+
+
+
+
+
+.confirm-modal{
+    .modal-dialog{
+        max-width: 600px;
+        @include screen('mobile'){
+            max-width: 100%;
+        }
+        .modal-body{
+padding: 2em;
+@include screen('mobile'){
+    padding: 1em;
+}
+            h5{
+color: #54595E;
+margin-bottom: .8em;
+            }
+            p{
+                text-align: justify;
+color: #4F4F4F;
+margin-bottom:.5em;
+            }
+            .modal-btns-flx{
+                display: flex;
+                align-items: flex-end;
+                gap: 1em;
+                margin-top: 2em;
+                @include screen('mobile'){
+                    margin-top: 1.5em;
+                }
+                button{
+                    border-radius: 5px;
+                    border: none;
+                    padding: 5px 30px;
+                }
+                button:nth-child(1){
+                    color: #4F4F4F;
+                    background: none;
+                    border: solid 1px #4F4F4F;
+                }
+                button:nth-child(2){
+                    color: #fff;
+                    background: #0047B3;
+                    border: solid 1px #0047B3;
+                }
+            }
+        }
+    }
+}

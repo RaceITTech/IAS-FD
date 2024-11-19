@@ -1,0 +1,131 @@
+<ng-http-loader></ng-http-loader>
+<section class="hdr-scn">
+    <div class="container">
+        <img src="../../../../assets/Homepage/ias-blue-logo.svg" alt="">
+    </div>
+  </section>
+  <!-- <section class="form-scn">
+<div class="container">
+    <form #postForm="ngForm">
+        <h2>Test Update</h2>
+        <div class="frm-flds-area">
+            <div class="frm-flds">
+              <div class="lbl-fld-flx">
+                <label>Name</label>
+                <select name="studentName" [(ngModel)]="selectedStudent" (ngModelChange)="onStudentChange($event)" required #studentName="ngModel">
+                  <option value="" hidden selected>-- select --</option>
+            <option *ngFor="let data of students" [value]=data.name>{{data.name}}</option>
+                </select>
+            </div>
+                <div class="lbl-fld-flx">
+                    <label>Test</label>
+                    <select name="testName" [(ngModel)]="selectedTest" (ngModelChange)="onTestChange($event)" required #testName="ngModel">
+                      <option value="" hidden selected>-- select --</option>
+                <option *ngFor="let data of tests" [value]=data.test>{{data.test}}</option>
+                    </select>
+                </div>
+            </div>              
+        <div class="Submit-btn">
+            <button [disabled]="postForm.invalid" [ngClass]="postForm.valid ? 'valid':''" (click)="onSubmit(postForm)">Submit</button>
+        </div>
+        </div>
+        </form>
+</div>
+  </section> -->
+
+  <section class="form-scn">
+    <div class="form-card">
+      <h2>Test Update</h2>
+      <form #courseForm="ngForm">
+            <div class="inpts-gd">
+              <div>
+                <label class="form-label"> Name </label>
+                <div class="input-group">
+                  <select class="form-select" name="studentName" [(ngModel)]="selectedStudent" (ngModelChange)="onStudentChange($event)" required #studentName="ngModel">
+                    <option value="" hidden selected>-- select --</option>
+              <option *ngFor="let data of studentsData" [value]=data.name>{{data.name}}</option>
+                  </select>
+                  <div class="input-group-append" *ngIf="otpStatus!='Verified'">
+                      <button class="form-control" [disabled]="!studentName.valid" [ngClass]="studentName.valid ? 'valid':''"  (click)="getOtp()">Get OTP</button>
+                  </div>
+              </div>
+              <div class="response-area" *ngIf="otpStatus">
+                <div *ngIf="otpStatus=='inValid'" style="color: red;">Invalid OTP</div>
+                <div *ngIf="otpStatus=='Verified'" style="color: #003177;">OTP Verified Successfully</div>
+                <div *ngIf="otpStatus=='Sent'" style="color: #003177;">OTP Sent Successfully</div>
+                <div *ngIf="otpStatus=='reSent'" style="color: #003177;">OTP Resent Successfully</div>
+            </div>
+              <div class="otp-inpt-area" *ngIf="otpStatus!='Verified' && otpStatus!=''">
+                <ng-otp-input inputmode="numeric" (onInputChange)="onInputChange($event)" [config]="{length:4,allowNumbersOnly:true}"></ng-otp-input>
+                <div class="otp-action-flex">
+                  <button [disabled]="!otpResend" [ngClass]="otpResend ? 'otp-action-valid':'resend-btn-invalid'" class="" (click)="resendOtp()">Resend OTP</button><br>
+                  <button class="otp-action-valid" (click)="verifyOtp()"> Verify</button>
+                </div>
+            </div>
+              </div>
+              <div>
+                <label class="form-label">Test</label>
+                <select class="form-select" name="testName" [(ngModel)]="selectedTest" (ngModelChange)="onTestChange($event)" required #testName="ngModel">
+                  <option value="" hidden selected>-- select --</option>
+            <option *ngFor="let data of tests" [value]=data.test>{{data.test}}</option>
+                </select>
+              </div>
+            </div>
+            <button *ngIf="!submitClicked" [disabled]="!(courseForm.valid && otpStatus=='Verified')" [ngClass]="courseForm.valid && otpStatus=='Verified' ? 'valid':''" (click)="onSubmit(courseForm)">Continue</button>
+            <button *ngIf="submitClicked" class="valid">Please Wait...</button>
+          </form>
+          </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Fill Your Test Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form #updateForm="ngForm" (ngSubmit)="saveChanges(updateForm)">
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Subject</th>
+                    <th>Level</th>
+                    <th>Questions</th>
+                    <th>Correct</th>
+                    <th>Wrong</th>
+                    <!-- <th>Right Marks</th>
+                    <th>Wrong Marks</th> -->
+                    <th>Total Marks</th>
+                    <th>Accuracy (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of testDetails; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ data.subject }}</td>
+                    <td>{{ data.level }}</td>
+                    <td>{{ data.noOfQuestions }}</td>
+                    <td>
+                      <input type="tel" (keypress)="keyPress($event)" [name]="'correct' + i" [(ngModel)]="data.correct" (ngModelChange)="calculateRightMarks(data)" required>
+                    </td>
+                    <td>
+                      <input type="tel" (keypress)="keyPress($event)" [name]="'wrong' + i" [(ngModel)]="data.wrong" (ngModelChange)="calculateWrongMarks(data)" required>
+                    </td>
+                    <!-- <td>{{ data.rightMarks }}</td>
+                    <td>{{ data.wrongMarks }}</td> -->
+                    <td>{{ data.totalMarks }}</td>
+                    <td>{{ data.accuracy }}</td>
+                  </tr>
+                </tbody>
+              </table>                            
+            </div>
+            <div class="modal-footer">
+              <button *ngIf="!updateClicked" type="submit" [disabled]="updateForm.invalid" [ngClass]="updateForm.valid ? 'valid':''">Update</button>
+            </div>
+          </form>          
+      </div>
+    </div>
+  </div>

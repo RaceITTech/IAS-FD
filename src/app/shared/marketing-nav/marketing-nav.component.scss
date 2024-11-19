@@ -1,0 +1,57 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    } @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    } @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    } @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+  
+.container-fluid{
+  background: rgba(0, 49, 119, .7);
+  position: relative;
+  padding: .8em 1em;
+  }
+  .hdr-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand img{
+    width: 90%;
+    @include screen('mobile'){
+           width: 75%;
+    }
+  }
+  .action-flx{
+display: flex;
+gap: 1em;
+@include screen('mobile'){
+  gap: .5em;
+}
+  }
+  .action{
+    display: flex;
+    align-items: center;
+    border: solid 1.5px #fff;
+    border-radius: 10px;
+    padding:5px 10px;
+    img{
+      width: 20px;
+    }
+  }

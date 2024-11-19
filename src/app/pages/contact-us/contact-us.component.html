@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+<section class="contact-us-hd-scn">
+<div class="container">
+    <h1>Contact US</h1>
+    <h3>Your satisfaction is our utmost priority at Veranda IAS. We believe in providing you with an enriching UPSC coaching experience that sets you on the path to success.</h3>
+</div>
+</section>
+<section class="contact-us-form-scn">
+    <div class="container">
+        <div class="row cntct-rw">
+            <div class="col-lg-6 col-md-12 col-sm-12 first-col">
+                <div>
+                    <p>Whether you're looking for offline, online or our exclusive residential UPSC coaching at the serene Brindhavan Campus, we've got you covered at Veranda IAS!</p>
+                    <p>Have a question or a comment? Don't hesitate to reach out! We're here to assist you in every step of your UPSC journey. Your queries matter and we promise to address them swiftly and efficiently.</p>
+                    <p>Your dreams are our mission, and we can't wait to be a part of your triumphs!</p>
+                    <p>Join Veranda IAS today and let's create history together!</p>
+                </div>
+                <div class="contact-dtls-cd">
+                    <div><img src="./assets/contact-us/telephone.png"><a href="tel:+919150288819">+91 91502 88819</a></div>
+                    <div><img src="./assets/contact-us/email.png"><a href="mailto:academics@verandaias.com">academics@verandaias.com</a></div>
+                    <div><img src="./assets/contact-us/location.png">808 GR Complex, Anna Salai, Fanepet, Nandanam, Chennai, Tamil Nadu - 600 035</div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 second-col">
+                <h2>Send Us A Message</h2>
+                <form #contactForm="ngForm">
+                <div class="inpts-gd">
+                    <div>
+                        <input class="form-control" type="text" placeholder="Name" name="studentName" ngModel required>
+                    </div>
+                    <div>
+                        <input class="form-control" type="tel" placeholder="Contact Number" name="phoneNumber" (keypress)="keyPress($event)" maxlength="10" minlength="10" ngModel required>
+                    </div>
+                    <div>
+                        <input class="form-control" type="email" placeholder="E-Mail ID" name="emailID"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required>
+                    </div>
+                    <div>
+                        <select class="form-select" name="state" (ngModelChange)="onStateChange($event)" ngModel required>
+                            <option value="" hidden>-- select state / union Territory --</option>
+                            <option (click)="onStateChange(statename)" *ngFor="let statename of states" [value]="statename">{{ statename }}</option>
+                          </select>
+                    </div>
+                    <div>
+                        <select class="form-select" placeholder="Message" name="district" [(ngModel)]="selectedDistrict" required>
+                            <option value="" hidden>-- select District --</option>
+                                          <option *ngFor="let districtname of districtList" [value]="districtname">{{ districtname }}</option>
+                          </select>
+                    </div>
+                    <div>
+                        <textarea class="form-control" placeholder="Message" name="message" ngModel required></textarea>
+                    </div>
+                </div>
+                <!-- <div class="info-txt"><img src="../../../assets/contact-us/info-icon.png" alt="">By clicking "Submit," I consent to Veranda IAS contacting me using the provided contact details to share more information about their UPSC coaching programmes. I understand that Veranda IAS may use computer-assisted dialing or pre-recorded messages for communication purposes.</div> -->
+                <button *ngIf="!submitClicked" [disabled]="contactForm.invalid"[ngClass]="contactForm.valid ? 'valid' : '' "> SUBMIT </button>
+                    <button *ngIf="submitClicked" class="valid" > Please Wait... </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="map-scn">
+<div class="container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.1379352672507!2d80.22935527377228!3d13.026886913666385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267077f984ca9%3A0xdf0333842c652447!2sGR%20Complex%2C%20808%2C%20Anna%20Salai%20Rd%2C%20Fanepet%2C%20Nandanam%2C%20Chennai%2C%20Tamil%20Nadu%2C%20808%2C%20Anna%20Salai%2C%20CIT%20Nagar%20West%2C%20CIT%20Nagar%2C%20Chennai%2C%20Tamil%20Nadu%20600035!5e0!3m2!1sen!2sin!4v1696656176340!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</section>
+<app-footer></app-footer>

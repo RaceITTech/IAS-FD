@@ -1,0 +1,80 @@
+<app-navbar></app-navbar>
+  <div class="container">
+    <div class="row procuct-rw">
+      <div class="col-lg-5 col-md-12 col-sm-12  stick-col">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./assets/Coursepage/creatives/hand_books.jpg" class="book-img">
+              <!-- <div class="preview">
+                <button  (click)="previewBooks()">Preview Book </button>
+              </div> -->
+            </div>            
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-12 col-sm-12 product-cont-area ">
+        <div class="hdng-area">
+          <h1>14 Mantras to Clear UPSC Exams</h1>
+          <p>Hand Books by Veranda IAS</p>
+        </div>
+  
+        <div class="price-flex-area">
+          <div>
+          <h2> 10,000</h2>
+          <del>12,500</del>
+          <b>(20% OFF)</b>
+          </div>
+          <!-- <span>(inclusive of GST)</span> -->
+        </div>
+        <div class="btns-flx">
+          <a (click)="onBuyClick()">Buy Now</a>
+          <!-- <a href="" download>Download Books List</a> -->
+        </div>
+
+        <div class="specification-area">
+          <p>Exam : <span>UPSC Exams</span></p>
+          <p> Status : <span>Pre-order </span></p>
+          <p> Language : <span>English </span></p>
+          <p> No. Of Books : <span> 12 Books </span></p>
+        </div>
+  
+        <div class="pro-dtls-area">
+          <h3>Product Description</h3>
+  <ul>
+    <li>The books available for the following subjects:</li>
+    <li style="list-style: none;">World History, Indian Polity, Modern Indian History, International Relations, Internal Security, Governance, Geography Ethics, Environment, Art & Culture, Ancient & Medieval Indian History, Indian Economy, Science and technology </li>
+    <li>Focus area for every topic based on past 10 years UPSC trend</li>
+    <li>Solved UPSC PYQs with explanations from 2015 to 2022</li>
+    <li>Collection of trivia from NCERT and other sources</li>
+    <li>Mind Maps for better understanding of topics</li>
+    <li>Practice Questions for both Prelims and Mains</li>
+    <li>Mnemonics for easy remembrance</li>
+    <li>Get an idea on when to look out for the chapter in the news</li>
+  </ul>
+        </div>
+  
+        <div class="faq-area">
+          <h3>Frequently Asked Questions</h3>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item" *ngFor="let faq of faqs; let i = index">
+              <div class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                  [attr.data-bs-target]="'#collapse' + i" 
+                  [attr.aria-controls]="'collapse' + i" 
+                  aria-expanded="false">
+                  <h5>{{ faq.question }}</h5>
+                </button>
+              </div>
+              <div [id]="'collapse' + i" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  {{ faq.answer }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+  <app-footer></app-footer>
+  

@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<section class="resources-scn">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+<h1>Download Free PDF Materials for your UPSC Preparation from Veranda IAS</h1>
+<div class="btns-gd">
+    <a *ngFor="let link of links" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="openForm(link.value)">
+      {{ link.label }}
+    </a>
+  </div>
+            </div>
+            <div class="col-lg-6 img-col">
+                <img src="./assets/Marketing/free-download/fr-mn-img.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Fill the form</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #cbForm="ngForm">
+                <div class="mb-3">
+                  <label class="form-label">Full Name <span>*</span></label>
+                  <input type="text" class="form-control" placeholder="Enter your full name" name="student_Name" ngModel required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label"> Mobile Number <span>*</span></label>
+                  <input type="tel" class="form-control" placeholder="Enter your mobile number" name="phone_Number" maxlength="10" minlength="10" (keypress)="keyPress($event)" ngModel required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Email ID <span>*</span></label>
+                  <input type="tel" class="form-control" placeholder="Enter your E-mail" name="email_ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button *ngIf="!submitClicked" [disabled]="cbForm.invalid" [ngClass]="cbForm.valid ? 'valid':''" (click)="onSubmit(cbForm)">SUBMIT</button>
+            <button *ngIf="submitClicked" class="valid">Please Wait...</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-marketing-footer></app-marketing-footer>

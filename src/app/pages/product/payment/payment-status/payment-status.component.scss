@@ -1,0 +1,98 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    }
+    @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    }
+    @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    }
+    @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+.payment-success-scn{
+    padding: 3em 0;
+    @include screen('tablet'){
+        padding: 2em 0;
+    }
+    @include screen('mobile'){
+        padding: 1.5em 0;
+    }
+    .payment-success-cd{
+        box-shadow: #CFD9E8 0px 7px 29px 0px;
+        background: #fff;
+        border-radius: 20px;
+        width: 50%;
+        margin: auto;
+        padding: 2em;
+        @include screen('tablet'){
+            width: 75%;
+        }
+        @include screen('mobile'){
+            width: 100%;
+        }
+        .status-icon{
+            margin:auto auto 1em auto;
+            display: block;
+            width: 75px;
+        }
+        h4{
+            text-align: center;
+            color: #474747;
+            margin-bottom: 1em;
+        }
+        ul{
+            padding: 0;
+            margin:1.5em 0;
+            display: grid;
+            gap: 1em;
+            li{
+                list-style-type: none;
+                display: flex;
+                justify-content: space-between;
+                color: #121212;
+                font-size: 18px;
+                font-weight: 600;
+                span{
+                    color: #707070; 
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+        }
+        p{
+          max-width: 80%;
+          margin:1.5em auto;
+          text-align: center;
+          color: #121212;
+          font-size: 18px;
+          font-weight: 500;
+          @include screen('mobile'){
+            max-width: 100%;
+          }
+        }
+        a{
+          background: #003177;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 5px;
+          width: max-content;
+          display: block;
+          margin:2em auto auto auto;
+          padding: 8px 40px;
+        }
+    }
+}

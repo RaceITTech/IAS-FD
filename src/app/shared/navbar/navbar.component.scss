@@ -1,0 +1,142 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    }
+    @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    }
+    @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    }
+    @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+.container-fluid{
+  padding: .8em 1.5em;
+  @include screen('mobile'){
+    padding: .8em 1em;
+  }
+}
+.nav-head {
+  padding: 0;
+    button.navbar-toggler {
+        border: #fff solid ;
+        font-size: 12px;
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+      }
+    }
+    button.navbar-toggler:focus {
+        box-shadow: none;
+    }
+    .navbar-brand {
+      padding: 0;
+      img{
+        width: 90%;
+        @include screen('mobile'){
+               width: 75%;
+        }
+      }
+    }
+    .nav-list-btns {
+      display: flex;
+      gap: 1.5em;
+      @include screen('tablet') {
+        padding: 1.5em 0 1em 0;
+      }
+      @include screen('mobile') {
+        gap: 1em;
+        margin-top: 1em;
+      }
+  
+      div#navbarCollapse {
+        @include screen('mobile') {
+          position: relative;
+        }
+      }
+      .navbar-expand-lg .navbar-nav .dropdown-menu {
+        position: absolute;
+      }
+      .dropdown-menu[data-bs-popper] {
+        top: 30px;
+        left: -104px;
+        margin-top: var(--bs-dropdown-spacer);
+  
+        @include screen('mobile') {
+          left: 0px;
+  
+        }
+      }
+      ul.dropdown-menu.show {
+        padding: 8px 14px;
+        @include screen('mobile') {
+          position: absolute;
+        }
+      }
+      a.dropdown-item {
+        margin-bottom: 13px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      a.dropdown-item:nth-child(5) {
+        margin-bottom: 0px;
+      }
+      a {
+        color: #fff;
+        font-weight: 500;
+        padding: 0;
+        border-bottom: solid 2px transparent;
+        transition: .8s;
+        width: max-content;
+      }  
+    //   a:hover {
+    //     color: #e5214e;
+    //     border-bottom: solid 2px #e5214e;
+    //     width: max-content;
+    //   }
+  
+    //   .active_tab {
+    //     color: #e5214e;
+    //     border-bottom: solid 2px #e5214e;
+    //     width: max-content;
+    //   }
+    }
+  
+    .nav-btns-flx {
+      display: flex;
+      gap: 1em;
+  
+      @include screen('tablet') {
+        flex-direction: row;
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+  
+      @include screen('mobile') {
+        flex-direction: row;
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+  
+      a {
+        width: max-content;
+        text-decoration: none;
+        color: #fff;
+        border: solid 1px #fff;
+        border-radius: 5px;
+        padding: 3px 15px;
+      }
+    }
+  }

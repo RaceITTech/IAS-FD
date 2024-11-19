@@ -1,0 +1,47 @@
+  <section class="login-scn">
+    <div class="container">
+      <div class="login-cd">
+        <div class="row cd-rw">
+          <div class="col-6 img-clmn">
+<img class="left-img" src="../../../../assets/Dashboard/Student/student-illustration.svg" alt="">
+          </div>
+          <div class="col-6 form-clmn">
+            <div>
+              <img class="right-img" src="../../../../assets/Homepage/ias-blue-logo.svg" alt="">
+              <!-- <h1>Login</h1> -->
+            <form #courseForm="ngForm">
+              <div class="inpts-gd">
+                <div>
+                  <div class="input-group">
+                    <select class="form-select" name="studentName" [(ngModel)]="selectedStudent" (ngModelChange)="onStudentChange($event)" required #studentName="ngModel">
+                      <option value="" hidden selected>-- select your name --</option>
+                <option *ngFor="let data of studentsData" [value]=data.name>{{data.name}}</option>
+                    </select>
+                    <div class="input-group-append" *ngIf="otpStatus!='Verified'">
+                        <button class="form-control" [disabled]="!studentName.valid" [ngClass]="studentName.valid ? 'valid':''"  (click)="getOtp()">Get OTP</button>
+                    </div>
+                </div>
+                <div class="response-area" *ngIf="otpStatus">
+                  <div *ngIf="otpStatus=='inValid'" style="color: red;">Invalid OTP</div>
+                  <div *ngIf="otpStatus=='Verified'" style="color: #003177;">OTP Verified Successfully</div>
+                  <div *ngIf="otpStatus=='Sent'" style="color: #003177;">OTP Sent Successfully</div>
+                  <div *ngIf="otpStatus=='reSent'" style="color: #003177;">OTP Resent Successfully</div>
+              </div>
+                <div class="otp-inpt-area" *ngIf="otpStatus!='Verified' && otpStatus!=''">
+                  <ng-otp-input inputmode="numeric" (onInputChange)="onInputChange($event)" [config]="{length:4,allowNumbersOnly:true}"></ng-otp-input>
+                  <div class="otp-action-flex">
+                    <button [disabled]="!otpResend" [ngClass]="otpResend ? 'otp-action-valid':'resend-btn-invalid'" class="" (click)="resendOtp()">Resend OTP</button><br>
+                    <button class="otp-action-valid" (click)="verifyOtp()"> Verify</button>
+                  </div>
+              </div>
+                </div>
+              </div>
+              <button *ngIf="!submitClicked" [disabled]="!(courseForm.valid && otpStatus=='Verified')" [ngClass]="courseForm.valid && otpStatus=='Verified' ? 'valid':''" (click)="onSubmit(courseForm)">Continue</button>
+              <button *ngIf="submitClicked" class="valid">Please Wait...</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

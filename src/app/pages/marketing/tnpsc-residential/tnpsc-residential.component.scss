@@ -1,0 +1,419 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    }
+    @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    }
+    @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    }
+    @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+  h2{
+    color:#003177;
+    font-size: 32px;
+    font-weight: 700;
+    @include screen('tablet'){
+        font-size: 30px;
+    }
+    @include screen('mobile'){
+        font-size: 26px;
+    }
+  }
+  h3{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 34px;
+    @include screen('tablet'){
+        font-size: 22px;
+        line-height: 30px;
+    }
+    @include screen('mobile'){
+        font-size: 20px;
+        line-height: 28px;
+    }
+  }
+  h4{
+    font-size: 20px;
+    @include screen('tablet'){
+        font-size: 18px;
+    }
+    @include screen('mobile'){
+        font-size: 18px;
+    }
+  }
+  h5{
+    color: #000000;
+    font-size: 18px;
+    line-height: 26px; 
+    font-weight: 400;
+}
+h6{
+    font-size: 16px; 
+}
+  p{
+    font-size: 16px;
+  }
+
+  .bnr-scn{
+    padding: 2em 0 0 0;
+    background-image:url(../../../../assets/Marketing/tnpsc-residential/banner-scn-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    @include screen('mobile'){
+        padding: 1.5em 0 0 0;
+    }
+    .bnr-hdngs{
+        width: max-content;
+        @include screen('mobile'){
+            margin: auto;
+            display: block;
+        }
+        h2{
+            color: #fff;
+            font-size: 75px;
+            font-weight: 600;
+            line-height: 80px;
+            margin-bottom: 0;
+            @include screen('mobile'){
+            font-size: 40px;
+            }
+        }
+        h1{
+            color: #003A86;
+            background: #BCDFF5;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 500;
+            margin-bottom: 0;
+            @include screen('mobile'){
+            font-size: 30px;
+            }
+        }
+    }
+    p{
+        color: #fff;
+        width: 75%;
+        font-size: 18px;
+        line-height: 28px;
+        margin: 2em 0 0 0;
+        @include screen('mobile'){
+            text-align: center;
+            width: 100%;
+            margin: 1em 0 0 0;
+        }
+    }
+    img{
+        width: 80%;
+        margin: auto;
+        display: block;
+        @include screen('mobile'){
+            width: 50%;
+            margin-top: 2em;
+                }
+    }
+    h4{
+        color: #fff;
+        background: #003A86;
+        text-align: center;
+        border-radius: 10px 10px 0 0;
+        padding: .5em;
+        margin-bottom: 0;
+    }
+}
+
+  .form-scn{
+    padding: 2em 0;
+    @include screen('mobile'){
+     padding: 1.5em 0;   
+    }
+    h3{
+text-align: center;
+margin-bottom: .8em;
+    }
+    .inpts-flx{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 1.5em;
+        margin-bottom: 2em;
+        @include screen('mobile'){
+            grid-template-columns: repeat(1,1fr);
+            gap: 1em;
+            margin-bottom: 1em;
+        }
+        label{
+            color: #000;
+            font-weight: 500;
+            margin-bottom: .3em;
+        }
+        input{
+            border: solid 2px #ccc;
+        }
+        input:focus{
+            box-shadow: none;
+        }
+    }
+    .btns-area{
+        .privacy-terms{
+            color:#8F9BA1;
+            font-size: 16px;
+            text-align: center;
+            a{
+                text-decoration: none;
+                color: #003177;
+            }
+          }
+          button{
+            width: 100%;
+            background: #e1e0e0;
+            color: #FFF;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 5px;
+            border: none;
+            padding: 8px;
+            @include screen('mobile'){
+            margin-top: 1em;
+            }
+          }
+          .valid{
+            background: #E95A83;
+          }
+    }
+}
+
+  .achieve-scn{
+    background: #1867CC;
+    padding: 2em 0;
+    @include screen('mobile'){
+     padding: 1.5em 0;   
+    }
+    h2{
+        color: #FFF;
+        margin-bottom: .8em;
+        em{
+            font-style: normal;
+            color: #F7DC7C;
+        }
+        @include screen('mobile'){
+            text-align: center;
+            font-size: 24px;
+        }
+    }
+    h5{
+        color: #fff;
+        line-height: 35px;
+        @include screen('mobile'){
+            line-height: 30px;
+        }
+    }
+    .dvbls-gd{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 1em;
+        @include screen('mobile'){
+            grid-template-columns: repeat(1,1fr);
+        }
+        .dvbls-cd{
+            background: #fff;
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            padding: .5em;
+            @include screen('mobile'){
+            border-radius: 5px !important;
+            padding: .8em;
+            }
+            img{
+                width: 60px;
+            }
+            div{
+                h3{
+                    font-weight: 700;
+                }
+                p{
+                    color: #415674;
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .dvbls-cd:nth-child(1){
+            border-radius: 10px 0 0 0;
+        }
+        .dvbls-cd:nth-child(2){
+            border-radius: 0 10px 0 0;
+        }
+        .dvbls-cd:nth-child(3){
+            border-radius: 0 0 0 10px;
+        }
+        .dvbls-cd:nth-child(4){
+            border-radius: 0 0 10px 0 ;
+        }
+    }
+}
+
+  .key-scn{
+        padding: 2em 0;
+    @include screen('mobile'){
+     padding: 1.5em 0;   
+    }
+    h2{
+        text-align: center;
+    }
+    .key-gd{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+gap: 2em;
+margin-top: 2em;
+@include screen('mobile'){
+        grid-template-columns: repeat(1,1fr);
+        gap: 1em;
+        margin-top: 1.5em;    
+}
+    }
+    .key-cd{
+        background-image: linear-gradient(to right bottom, #b8f4d3, #bdf3cc, #c2f3c4, #c9f1bc, #d0f0b5, #d2f0b3, #d3efb2, #d5efb0, #d1f1b3, #cdf2b7, #c9f4ba, #c5f5be);
+        border-radius: 10px;
+        padding: 1.5em;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        img{
+            @include screen('mobile'){
+            display: none;
+            }
+        }
+    }
+}
+
+.unique-scn{
+    padding: 2em 0;
+    @include screen('mobile'){
+     padding: 1.5em 0;   
+    }
+    h2{
+        text-align: center;
+    }
+    .unique-cd{
+        background: #B6E0FB;
+        border-radius: 10px;
+        padding: 2em 4em;
+        margin-top: 2em;
+        display: grid;
+        gap: 1em;
+        @include screen('mobile'){
+            padding: 2em;
+        }
+        div{
+            display: flex;
+            align-items: center;
+            gap: 2em;
+            @include screen('mobile'){
+                align-items: start;
+            gap: 1em;
+            }
+            img{
+width: 30px;
+            }
+            h3{
+margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.crash-course-scn{
+    padding: 2em 0;
+    @include screen('mobile'){
+     padding: 1.5em 0;   
+    }
+    h2{
+        text-align: center;
+    }  
+    .crash-dtls-flx{
+        display: flex;
+        margin-top: 3em;
+        @include screen('mobile'){
+            display: grid;
+        }
+    }
+.crash-cd{
+    background: #1867CC;
+    color: #fff;
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    text-align: center;
+    padding: 5em 0;
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 15% 50%, 0% 0%);
+    @include screen('mobile'){
+        clip-path: polygon(51% 25%, 100% 0, 100% 43%, 100% 75%, 51% 100%, 0 75%, 0% 43%, 0 0);
+        padding: 6em 0;
+    }
+    img{
+        width: 50px;
+        margin-bottom: .5em;
+    }
+    h4{
+        margin-bottom: .3em;
+    }
+    h6{
+        margin-bottom: 0;
+    }
+  }
+}
+
+.cloud-scn{
+    background-image:url(../../../../assets/Marketing/tnpsc-residential/cloud-bg.png);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding:3em 0;
+    h2{
+        color:#fff;
+        max-width: 80%;
+        margin: auto;
+        text-align: center;
+        font-size: 32px;
+        line-height: 45px;
+        @include screen('tablet'){
+            max-width: 90%;
+            font-size: 24px;
+            line-height: 35px;
+        }
+        @include screen('mobile'){
+            max-width: 100%;
+            font-size: 20px;
+            line-height: 30px;
+        }
+    }
+    button{
+        background: #fff;
+        color: #E95A83;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 40px;
+        margin:2em auto 20em auto;
+        display: block;
+        @include screen('mobile'){
+            margin: 2em auto 15em auto;
+        }
+    }
+}

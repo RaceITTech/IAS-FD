@@ -1,0 +1,146 @@
+<app-marketing-nav></app-marketing-nav>
+<section class="bnr-scn">
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-8 col-sm-12">
+<div class="bnr-hdngs">
+<h2>TNPSC GROUP I</h2>
+<h1>90-DAY RESIDENTIAL</h1>
+<h2>CRASH COURSE</h2>
+</div>
+<p>Unlock your dream government Group I job in the Tamil Nadu Government! Join our dedicated 90-day crash course that sets your path to success based on the <b>IAS-model Group I preparation!</b></p>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12">
+<img src="../../../../assets/Marketing/tnpsc-residential/race-model.png">
+<h4>IAS-MODEL GROUP I PREPARATION</h4>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="form-scn">
+  <div class="container">
+            <h3>Fill in the form to know more about TNPSC Group I Residential Crash Course! </h3>
+            <form #courseForm="ngForm">
+        <div class="inpts-flx">         
+                  <div> 
+                    <label>Full name</label>
+                    <input class="form-control" type="text" placeholder="Enter Your Full Name" name="studentName" ngModel required>
+                  </div>
+                  <div>
+                    <label>Email ID</label>
+                    <input class="form-control" type="email" placeholder="Enter Your Email ID" name="emailId" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required>
+                  </div>
+                  <div>
+                    <label>Mobile Number</label>
+                    <input class="form-control" type="tel" placeholder="Enter your mobile number" name="phonenumber" maxlength="10" minlength="10" (keypress)="keyPress($event)" ngModel required>
+                  </div>
+        </div>
+        <div class="row btns-area">
+          <div class="col-lg-8 col-12">
+              <div class="privacy-terms">By continuing, you agree to <span style="color: #2DA77D;font-weight: 600;">Veranda IAS</span><a href="/termsofservice"> terms and conditions</a> & <a href="/privacy-policy">privacy policy</a></div>
+          </div>
+          <div class="col-lg-4 col-12 cta-btn">
+            <button *ngIf="!submitClicked" [disabled]="!courseForm.valid" [ngClass]="courseForm.valid ? 'valid':''" (click)="onSubmit(courseForm)">Talk to our Counsellors</button>
+            <button *ngIf="submitClicked" class="valid">Please Wait</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+<section class="achieve-scn">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+             <h2>உங்கள் <em>TNPSC Group I</em> கனவு நனவாக கைகொடுக்கிறது<em> Veranda IAS</em></h2>
+             <h5>2010-ஆம் ஆண்டு முதல், எங்கள் ஆசிரியர்கள் 45,000+ மாணவர்களின் வங்கி, காப்பீடு, மத்திய மற்றும் மாநில அரசு பணிகளில் வேலை பெற உதவியுள்ளனர்.</h5>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 dvbls-gd">
+               <div class="dvbls-cd">
+                <img src="assets/Marketing/tnpsc-residential/icon-1.png">
+                <div>
+                    <h3>10+</h3>
+                    <p>TNPSC புத்தகங்கள் </p>
+                </div>
+               </div>
+               <div class="dvbls-cd">
+                <img src="assets/Marketing/tnpsc-residential/icon-2.png">
+                <div>
+                    <h3>100+</h3>
+                    <p>TNPSC பாடக்குறிப்புகள்</p>
+                </div>
+               </div>
+               <div class="dvbls-cd">
+                <img src="assets/Marketing/tnpsc-residential/icon-3.png">
+                <div>
+                    <h3>20+</h3>
+                    <p>முழு மாதிரி தேர்வுகள் </p>
+                </div>
+               </div>
+               <div class="dvbls-cd">
+                <img src="assets/Marketing/tnpsc-residential/icon-4.png" >
+                <div>
+                    <h3>24x7</h3>
+                    <p>ஆசிரியர் வழிகாட்டுதல் </p>
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="key-scn">
+    <div class="container">
+      <h2>Our Key Differentiators</h2>
+      <div class="key-gd">
+        <div class="key-cd" *ngFor="let differentiator of keyDifferentiators">
+          <div class="key-dtls">
+            <h3 [innerHTML]="differentiator.title"></h3>
+            <p>{{ differentiator.description }}</p>
+          </div>
+          <img [src]="differentiator.imgSrc" alt="{{ differentiator.title }}">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="unique-scn">
+    <div class="container">
+      <h2>Our Unique Features</h2>
+      <div class="unique-cd">
+        <div *ngFor="let feature of uniqueFeatures">
+          <img [src]="feature.imgSrc" alt="Tick Mark Icon">
+          <h3>{{ feature.description }}</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="crash-course-scn">
+    <div class="container">
+    <h2>Our Crash Course Details</h2>
+    <div class="crash-dtls-flx">
+    <div class="crash-cd">
+        <img src="assets/Marketing/tnpsc-residential/calendar-in.png" alt="Validity-image">
+          <h4>Course Validity</h4>
+          <h6>6 Months</h6>
+      </div>
+      <div class="crash-cd">
+        <img src="assets/Marketing/tnpsc-residential/duration-in.png" alt="Validity-image">
+          <h4>Course Duration</h4>
+          <h6>90 Days</h6>
+      </div>
+      <div class="crash-cd">
+        <img src="assets/Marketing/tnpsc-residential/mode-in.png" alt="Validity-image">
+          <h4>Course Mode</h4>
+          <h6>Residential</h6>
+      </div>
+    </div>
+    </div>
+</section>
+<app-testimonial-carousel></app-testimonial-carousel>
+<section class="cloud-scn">
+  <h2>டி.என்.பி.எஸ்.சி குரூப் 1 குறுகிய கால உறைவிட தேர்வு பயிற்சி பற்றி மேலும் அறிய விரும்புகிறேன்</h2>
+      <button>இப்போதே விசாரிக்கவும்</button>
+  </section>
+  <app-marketing-footer></app-marketing-footer>

@@ -1,0 +1,55 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    } @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    } @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    } @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+  .input-field{
+    width: 100%;
+    height: 48px;
+    border: none;
+    padding: 10px;
+    background-color: #eeeeee;
+    color: gray;
+    outline: none;
+    font-size: 14px;
+    margin-top: 5px;
+    transition: .5s;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    @include screen('mobile'){
+      width: 100%;
+    }
+   }
+   .linkForm{
+    width: 50%;
+    margin: auto;
+    padding: 80px;
+  
+    .link-data{
+      padding: 40px;
+      background: #f7f7f7;
+      border-radius: 20px;
+    }
+  }
+  .btn{
+    display: flex;
+    margin: auto;
+  }
+  

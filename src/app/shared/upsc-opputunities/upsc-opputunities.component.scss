@@ -1,0 +1,111 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    } @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    } @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    } @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  } 
+  
+  h2{
+    color: #000;
+    font-size: 32px;
+    font-weight: 600;
+    @include screen('tablet'){
+        font-size: 30px;
+    }
+    @include screen('mobile'){
+        font-size: 26px;
+    }
+  }
+  h3{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 34px;
+    @include screen('tablet'){
+        font-size: 22px;
+        line-height: 30px;
+    }
+    @include screen('mobile'){
+        font-size: 20px;
+        line-height: 28px;
+    }
+  }
+  h4{
+    font-size: 20px;
+    @include screen('tablet'){
+        font-size: 18px;
+    }
+    @include screen('mobile'){
+        font-size: 18px;
+    }
+  }
+  h5{
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px; 
+    
+}
+h6{
+    font-size: 16px; 
+    font-weight: 400;
+}
+  p{
+    font-size: 16px;
+  }
+.srvcs-scn{
+    padding: 3em 0;
+    @include screen('tablet'){
+        padding: 2em 0;
+}
+@include screen('mobile'){
+    padding: 1.5em 0;
+}
+    h2{
+        text-align: center;
+        margin-bottom: 0;
+    }
+    .srvcs-gd{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1.5em;
+        margin-top: 3em;
+        @include screen('tablet'){
+            grid-template-columns: repeat(3,1fr);
+            margin-top: 2em;
+    }
+    @include screen('mobile'){
+        gap: 1em;
+        grid-template-columns: repeat(1,1fr);
+        margin-top: 1.5em;
+}
+        .srvcs{
+            display: table;
+            box-shadow: #00000026 2px 2px 2.5px;
+            border-left: solid 5px #003177;
+            padding: .5em;
+    div{
+        color: #000;
+        font-weight: 500;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+        }
+    }
+  }

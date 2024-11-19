@@ -1,0 +1,136 @@
+<app-navbar></app-navbar>
+<section class="hero-scn">
+    <div class="container">
+        <!-- <div class="breadcrumbs"><a routerLink="/">Home</a> > <a routerLink="/courses">Courses</a> > UPSC CSE 2025 - Live Online Classes</div> -->
+        <div class="row">
+            <div class="col-lg-7 col-md-12 col-sm-12">
+                <h1>TNPSC Group I Online Programme<br>
+                    <em>Bilingual (Tamil & English)</em></h1>
+                <h4>NOW GET TNPSC GROUP I COACHING ANYWHERE, ANYTIME, AND MAKE YOUR BUREAUCRAT DREAM A REALITY.</h4>
+                    <p>Join our dedicated TNPSC Group 1  online coaching programme designed to set you on the path to success with <b>IAS-model TNPSC Group I preparation</b>. You get classes in both Tamil and English Medium with the help of</p>
+                    <ul>
+                        <li>Learnings from the Expert and Star faculties</li>
+                        <li>Mentorship Support</li>
+                        <li>Comprehensive Coverage of UPSC Syllabus Prelims-cum-Mains</li>
+                        <li>Regular Prelims & Mains Test series</li>
+                    </ul>
+                    <p>Learn from the best TNPSC exam experts and embark on a successful journey, with Veranda IAS TNPSC Online Coaching Programme.</p>
+                    <div class="btns-flx">
+                        <a class="btn" (click)="scroll(target)">Apply Now</a>
+                        <a href="../../../../assets/Coursepage/documents/TNPSC Group 1 syllabus.pdf" class="btn" download>Download Syllabus</a>
+                        </div>
+            </div>
+            <div class="col-lg-5 col-md-12 col-sm-12 vdo-clmn">
+                <img src="../../../../assets/Coursepage/hro-rc-img.png" alt="">
+                <!-- <iframe src="https://www.youtube.com/embed/mWefCEPSq14?si=092piFvbEmmO8wGV" frameborder="0" allowfullscreen></iframe> -->
+            </div>
+        </div>
+    </div>
+    </section>
+<section class="batch-cd-scn">
+    <div class="container">
+        <div class="btch-cd">
+            <div>
+                <span>Next Batch Starts </span>
+                11 Nov 2024
+            </div>
+            <div>
+                <span>Course Validity </span>
+                2 Years
+            </div>
+            <div>
+                <span>Mode of Learning </span>
+                Online
+
+            </div>            
+        </div>
+    </div>
+</section>
+<section class="key-ftrs-scn">
+    <div class="container">
+        <h2>Key Features</h2>
+        <div class="key-ftrs-gd">
+            <div *ngFor="let data of keyFeatures"><img src="./assets/Coursepage/check-icon.png" alt="">{{data}}</div>
+        </div>
+    </div>
+</section>
+<section class="form-scn">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <h4>About Veranda IAS</h4>
+        <h2>Crafting India's future leaders!</h2>
+        <p>Veranda IAS provides a dedicated TNPSC Group 1 Online Coaching programme designed to set you on the path to success with <b>IAS-model TNPSC Group I preparation</b>. Our expertise in making successful candidates for the past 10+ years in various government exams strives us to move forward to create a potential curriculum for both online & offline students to excel in dream government jobs especially to the top bureaucratic positions in Tamil Nadu Public Service Commission Exams.</p>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12" #target>
+        <form #courseForm="ngForm">
+        <div class="form-cd">
+          <h3>Register to get Course details</h3>
+            <div class="inpts-gd">
+              <div>
+                <label class="form-label">Full Name </label>
+                <input type="text" class="form-control" placeholder="Enter your full name" name="student_Name" ngModel required>
+              </div>
+              <div>
+                <label class="form-label"> Mobile Number </label>
+                <input type="tel" class="form-control" placeholder="Enter your mobile number" name="phone_Number" maxlength="10" minlength="10" (keypress)="keyPress($event)" ngModel required>
+              </div>
+              <div>
+                <label class="form-label">Email ID </label>
+                <input type="tel" class="form-control" placeholder="Enter your E-mail" name="email_ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required>
+              </div>
+              <div>
+                <label class="form-label">State <span>*</span></label>
+                <select class="form-select" (ngModelChange)="onStateChange($event)" name="state" ngModel required>
+                    <option value="" hidden>-- select state / union Territory --</option>
+                    <option (click)="onStateChange(statename)" *ngFor="let statename of states" [value]="statename">{{ statename }}</option>
+                </select>
+            </div>
+            <div>
+              <label class="form-label">District <span>*</span></label>
+                <select class="form-select" name="district" ngModel required>
+                    <option value="" hidden>-- select District --</option>
+                    <option *ngFor="let districtname of districtList" [value]="districtname">{{ districtname }}</option>
+                   </select>
+            </div>
+            </div>
+            <button *ngIf="!submitClicked" [disabled]="courseForm.invalid" [ngClass]="courseForm.valid ? 'valid':''" (click)="onSubmit(courseForm)">Register Now</button>
+              <button *ngIf="submitClicked" class="valid">Please Wait</button>
+              <div class="terms-cons">By continuing & signing in, you agree to Veranda's <a routerLink="/termsofservice">Terms & Conditions</a> and <a routerLink="/privacy-policy">Privacy Policy</a></div>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</section>
+  <section class="srvcs-scn">
+    <div class="container">
+        <h2>TNPSC Group 1 Services</h2>
+        <div class="srvcs-gd">
+            <div class="srvcs" *ngFor="let service of services">
+                <div>{{ service }}</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="faq-scn">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item" *ngFor="let faq of faqs; let i = index">
+    <div class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" [attr.aria-controls]="'collapse' + i" [attr.aria-expanded]="i === 0">
+        <h4>{{ faq.question }}</h4>
+      </button>
+    </div>
+    <div [id]="'collapse' + i" class="accordion-collapse collapse" [ngClass]="{ 'show': i === 0 }" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <!-- <img [src]="faq.imageUrl" alt=""> -->
+        {{ faq.answer }}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+</section>
+<app-footer></app-footer>

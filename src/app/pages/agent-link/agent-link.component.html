@@ -1,0 +1,25 @@
+                                        <!-- generate link payment -->
+                                        <div class="linkForm">
+                                            <div class="link-data">
+                                              <form #linkData="ngForm">
+                                                <label for="">Name</label>
+                                                <input type="text" class="input-field" name="name" ngModel required>
+                                          
+                                                <label for="">Agent</label>
+                                                <input type="text" class="input-field" name="agent" ngModel required>
+                                          
+                                                <label for="">Email</label>
+                                                <input type="text" class="input-field" name="email" ngModel required>
+                                          
+                                                <label for="">Phonenumber</label>
+                                                <input type="text" class="input-field" name="phonenumber" ngModel required>
+                                          
+                                                <label for="">Amount</label>
+                                                <input type="text" class="input-field" name="amount" ngModel required>
+                                          
+                                                <label for="">ExpireDate</label>
+                                                <input type="date" class="input-field" name="expireDate" ngModel required>
+                                                <button class="btn btn-success" (click)="linkForm(linkData)" [disabled]="linkData.invalid">Submit</button>
+                                              </form>
+                                            </div>
+                                          </div>

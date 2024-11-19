@@ -1,0 +1,38 @@
+<section class="form-scn">
+      <h2>Available Tests</h2>
+      <div class="frm-flds-area">
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Test Name</th>
+                <th>Subject Name</th>
+                <th>Test Date</th>
+                <th>Attended Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of tests; let i = index">
+                <td>
+                  <b>{{ i + 1 }}</b>
+                </td>
+                <td>
+                    <span>{{ data.test }}</span>
+                  </td>
+                  <td>
+                    <span>{{ data.subject }}</span>
+                  </td>
+                  <td>
+                    <span>{{ data.date }}</span>
+                  </td>
+                  <td>
+                    <span>{{ data.Attemptedtestcount }}</span>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </section>
+  

@@ -1,0 +1,104 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} { @content; }
+    } @else if $size == tablet {
+      @media only screen and #{$tablet} { @content; }
+    } @else if $size == mobile {
+      @media only screen and #{$mobile} { @content; }
+    } @else {
+      @media only screen and #{$size} { @content; }
+    }
+  }
+
+  h2{
+    text-align: center;
+    color:#003177;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 1.5em;
+    @include screen('tablet'){
+        font-size: 30px;
+    }
+    @include screen('mobile'){
+        font-size: 26px;
+        margin-bottom: 1em;
+    }
+  }  
+  .carousel-scn {
+    padding: 2em 0;
+    @include screen('mobile'){
+     padding: 1.5em 0;   
+    }
+   }
+  .testimonial-image { border-radius: 15px; }
+  
+  ::ng-deep .owl-carousel .owl-item {
+    transition: 0.3s;
+    transform: scale(0.80);
+  }
+  ::ng-deep .owl-carousel .owl-item.center {
+    z-index: 1000;
+    transform: scale(1);
+  }
+  
+  .testimonial-card {
+    width: 500px;
+    border: solid 1.5px #DD2954;
+    border-radius: 15px;
+    @include screen('mobile') { width: 100%; }
+  }
+  
+  .video_play_icon {
+    width: 50px !important;
+    position: absolute;
+    bottom: 6rem;
+    left: 2rem;
+    cursor: pointer;
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transition: 0.3s ease;
+  }
+  .container-image:hover .overlay {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .text {
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .mat-icon {
+    height: 48px !important;
+    width: 48px !important;
+    font-size: 48px !important;
+  }
+  
+  .close_btn {
+    position: absolute;
+    right: 7px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    font-size: xx-large;
+    color: #fff;
+  }
+  

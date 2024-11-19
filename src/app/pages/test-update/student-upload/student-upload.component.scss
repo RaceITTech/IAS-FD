@@ -1,0 +1,252 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    } @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    } @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    } @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  } 
+.hdr-scn{
+    background: #dccdcd;
+    padding: .8em 0;
+    @include screen('mobile'){
+    padding: .5em 0;
+    }
+    img{
+        width: 200px;
+        @include screen('mobile'){
+            width: 150px;
+        }
+    }
+}
+// .form-scn{
+//     padding: 2em 0;
+//     @include screen('mobile'){
+//         padding: 1em 0;
+//         }
+//     input{
+//         padding: 5px;
+//         border: solid 1.5px #000000;
+//     }
+//     select{
+//         padding: 5px;
+//         border: solid 1.5px #000000;
+//     }
+//     input::placeholder{
+//         color: gray;
+//     }
+//     h2{
+//         font-size: 20px;
+//         font-weight: 600;
+//         border-bottom: solid 1.5px #000000;
+//         padding-bottom: 1em;
+//         margin-bottom: 0;
+//         @include screen('mobile'){
+//             padding-bottom: .5em;
+//                 }
+//     }
+//     .frm-flds-area{
+//         width: 50%;
+//         margin: auto;
+//         @include screen('mobile'){
+//             width: 100%;
+//         }
+//         .frm-flds{
+//             display: grid;
+//             gap: 2em 3em;
+//             margin: 2em 0;
+//             @include screen('mobile'){
+//                 grid-template-columns: repeat(1,1fr);
+//                 gap: 1.5em;
+//     margin: 1em 0;
+//             }
+//             .lbl-fld-flx{
+//                 display: flex;
+//                 align-items: center;
+//                 label{
+//                     width: 30%;
+//                     font-weight: 500;
+//                 }
+//                 input,select{
+//                     width: 70%;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+// .Submit-btn{
+//     display: flex;
+//     justify-content: center;
+//     padding: 1em 0 0 0;
+// button{
+//     background: #526073;
+//     color: #fff;
+//     font-weight: 500;
+//     border: none;
+//     border-radius: 10px;
+//     padding: 8px 40px;
+// }
+// .valid{
+//     background: #003177;
+// }
+// }
+
+// .error{
+//     color:red;
+// }
+
+.form-scn{
+    padding: 3em 0;
+    @include screen('mobile'){
+        padding: 1.5em 0;
+    }
+    .form-card{
+        width: 40%;
+        margin: auto;
+        background: #fff;
+        padding: 2em;
+        box-shadow: 0 4px 30px #0000001a;
+        // backdrop-filter: blur(20px);
+        border-radius: 25px;
+        @include screen('tablet'){
+            width: 75%;
+        }
+        @include screen('mobile'){
+            width: 90%;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        h2{
+            color:#003177;
+            font-size: 22px;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 1em;
+            @include screen('mobile'){
+                font-size: 20px;
+            }
+        }
+        .inpts-gd{
+            display: grid;
+            gap: 1em;
+            margin: 1em auto 1.5em auto;
+            .form-label{
+                color: #212529;
+                font-weight: 500;
+                span{
+                    color: red;
+                }
+                }
+                .form-select:focus{
+                    box-shadow: none;
+                }
+                .input-group{
+                    align-items: center;
+                    .input-group-append{
+                        button{
+                            border-left: none;
+                            border: solid 1px #dee2e6;
+                            border-radius: 0 5px 5px 0;
+                        }
+                    }
+                }
+                .response-area{
+                    margin-top: .5em;
+                    text-align: center;
+                }
+                .otp-inpt-area{
+                    display: grid;
+                    justify-content: center;
+                    gap: .5em;
+                    margin-top: 1em;
+                    .otp-action-flex{
+                        display: flex;
+                        justify-content: center;
+                        gap: 1em;
+                        button{
+                            width: max-content;
+                            padding: 0;
+                            background: none;
+                            color: #29363f;
+                        }
+                        .otp-action-valid{
+                            color: #003177;
+                        }
+                        
+                    }
+                }
+        }
+        button{
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            padding: 6px 30px;
+            background: #d2d2d2;
+            color: #29363f;
+        }
+        .valid{
+            background: #003177;
+            color: #fff;
+        }
+        .terms-cons{
+            font-size: 14px;
+            text-align: center;
+            margin-top: 1em;
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.modal-dialog{
+    max-width: max-content;
+}
+.modal-body{
+    @include screen('tablet'){
+        overflow-x: scroll;
+    }
+    @include screen('mobile'){
+        overflow-x: scroll;
+    }
+    table{
+        input{
+            @include screen('tablet'){
+                width: 50px;
+                border: solid 1px #000;
+            }
+            @include screen('mobile'){
+                width: 50px;
+                border: solid 1px #000;
+            }
+        }
+    }
+}
+.modal-footer{
+    button{
+        background: #526073;
+        color: #fff;
+        font-weight: 500;
+        border: none;
+        border-radius: 10px;
+        padding: 8px 40px; 
+    }
+    .valid{
+        background: #003177;
+    }
+}

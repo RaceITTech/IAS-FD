@@ -1,0 +1,162 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    }
+    @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    }
+    @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    }
+    @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+  .footer-scn{
+    padding: 3em 0 2em 0;
+    background: #F5F5F7;
+    @include screen('tablet'){
+padding: 2em 0;
+    }
+    @include screen('mobile'){
+        padding: 2em 0 1em 0;
+    }
+    .fst-col{
+        .ftr-lg{
+            width: 250px;
+            @include screen('tablet'){
+                width: 225px;
+            }
+            @include screen('mobile'){
+        width: 175px;
+            }
+        }
+        span{
+            color:#747475;
+            font-size: 15px;
+            @include screen('tablet'){
+font-size: 14px;
+            }
+            @include screen('mobile'){
+        font-size: 12px;
+            }
+        }
+        p{
+            color:#747475;
+            font-size: 13px;
+            text-align: justify;
+            max-width: 95%;
+            margin-top: 3em;
+            @include screen('tablet'){
+margin: 1.5em 0 0 0;
+            }
+            @include screen('mobile'){
+        margin:1em 0 0 0;
+            }
+        }
+    }
+    .scnd-col, .thrd-col , .frth-col{
+        h6{
+            font-size: 14px;
+            font-weight: 600;
+            color: #747475;
+            margin-bottom: 0;
+            @include screen('mobile'){
+                margin-top: 2em;
+            }
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            margin:1em 0 2em 0;
+            @include screen('tablet'){
+                gap: .5em;
+            }
+            @include screen('mobile'){
+                margin: 1em 0;
+            }
+            a{
+                font-size: 14px;
+                text-decoration: none;
+                color: #747475;
+                @include screen('mobile'){
+        font-size: 12px;
+                }
+            }
+        }
+            }
+            .frth-col div{
+                @include screen('tablet'){
+margin: 1em 0;
+                }
+            }
+            .cntct-dtls{
+padding: 1em 0;
+@include screen('mobile'){
+        gap: 2em;
+}
+                .flx-dtls{
+                    display: flex;
+                    gap: 1em;
+                    align-items: flex-start;
+                    @include screen('tablet'){
+                        gap: .5em;
+                    }
+                    @include screen('mobile'){
+                        align-items: center;
+                    }
+                        div{
+                            display: flex;
+                            flex-direction: column;
+                            h6{
+                                font-weight: 600;
+                                color: #747475;
+                            }
+                            a{
+                                font-size: 14px;
+                                text-decoration: none;
+                                color: #747475;
+                            }
+                        }
+                }
+            }
+            .cprgts-flx{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1em 0 0 0;
+                @include screen('tablet'){
+                    flex-direction: column-reverse;
+                    gap: .5em;
+                }
+                @include screen('mobile'){
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 1em;
+                }
+                div{
+                    font-size: 14px;
+                    color: #747475;
+                    a{
+                        color: #747475;
+                        text-decoration: none;
+                    }
+                }
+                .scl-icons{
+                    display: flex;
+                    gap: 1.5em;
+                }
+            }
+  }

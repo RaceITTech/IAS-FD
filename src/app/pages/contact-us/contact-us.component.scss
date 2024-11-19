@@ -1,0 +1,214 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    }
+    @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    }
+    @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    }
+    @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+h2{
+    font-size: 32px;
+    font-weight: 700;
+    @include screen('tablet'){
+        font-size: 28px;
+    }
+    @include screen('mobile'){
+        font-size: 24px;
+    }
+}
+.contact-us-hd-scn{
+    background: url(../../../assets/contact-us/zyro-bg.png);
+    color: #fff;
+    text-align: center;
+    padding: 2em 0 10em 0;
+    @include screen('mobile'){
+        padding: 1.5em 0;
+    }
+    h1{
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 0;
+        @include screen('tablet'){
+        font-size: 34px;
+        }
+        @include screen('mobile'){
+        font-size: 28px;
+        }
+    }
+    h3{
+        max-width: 80%;
+        font-size: 24px;
+        font-weight: 400;
+        margin:1em auto 0 auto;
+        @include screen('tablet'){
+            font-size: 20px;
+            max-width: 100%;
+        }
+        @include screen('mobile'){
+            font-size: 16px;
+        max-width: 100%;
+        margin: .5em auto 0 auto;
+        }
+    }
+}
+.contact-us-form-scn{
+    padding: 0 0 2em 0;
+    margin-top: -7.5em;
+    @include screen('tablet'){
+            padding: 0 0 1em 0;
+    }
+    @include screen('mobile'){
+        padding: 0 0 1em 0;
+        margin: auto;
+    }
+    .cntct-rw{
+border-radius: 15px;
+overflow: hidden;
+@include screen('tablet'){
+         flex-direction: column-reverse;   
+}
+@include screen('mobile'){
+        border-radius: 0;
+        flex-direction: column-reverse;
+}
+.first-col{
+    background: url(../../../assets/contact-us/office-Space.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 2em 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include screen('tablet'){
+            padding: 2em;
+    }
+    @include screen('mobile'){
+        background: #336699;
+        padding: 1.5em;
+    }
+    p{
+        color: #fff;
+        margin-bottom: .5em;
+        text-shadow: 3px 3px 6px #000;
+    }
+    .contact-dtls-cd{
+        background: #fff;
+        border-radius: 8px;
+        padding: 1.5em;
+        display: grid;
+        gap: 1.5em;
+        @include screen('tablet'){
+            margin-top: 2em;
+        }
+        @include screen('mobile'){
+        margin-top: 1em;
+        }
+        div{
+            color: #333;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 1.5em;
+            img{
+                width: 25px;
+                height: 25px;
+            }
+            a{
+                color: #333;
+                text-decoration: none;
+            }
+        }
+    }
+}
+.second-col{
+    background: #bde4f5;
+    padding: 2em 3em;
+    @include screen('tablet'){
+            padding: 2em;
+    }
+    @include screen('mobile'){
+        padding: 1.5em;
+    }
+    h2{
+        color: #003177;
+    }
+    .inpts-gd{
+        display: grid;
+        gap: 2em;
+        margin-top: 2em;
+        @include screen('mobile'){
+            gap: 1.5em;
+        margin-top: 1.5em;
+        }
+        .form-control:focus , .form-select:focus{
+            box-shadow: none;
+        }
+    }
+    button{
+        width: 100%;
+        background: #336699;
+        color: #fff;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 2em 0 0 0;
+        @include screen('mobile'){
+        margin: 1.5em 0 0 0;
+        }
+    }
+    .valid{
+        background: #003177;
+        @include screen('mobile'){
+        margin: 1.5em 0 0 0;
+        }
+    }
+    .info-txt{
+        color: #45424D;
+        font-size: 14px;
+        display: flex;
+        gap: 1em;
+        margin-top: 2em;
+        img{
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
+    }
+
+}
+.map-scn{
+    padding: 2em 0;
+    @include screen('tablet'){
+     padding: 1em 0 2em 0;       
+    }
+    @include screen('mobile'){
+        padding: 1em 0 2em 0;
+    }
+        iframe{
+          width: 100%;
+          height: 500px;
+          @include screen('mobile'){
+        height: 250px;
+          }
+        }
+}

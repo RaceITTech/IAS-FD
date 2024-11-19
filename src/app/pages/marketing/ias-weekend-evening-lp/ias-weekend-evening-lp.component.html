@@ -1,0 +1,397 @@
+<app-marketing-nav></app-marketing-nav>
+<section class="ias-bnr-scn">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 col-md-6 col-sm-12">
+<div class="top-txt-area">
+  <div class="small-txt">Join India’s Best UPSC Academy for</div>
+  <div class="top-txt">IAS <span>ONLINE</span>&nbsp;<em>COACHING</em></div>
+</div>
+<div class="prgm-cd">
+  <span>Learn from the best UPSC faculty at</span>
+  <h1>India’s First<br>Holistic UPSC</h1>
+  <h3>Online Coaching Program</h3>
+  <div class="dlvbls-gd">
+    <div><img src="../../../../assets/Marketing/weekend-offline-lp/live-icon.png" alt="">LIVE Online Classes</div>
+    <div><img src="../../../../assets/Marketing/weekend-offline-lp/mock-test-icon.png" alt="">Mock Test Series</div>
+    <div><img src="../../../../assets/Marketing/weekend-offline-lp/mock-test-icon.png" alt="">Mentor Support</div>
+    <div><img src="../../../../assets/Marketing/weekend-offline-lp/faculty-icon.png" alt="">Experienced Faculty</div>
+  </div>
+</div>
+<img class="emblem-img" src="../../../../assets/Marketing/weekend-offline-lp/emblem.png" alt="">
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-12">
+        <div class="form-card">
+          <h2>Prepare UPSC in Online Mode</h2>
+          <form #courseForm="ngForm">
+            <div class="inpts-gd">
+              <div>
+                <label class="form-label">Full Name </label>
+                <input type="text" class="form-control" placeholder="Enter your full name" name="student_Name" ngModel required>
+              </div>
+              <div>
+                <label class="form-label"> Mobile Number </label>
+                <div class="input-group">
+                  <input type="tel" class="form-control" placeholder="Enter your mobile number" name="phone_Number" maxlength="10" minlength="10" (keypress)="keyPress($event)" #phone_Number="ngModel" ngModel required autocomplete="off">
+                  <div class="input-group-append" *ngIf="otpStatus!='Verified'">
+                      <button class="form-control" [disabled]="!phone_Number.valid" [ngClass]="phone_Number.valid ? 'valid':''"  (click)="getOtp(phone_Number)">Get OTP</button>
+                  </div>
+              </div>
+              <div class="response-area" *ngIf="otpStatus">
+                <div *ngIf="otpStatus=='inValid'" style="color: red;">Invalid OTP</div>
+                <div *ngIf="otpVerified" style="color: #003177;">OTP Verified Successfully</div>
+                <div *ngIf="otpStatus=='Sent'" style="color: #003177;">OTP Sent Successfully</div>
+                <div *ngIf="otpStatus=='reSent'" style="color: #003177;">OTP Resent Successfully</div>
+            </div>
+              <div class="otp-inpt-area" *ngIf="otpStatus!='Verified' && otpStatus!=''">
+                <ng-otp-input inputmode="numeric" (onInputChange)="onInputChange($event)" [config]="{length:4,allowNumbersOnly:true}"></ng-otp-input>
+                <div class="otp-action-flex">
+                  <button [disabled]="!otpResend" [ngClass]="otpResend ? 'otp-action-valid':'resend-btn-invalid'" class="" (click)="resendOtp()">Resend OTP</button><br>
+                  <button class="otp-action-valid" (click)="verifyOtp()"> Verify</button>
+                </div>
+            </div>
+              </div>
+              <div>
+                <label class="form-label">Email ID </label>
+                <input type="email" class="form-control" placeholder="Enter your E-mail" name="email_ID" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required>
+              </div>
+              <div>
+                <label class="form-label">Batch</label>
+                <select class="form-select" name="batch" ngModel required>
+                    <option value="" hidden>-- select batch--</option>
+                    <option value="Evening Online">Evening Online</option>
+                    <option value="Weekend Online">Weekend Online</option>
+                </select>
+            </div>
+              <div>
+                <label class="form-label">State</label>
+                <select class="form-select" (ngModelChange)="onStateChange($event)" name="state" ngModel required>
+                    <option value="" hidden>-- select state / union Territory --</option>
+                    <option (click)="onStateChange(statename)" *ngFor="let statename of states" [value]="statename">{{ statename }}</option>
+                </select>
+            </div>
+            <div>
+              <label class="form-label">District</label>
+                <select class="form-select" name="district" ngModel required>
+                    <option value="" hidden>-- select District --</option>
+                    <option *ngFor="let districtname of districtList" [value]="districtname">{{ districtname }}</option>
+                   </select>
+            </div>
+            <div>
+              <label class="form-label">Questions</label>
+              <textarea type="text" class="form-control" placeholder="Please enter your questions" name="questions" ngModel></textarea>
+            </div>
+            </div>
+            <button *ngIf="!submitClicked" [disabled]="!(courseForm.valid && otpStatus=='Verified')" [ngClass]="courseForm.valid && otpStatus=='Verified' ? 'valid':''" (click)="onSubmit(courseForm)">Register Now</button>
+            <button *ngIf="submitClicked" class="valid">Please Wait</button>
+          </form>
+                  <div class="terms-cons">By continuing & signing in, you agree to Veranda's <a routerLink="/termsofservice">Terms & Conditions</a> and <a routerLink="/privacy-policy">Privacy Policy</a></div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <section class="weekend-evening-bnr-scn">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 col-md-6 col-sm-12">
+        <div class="hro-cnt-flx">
+          <div>
+            <span>IAS Online Coaching - Evening & Weekend</span>
+            <h1>Learn from Best Online IAS Coaching Institute & Crack IAS Exam 2025</h1>
+            <h3>English Medium</h3>
+          </div>
+        </div> 
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-12">
+        <div class="form-card">
+          <h2>Get a call from our counsellors</h2>
+          <form #courseForm="ngForm">
+            <div class="inpts-gd">
+              <div>
+                <label class="form-label">Full Name </label>
+                <input type="text" class="form-control" placeholder="Enter your full name" name="student_Name" ngModel required>
+              </div>
+              <div>
+                <label class="form-label"> Mobile Number </label>
+                <div class="input-group">
+                  <input type="tel" class="form-control" placeholder="Enter your mobile number" name="phone_Number" maxlength="10" minlength="10" (keypress)="keyPress($event)" #phone_Number="ngModel" ngModel required autocomplete="off">
+                  <div class="input-group-append" *ngIf="otpStatus!='Verified'">
+                      <button class="form-control" [disabled]="!phone_Number.valid" [ngClass]="phone_Number.valid ? 'valid':''"  (click)="getOtp(phone_Number)">Get OTP</button>
+                  </div>
+              </div>
+              <div class="response-area" *ngIf="otpStatus">
+                <div *ngIf="otpStatus=='inValid'" style="color: red;">Invalid OTP</div>
+                <div *ngIf="otpVerified" style="color: #003177;">OTP Verified Successfully</div>
+                <div *ngIf="otpStatus=='Sent'" style="color: #003177;">OTP Sent Successfully</div>
+                <div *ngIf="otpStatus=='reSent'" style="color: #003177;">OTP Resent Successfully</div>
+            </div>
+              <div class="otp-inpt-area" *ngIf="otpStatus!='Verified' && otpStatus!=''">
+                <ng-otp-input inputmode="numeric" (onInputChange)="onInputChange($event)" [config]="{length:4,allowNumbersOnly:true}"></ng-otp-input>
+                <div class="otp-action-flex">
+                  <button [disabled]="!otpResend" [ngClass]="otpResend ? 'otp-action-valid':'resend-btn-invalid'" class="" (click)="resendOtp()">Resend OTP</button><br>
+                  <button class="otp-action-valid" (click)="verifyOtp()"> Verify</button>
+                </div>
+            </div>
+              </div>
+              <div>
+                <label class="form-label">Email ID </label>
+                <input type="email" class="form-control" placeholder="Enter your E-mail" name="email_ID" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required>
+              </div>
+              <div>
+                <label class="form-label">Batch</label>
+                <select class="form-select" name="batch" ngModel required>
+                    <option value="" hidden>-- select batch--</option>
+                    <option value="Evening Online">Evening Online</option>
+                    <option value="Weekend Online">Weekend Online</option>
+                </select>
+            </div>
+              <div>
+                <label class="form-label">State</label>
+                <select class="form-select" (ngModelChange)="onStateChange($event)" name="state" ngModel required>
+                    <option value="" hidden>-- select state / union Territory --</option>
+                    <option (click)="onStateChange(statename)" *ngFor="let statename of states" [value]="statename">{{ statename }}</option>
+                </select>
+            </div>
+            <div>
+              <label class="form-label">District</label>
+                <select class="form-select" name="district" ngModel required>
+                    <option value="" hidden>-- select District --</option>
+                    <option *ngFor="let districtname of districtList" [value]="districtname">{{ districtname }}</option>
+                   </select>
+            </div>
+            <div>
+              <label class="form-label">Questions</label>
+              <textarea type="text" class="form-control" placeholder="Please enter your questions" name="questions" ngModel></textarea>
+            </div>
+            </div>
+            <button *ngIf="!submitClicked" [disabled]="!(courseForm.valid && otpStatus=='Verified')" [ngClass]="courseForm.valid && otpStatus=='Verified' ? 'valid':''" (click)="onSubmit(courseForm)">Register Now</button>
+            <button *ngIf="submitClicked" class="valid">Please Wait</button>
+          </form>
+                  <div class="terms-cons">By continuing & signing in, you agree to Veranda's <a routerLink="/termsofservice">Terms & Conditions</a> and <a routerLink="/privacy-policy">Privacy Policy</a></div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<section class="who-scn">
+    <div class="container">
+        <h2>IAS Coaching <em>Evening & Weekend</em> Online Class for</h2>
+        <h4>New Batch Start Date: <em>09th December 2024</em></h4>
+        <div class="who-gd">
+            <div class="who-cd">
+                <div class="image-container"><img src="./assets/Marketing/weekend-offline-lp/office_workers.png"></div>
+                <p>Working Professionals</p>
+            </div>
+            <div class="who-cd">
+                <div class="image-container"><img src="./assets/Marketing/weekend-offline-lp/college_students.png"></div>
+                <p>College Students</p>
+            </div>
+            <div class="who-cd">
+                <div class="image-container"><img src="./assets/Marketing/weekend-offline-lp/home_maker.png"></div>
+                <p>Homemakers</p>
+            </div>
+            <div class="who-cd">
+                <div class="image-container"><img src="./assets/Marketing/weekend-offline-lp/night_shift.png"></div>
+                <p>Night-Shift Working Professionals</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="cs-types-scn">
+    <div class="container">
+    <div class="row course-type-rw">
+    <div class=" col-lg-6 col-md-6 col-sm-12 course-type-col">
+    <h2>Evening Batch</h2>
+    <p>Monday to Friday</p>
+    <p>Weekdays : 7pm to 9:30pm</p>
+    </div>
+    <div class=" col-lg-6 col-md-6 col-sm-12 course-type-col">
+    <h2>Weekend Batches</h2>
+    <p>Saturday and Sunday</p>
+    <p>Weekend: (10am – 1pm; 2pm – 5pm) </p>
+    </div>
+        </div>
+    </div>
+    </section>
+<section class="dream-scn">
+    <div class="container">
+        <h2><em>Achieve Your Indian Administrative Services Dream</em> with Veranda IAS</h2>
+        <h5>Veranda IAS is dedicated to empowering all aspiring IAS officers, regardless of their socio-economic background.</h5>
+        <div class="dream-gd">
+            <div>
+                <h3>100+</h3>
+                <h6>Faculties</h6>
+            </div>
+            <div>
+                <h3>Online</h3>
+                <h6>Mode of Learning</h6>
+            </div>
+            <div>
+                <h3>500+</h3>
+                <h6>Hours of Classes</h6>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="why-scn">
+  <div class="container">
+      <h2>Why <em>Veranda IAS</em> ?</h2>
+      <h5>Our student-centric approach fuels the academy's growing list of successes in IAS selection. But beyond results, it's the trust placed in us by students and their families that truly motivates us. This trust fosters a strong sense of community, where Veranda IAS students proudly consider themselves part of the Veranda Family.</h5>
+      <div class="why-gd">
+<div class="why-cd" *ngFor="let data of whydata">
+  <img [src]=data.imgpath>
+  <!-- <div class="why-hd">{{data.heading}}</div> -->
+  <h6>{{data.description}}</h6>
+</div>
+      </div>
+  </div>
+</section>
+<section class="six-lvl-scn">
+  <div class="container">
+    <h2><em>Six Level</em> Practice Programme</h2>
+    <div class="six-lvl-gd">
+      <div class="six-lvl-cd">
+        <img src="./assets/Marketing/weekend-offline-lp/icon1.png" alt="">
+<div>
+  <h5>Basic Classes</h5>
+  <p>The Basic Class provides a foundation of basic concepts until you master core concepts confidently</p>
+</div>
+      </div>
+      <div class="six-lvl-cd">
+        <img src="./assets/Marketing/weekend-offline-lp/icon1.png" alt="">
+<div>
+  <h5>Basic Circle</h5>
+  <p>Practice basic foundation questions from the topic taught</p>
+</div>
+      </div>
+      <div class="six-lvl-cd">
+        <img src="./assets/Marketing/weekend-offline-lp/icon1.png" alt="">
+<div>
+  <h5>Extreme Circle</h5>
+  <p>Weekly tests - Descriptive and MCQs according to the pattern of the UPSC inclusive of current affairs</p>
+</div>
+      </div>
+      <div class="six-lvl-cd">
+        <img src="./assets/Marketing/weekend-offline-lp/icon1.png" alt="">
+<div>
+  <h5>Super Batch</h5>
+  <p>Prelims concentrated - Mains concentrated series with explanation sessions - Topic wise tests. Once the exam notification is announced</p>
+</div>
+      </div>
+      <div class="six-lvl-cd">
+        <img src="./assets/Marketing/weekend-offline-lp/icon1.png" alt="">
+<div>
+  <h5>Real Intensive Program</h5>
+  <p>Full length mock tests for the exams to improve the scores</p>
+</div>
+      </div>
+      <div class="six-lvl-cd">
+        <img src="./assets/Marketing/weekend-offline-lp/icon1.png" alt="">
+<div>
+  <h5>Mock Interview</h5>
+  <p>Interview by IAS, IPS officers - Real time simulation - with interview mentorship</p>
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="faq-scn">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item" *ngFor="let faq of faqs; let i = index">
+    <div class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" [attr.aria-controls]="'collapse' + i" [attr.aria-expanded]="i === 0">
+        <h4>{{ faq.question }}</h4>
+      </button>
+    </div>
+    <div [id]="'collapse' + i" class="accordion-collapse collapse" [ngClass]="{ 'show': i === 0 }" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <!-- <img [src]="faq.imageUrl" alt=""> -->
+        {{ faq.answer }}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+</section>
+<section class="sucss-scn">
+    <div class="container">
+      <div class="hdngs">
+        <h2>Renowned Choice of Top-Performing <em>UPSC Aspirants</em></h2>
+      </div>
+      <div class="sucss-gd">
+        <div *ngFor="let testimonial of testimonials" class="sucss-cd">
+          <img class="comma-in" src="./assets/Coursepage/comma.png" alt="">
+          <p>{{ testimonial.content }}</p>
+          <div class="sussr-dtls">
+            <img [src]="testimonial.imageUrl">
+            <div>
+              <h5>{{ testimonial.name }}</h5>
+              <h6>{{ testimonial.achievement }}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="testiCarousel" class="carousel carousel-dark slide testi-carousel" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let testimonial of testimonials; let i = index" class="carousel-item" [class.active]="i === 0" [attr.data-bs-interval]="i === 0 ? 10000 : 2000">
+            <div class="d-block w-100">
+                <div class="sucss-cd">
+                  <img class="comma-in" src="./assets/Coursepage/comma.png" alt="Comma">
+                  <p>{{ testimonial.content }}</p>
+                  <div class="sussr-dtls">
+                    <img [src]="testimonial.imageUrl" alt="Testimonial Image">
+                    <div>
+                      <h5>{{ testimonial.name }}</h5>
+                      <h6>{{ testimonial.achievement }}</h6>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-indicators">
+            <button *ngFor="let testimonial of testimonials; let i = index" type="button" [attr.data-bs-target]="'#testiCarousel'" [attr.data-bs-slide-to]="i" [class.active]="i === 0" [attr.aria-current]="i === 0 ? 'true' : null" [attr.aria-label]="'Slide ' + (i + 1)"></button>
+          </div>
+      </div>
+      
+    </div>
+</section>
+<section class="smtrs-section">
+  <div class="container">
+      <h2>Veranda IAS’ Faculty</h2>
+      <h5>As a part of Veranda IAS’ online UPSC courses, get expert guidance from our faculty with over 10+ years of experience in UPSC exams</h5>
+      <div class="smtrs-gd">
+        <div *ngFor="let mentor of mentors" class="smtrs-cds">
+          <img [src]="mentor.imageUrl" alt="{{ mentor.name }}">
+          <div>
+            <h6>{{ mentor.name }}</h6>
+            <!-- Uncomment if description is available -->
+            <!-- <p>{{ mentor.description }}</p> -->
+          </div>
+        </div>
+      </div>
+      <div id="mentorsCarousel" class="carousel carousel-dark slide mentors-carousel" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let mentor of mentors; let i = index" class="carousel-item" [class.active]="i === 0" [attr.data-bs-interval]="i === 0 ? 10000 : 2000">
+            <div class="d-block w-100">
+              <div class="smtrs-cds">
+                <img [src]="mentor.imageUrl" alt="{{ mentor.name }}">
+                <div>
+                  <h6>{{ mentor.name }}</h6>
+                  <!-- Uncomment if description is available -->
+                  <!-- <p>{{ mentor.description }}</p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-indicators">
+            <button *ngFor="let mentor of mentors; let i = index" type="button" [attr.data-bs-target]="'#mentorsCarousel'" [attr.data-bs-slide-to]="i" [class.active]="i === 0" [attr.aria-current]="i === 0 ? 'true' : null" [attr.aria-label]="'Slide ' + (i + 1)"></button>
+          </div>
+      </div>
+      </div>
+</section>
+<app-footer></app-footer>

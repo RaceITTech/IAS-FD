@@ -1,0 +1,107 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    } @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    } @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    } @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  } 
+
+ 
+
+
+.trms-cons-scn{
+    padding: 0 0 4em 0;
+    @include screen('tablet'){
+        padding:0 0 2em 0;
+    }
+    @include screen('mobile'){
+        padding: 0 0 2em 0;
+    }
+    .main-head{
+        background-image: url(../../../assets/terms_policy/terms-dsk.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+        height: 20em;
+        @include screen('tablet'){
+          background-image:url(../../../assets/terms_policy/terms-mob.png);
+          height: 25em;
+      }
+        @include screen('mobile'){
+            background-image: url(../../../assets/terms_policy/terms-mob.png);
+            height:15em;
+        }
+      }
+      .breadcrumbs{
+        color: #333;
+        font-weight: 500;
+        margin: 2em 0;
+        @include screen('tablet'){
+            margin: 1.5em 0;
+        }
+        @include screen('mobile'){
+            margin: 1em 0;
+        }
+        a{
+            color: #333;
+            text-decoration: none;
+        }
+    }
+    h1{
+        color: #003177;
+        font-weight: 700;
+        margin-bottom: 0;
+        @include screen('tablet'){
+            font-size: 32px;
+        }
+        @include screen('tablet'){
+            font-size: 28px;
+        }
+    }
+    h4{
+        font-size: 24px;
+        font-weight: 600;
+        margin:2em 0 1em 0;
+        @include screen('tablet'){
+            font-size: 22px;
+            margin: 1.5em 0;
+        }
+        @include screen('mobile'){
+            font-size: 20px;
+            margin: 1em 0;
+        }
+    }
+    p{
+text-align: justify;
+margin-bottom: .8em;
+span{
+    color: #000;
+    font-weight: bold;
+}
+a{
+    text-decoration: underline;
+    color: #003177;
+    font-weight: bold;
+}
+    }
+    .sub-text{
+        max-width: 90%;
+        margin: 0 0 .8em auto;
+    }
+}
+

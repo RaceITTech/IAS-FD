@@ -1,0 +1,127 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    } @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    } @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    } @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  } 
+  
+  h2{
+    color: #000;
+    font-size: 32px;
+    font-weight: 600;
+    @include screen('tablet'){
+        font-size: 30px;
+    }
+    @include screen('mobile'){
+        font-size: 26px;
+    }
+  }
+  h3{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 34px;
+    @include screen('tablet'){
+        font-size: 22px;
+        line-height: 30px;
+    }
+    @include screen('mobile'){
+        font-size: 20px;
+        line-height: 28px;
+    }
+  }
+  h4{
+    font-size: 20px;
+    @include screen('tablet'){
+        font-size: 18px;
+    }
+    @include screen('mobile'){
+        font-size: 18px;
+    }
+  }
+  h5{
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 26px; 
+    
+}
+h6{
+    font-size: 16px; 
+    font-weight: 400;
+}
+  p{
+    font-size: 16px;
+  }
+
+.form-scn{
+    padding: 3em 0;
+    @include screen('tablet'){
+        padding: 2em 0;
+    }
+    @include screen('mobile'){
+        padding: 1.5em 0;
+    }
+    h4{
+        width: max-content;
+        color: #003177;
+        border-bottom: solid 3px #003177;
+        padding-bottom: .5em;
+        margin-bottom: 2em;
+        @include screen('tablet'){
+        margin-bottom: 1em;
+        }
+        @include screen('mobile'){
+        margin-bottom: 1em;
+        }
+    }
+    h2{
+        max-width: 90%;
+        font-weight: 600;
+        margin-bottom: 1em;
+        @include screen('tablet'){
+        max-width: 100%;
+        margin-bottom: .8em;
+        }
+        @include screen('mobile'){
+        margin-bottom: .5em;
+        }
+    }
+    p{
+        line-height: 26px;
+        margin-bottom: 0;
+        @include screen('tablet'){
+        text-align: justify;
+        }
+        @include screen('mobile'){
+        margin-bottom: 1em;
+        }
+    }
+    .img-col{
+        display: flex;
+        align-items: center;
+        img{
+            width: 100%;
+            border-radius: 10px;
+            @include screen('tablet'){
+                width: 75%;
+                margin:2em auto auto auto;
+            }
+        }
+    }
+  }

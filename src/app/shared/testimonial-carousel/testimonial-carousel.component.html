@@ -1,0 +1,27 @@
+<div class="carousel-scn">
+    <h2>Veranda IAS Testimonials</h2>
+    <owl-carousel-o [options]="testimonialsSlides">
+      <ng-template carouselSlide *ngFor="let slide of testimonialsSlidesContent">
+        <div class="single-testimonials-item container-image">
+          <img class="testimonial-image" [src]="slide.imgSrc">
+          <div class="overlay">
+            <div class="text">
+              <mat-icon (click)="videoplay(slide.videoUrl, content)">play_circle_outline</mat-icon>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+  
+    <ng-template #content let-modal let-c="close" let-d="dismiss">
+      <button mat-icon class="close_btn" (click)="d('Cross click')">&times;</button>
+      <iframe
+        style="width: 100%; height: 400px"
+        [src]="video_id"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </ng-template>
+  </div>
+  

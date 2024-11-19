@@ -1,0 +1,167 @@
+<section class="form-scn">
+  <form #postForm="ngForm">
+    <h2>Create Test</h2>
+    <div class="frm-flds-area">
+      <div class="frm-flds">
+        <div class="lbl-fld-flx">
+          <label>Test</label>
+          <input type="text" name="test" ngModel required #test="ngModel" />
+        </div>
+        <div class="lbl-fld-flx">
+          <label>Date</label>
+          <input type="date" name="date" ngModel required #date="ngModel" />
+        </div>
+
+        <!-- <div class="lbl-fld-flx">
+                    <label>Subject</label>
+                    <select name="subject" [(ngModel)]="selectedSubject" (change)="onSubjectChange()" required>
+                      <option value="" hidden selected>-- select --</option>
+                <option *ngFor="let subject of subjects" [value]=subject>{{subject}}</option>
+                    </select>
+                </div> -->
+
+        <div class="lbl-fld-flx-2">
+          <label>ECT Duration</label>
+          <div>
+            <input
+              type="date"
+              name="ectDateStart"
+              ngModel
+              required
+              #ectDate1="ngModel"
+            />
+            to
+            <input
+              type="date"
+              name="ectDateEnd"
+              ngModel
+              required
+              #ectDate2="ngModel"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="frm-flds-2">
+        <label class="main-label">Subject</label>
+        <div class="checkbox-container">
+          <div *ngFor="let subject of subjects" class="checkbox-box">
+            <input 
+              type="checkbox" 
+              [value]="subject" 
+              [checked]="isSelected(subject)" 
+              (change)="onCheckboxChange($event, subject)"
+              id="{{subject}}">
+            <label for="{{subject}}" [class.selected]="isSelected(subject)">
+              <span class="checkbox-label">{{ subject }}</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Subject</th>
+              <th>Level</th>
+              <th>Questions</th>
+              <th>Max Marks</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of testDetails; let i = index">
+              <td>
+                <b>{{ i + 1 }}</b>
+              </td>
+              <td>
+                <div class="mob-flx">
+                  <label>Subject</label>
+                  <!-- <input placeholder="Enter Subject" type="text" [name]="'subject_Name' + i" [(ngModel)]="data.subject" readonly/> -->
+                  <select
+                    [name]="'subject_Name' + i"
+                    [(ngModel)]="data.subject"
+                    required
+                  >
+                    <option value="" hidden selected>-- select --</option>
+                    <option *ngFor="let subject of selectedSubjects" [value]="subject">
+                      {{ subject }}
+                    </option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <div class="mob-flx">
+                  <label>Level</label>
+                  <select
+                    [name]="'level_Name' + i"
+                    [(ngModel)]="data.level"
+                    (ngModelChange)="calculateMaxMarks(i, data.noOfQuestions)"
+                    required
+                  >
+                    <option value="" hidden selected>-- select --</option>
+                    <option *ngFor="let name of levels" [value]="name">
+                      {{ name }}
+                    </option>
+                  </select>
+                </div>
+              </td>
+              <td>
+                <div class="mob-flx">
+                  <label>Questions</label>
+                  <input
+                    placeholder="No of Questions"
+                    type="tel"
+                    (keypress)="keyPress($event)"
+                    [name]="'No_Of_Questions' + i"
+                    [(ngModel)]="data.noOfQuestions"
+                    (ngModelChange)="calculateMaxMarks(i, $event)"
+                    required
+                  />
+                </div>
+              </td>
+              <td>
+                <div class="mob-flx">
+                  <label>Max Marks</label>
+                  <span>{{ data.maxMarks }}</span>
+                </div>
+              </td>
+              <td>
+                <div class="action-btns">
+                  <button
+                    style="background: #395275"
+                    type="button"
+                    (click)="removeSubject(i)"
+                    *ngIf="testDetails.length > 1"
+                  >
+                    - Remove
+                  </button>
+                  <button
+                    style="background: #2da77d"
+                    type="button"
+                    (click)="addSubject()"
+                    *ngIf="i === testDetails.length - 1"
+                  >
+                    + Add
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="Submit-btn">
+        <button
+          *ngIf="!submitClicked"
+          [disabled]="postForm.invalid"
+          [ngClass]="postForm.valid ? 'valid' : ''"
+          (click)="onSubmit(postForm)"
+        >
+          Create Test
+        </button>
+        <button *ngIf="submitClicked" class="valid">Please Wait...</button>
+      </div>
+    </div>
+  </form>
+</section>

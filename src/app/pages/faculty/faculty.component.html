@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<section class="faculty-scn">
+    <div class="container">
+        <h1>Unleashing Brilliance & Inspiring Futures</h1>
+        <p>Step into a realm of brilliance, where intellect meets passion, and dreams find wings. At Veranda IAS, our faculty forms the nucleus of extraordinary minds, converging to craft your path to success</p>
+        <p>Our faculty embodies a league of extraordinary educators, each on a relentless quest to sculpt the leaders of tomorrow. Hailing from diverse corners of the nation, they unite with one purpose at Veranda IAS — to revolutionise your learning experience during your UPSC learning journey</p>
+        <p>Legal luminaries, governance gurus, economics aficionados — all bound by a common thread: the pursuit of excellence. Beyond the confines of classrooms, they are pioneers of change</p>
+        <p style="margin-bottom: 0;">With accolades adorning their journey and contributions that ripple through society, our faculty transcend traditional teaching roles. At Veranda IAS, we're not just about textbooks and theories. Our faculty is on a mission to uncover new realms of possibilities, championing innovation that will shape the future of our students</p>
+        <div class="faculty-gd">
+            <a *ngFor="let data of facultyList" data-bs-toggle="offcanvas" href="#offcanvasExample" (click)="setData(data)">
+                    <img [src]="data.imagePath" alt="">
+                    <h6>{{data.fullName}}</h6>
+            </a>
+        </div>
+    </div>
+</section>
+
+<div class="offcanvas offcanvas-end canvas-styles" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="faculty-dtls">
+            <img [src]="selectedFaculty.imagePath" alt="">
+             <h3>{{selectedFaculty.fullName}}</h3>
+             <p>{{selectedFaculty.description}}</p>
+
+        </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+  

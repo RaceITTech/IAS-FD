@@ -1,0 +1,13 @@
+<section class="card-scn">
+<div class="container">
+    <div class="form-card">
+        <h1>5 Smart Steps for Ambitious Women to Ace UPSC Prelims</h1>
+        <img class="form-logo" src="./assets/Homepage/ias-blue-logo.svg">
+        <form #webinarForm="ngForm" (ngSubmit)="onSubmit(webinarForm)">
+            <input class="form-control" type="tel" placeholder="Enter your phone number" name="phoneNumber" (keypress)="keyPress($event)" maxlength="10" minlength="10" ngModel required >
+            <button *ngIf="!submitClicked" [disabled]="!webinarForm.valid" [ngClass]="webinarForm.valid ? 'valid' : '' ">Submit</button>
+            <button *ngIf="submitClicked" class="valid">Please Wait...</button>
+        </form>
+    </div>
+</div>
+</section>

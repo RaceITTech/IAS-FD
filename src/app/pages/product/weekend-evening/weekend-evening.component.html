@@ -1,0 +1,225 @@
+
+<app-navbar></app-navbar>
+<section class="hero-scn">
+<div class="container">
+    <div class="breadcrumbs"><a routerLink="/">Home</a> > <a routerLink="/courses">Courses</a> > Online Evening and Weekend Batches</div>
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <h1>ONLINE EVENING AND WEEKEND BATCHES</h1>
+            <h4>For UPSC CSE 2025</h4>
+                <p>The Online Evening and Weekend Batch by Veranda IAS offers a comprehensive and integrated learning experience, tailored specifically for </p>
+                <ul>
+                    <li>Working Professionals</li>
+                    <li>College Students</li>
+                    <li>Home makers</li>
+                </ul>
+                <p>Learn from India’s best IAS exam experts and start Civil Services preparation at your convenient time with Veranda IAS</p>
+                <div class="btns-flx">
+                    <a class="btn" (click)="scroll(target)">Buy Course</a>
+                    <a href="./assets/Coursepage/documents/Online weekend and evening batches - Veranda IAS.pdf" class="btn" download>Download Brochure</a>
+                    </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 vdo-clmn">
+            <iframe src="https://www.youtube.com/embed/LMqX8aQ_1vc?si=d_JlDzfnr9StPrre" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+</section>
+<section class="batch-cd-scn">
+    <div class="container">
+        <div class="btch-cd">
+            <div>
+                <span>Class Starts from  </span>
+                09 December 2024
+            </div>
+            <div>
+                <span>Course Validity </span>
+                2 Years
+            </div>
+            <div>
+                <span>Mode of Learning </span>
+                Online
+            </div>            
+        </div>
+    </div>
+</section>
+<section class="key-ftrs-scn">
+    <div class="container">
+<div>
+    <h2>500+ Hours of Classes</h2>
+    <div class="batch-cd-gd">
+        <div class="batch-cd">
+            <h3>Evening Batch</h3>
+            <ul>
+                <li>Monday to Friday</li>
+                <li>2<sup>1/2</sup> hours | 7pm to 9:30pm</li>
+                <li>Validity: 2 years</li>
+            </ul>
+        </div>
+        <div class="batch-cd">
+            <h3>Weekend Batches</h3>
+            <ul>
+                <li>Saturday and Sunday</li>
+                <li>6 hours | 10am – 1pm; 2pm – 5pm</li>
+                <li>Validity: 2 years</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div>
+    <h2>Key Features</h2>
+    <div class="key-ftrs-gd">
+        <div *ngFor="let data of keyFeatures"><img src="./assets/Coursepage/check-icon.png" alt="">{{data}}</div>
+    </div>
+</div>
+    </div>
+</section>
+<section class="upcmg-btchs-scn" #target>
+  <div class="container">
+    <div class="batch-card">
+      <div class="row">
+        <div class="col-lg-8 col-md-12 col-sm-12 fst-col">
+  <h2>Select Course</h2>
+  <div class="up-btch-lst">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"><div class="tbl-rn-in">COURSE NAME</div></th>
+          <th scope="col"><div class="tbl-rn-in">MODE</div></th>
+          <th scope="col"><div class="tbl-rn-in">DURATION</div></th>
+          <th scope="col"><div class="tbl-rn-in">VALIDITY</div></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of products">
+          <td >
+            <div class="course-head">
+              <input class="form-check-input" 
+              type="radio" 
+              name="flexRadioDefault" 
+              id="{{data.name}}" 
+              (click)="selectCourse(data)">
+           </div>
+          </td>
+          <td>{{data.name}}</td>
+          <td>{{data.mode}}</td>
+          <td>{{data.duration}}</td>
+          <td>{{data.validity}}</td>
+        </tr>
+      
+      </tbody>
+    </table>
+  </div>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12 scnd-col">
+          <div class="cta-area" *ngIf="!courseSelected">
+            <h6>Select the course to view the course price</h6>
+        </div>
+<div class="cta-area" *ngIf="courseSelected">
+    <h3>₹{{courseFee}}</h3>
+    <div class="prc-flx">
+      <del>₹1,00,000</del>
+      <h4>(25% off)</h4>
+    </div>
+    <p>(Total price mentioned is inclusive of GST) </p>
+    <button (click)="onBuyClick()">Buy Now</button>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="form-scn">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <h4>About Veranda IAS</h4>
+        <h2>Crafting India's future leaders! One UPSC aspirant at a time!</h2>
+        <p>Veranda IAS offers India's first holistic residential programme for students preparing for the UPSC Civil Services Examination. Our state-of-the-art facilities, comfortable accommodation, healthy meals and round-the-clock faculty support ensure a distraction-free verdant environment for students to immerse themselves in their studies. Our programme also includes extracurricular activities to promote wellness and community-building. Join us at Veranda IAS and achieve your goal of cracking the UPSC Civil Services Examination.</p>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12" #target>
+        <form #courseForm="ngForm">
+        <div class="form-cd">
+          <h3>Register to get Course details</h3>
+            <div class="inpts-gd">
+              <div>
+                <label class="form-label">Full Name </label>
+                <input type="text" class="form-control" placeholder="Enter your full name" name="student_Name" ngModel required>
+              </div>
+              <div>
+                <label class="form-label"> Mobile Number </label>
+                <input type="tel" class="form-control" placeholder="Enter your mobile number" name="phone_Number" maxlength="10" minlength="10" (keypress)="keyPress($event)" ngModel required>
+              </div>
+              <div>
+                <label class="form-label">Email ID </label>
+                <input type="tel" class="form-control" placeholder="Enter your E-mail" name="email_ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required>
+              </div>
+              <div>
+                <label class="form-label">Course</label>
+                <select class="form-select" name="course" ngModel required>
+                    <option value="" hidden>-- select course --</option>
+                    <option *ngFor="let data of products" [value]="data.name">{{data.name}}</option>
+                </select>
+            </div>
+              <div>
+                <label class="form-label">State <span>*</span></label>
+                <select class="form-select" (ngModelChange)="onStateChange($event)" name="state" ngModel required>
+                    <option value="" hidden>-- select state / union Territory --</option>
+                    <option (click)="onStateChange(statename)" *ngFor="let statename of states" [value]="statename">{{ statename }}</option>
+                </select>
+            </div>
+            <div>
+              <label class="form-label">District <span>*</span></label>
+                <select class="form-select" name="district" ngModel required>
+                    <option value="" hidden>-- select District --</option>
+                    <option *ngFor="let districtname of districtList" [value]="districtname">{{ districtname }}</option>
+                   </select>
+            </div>
+            </div>
+            <button *ngIf="!submitClicked" [disabled]="courseForm.invalid" [ngClass]="courseForm.valid ? 'valid':''" (click)="onSubmit(courseForm)">Register Now</button>
+            <button *ngIf="submitClicked" class="valid">Please Wait</button>
+              <div class="terms-cons">By continuing & signing in, you agree to Veranda's <a routerLink="/termsofservice">Terms & Conditions</a> and <a routerLink="/privacy-policy">Privacy Policy</a></div>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="why-course-scn">
+    <div class="container">
+      <h2>Why Veranda IAS ?</h2>
+      <h5>Veranda IAS is dedicated to empowering all aspiring civil servants, regardless of their socio-economic background. Our student-centric approach fuels the academy's growing list of UPSC successes. But beyond results, it's the trust placed in us by students and their families that truly motivates us. This trust fosters a strong sense of community, where Veranda IAS students proudly consider themselves part of the Veranda Family.</h5>
+      <div class="why-ftrs-gd">
+        <div class="ftrs-cd" *ngFor="let feature of features">
+          <div>
+            <img [src]="feature.imgSrc" alt="{{ feature.title }}">
+          </div>
+          <h4>{{ feature.title }}</h4>
+          <p>{{ feature.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<app-upsc-opputunities></app-upsc-opputunities>
+<section class="faq-scn">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item" *ngFor="let faq of faqs; let i = index">
+    <div class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" [attr.aria-controls]="'collapse' + i" [attr.aria-expanded]="i === 0">
+        <h4>{{ faq.question }}</h4>
+      </button>
+    </div>
+    <div [id]="'collapse' + i" class="accordion-collapse collapse" [ngClass]="{ 'show': i === 0 }" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <!-- <img [src]="faq.imageUrl" alt=""> -->
+        {{ faq.answer }}
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+</section>
+<app-footer></app-footer>

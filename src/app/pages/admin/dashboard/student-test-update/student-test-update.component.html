@@ -1,0 +1,102 @@
+<ng-http-loader></ng-http-loader>
+<section class="form-scn">
+    <form #continueForm="ngForm">
+    <h2>Student Test Update</h2>
+    <div class="frm-flds-area">
+        <div class="frm-flds">
+          <div class="lbl-fld-flx">
+            <label class="form-label"> Name </label>
+            <select name="studentName" [(ngModel)]="selectedStudent" (ngModelChange)="onStudentChange($event)" required #studentName="ngModel">
+                <option value="" hidden selected>-- select --</option>
+          <option *ngFor="let data of studentsData" [value]=data.name>{{data.name}}</option>
+              </select>
+        </div>
+        <div class="lbl-fld-flx">
+            <label class="form-label">Test</label>
+            <select name="testName" [(ngModel)]="selectedTest" (ngModelChange)="onTestChange($event)" required #testName="ngModel">
+              <option value="" hidden selected>-- select --</option>
+        <option *ngFor="let data of tests" [value]=data.test>{{data.test}}</option>
+            </select>
+        </div>
+        </div>
+    <div class="Submit-btn">
+        <button *ngIf="!submitClicked" [disabled]="continueForm.invalid" [ngClass]="continueForm.valid ? 'valid':''" (click)="onSubmit(continueForm)">Continue</button>
+    </div>
+    </div>
+    </form>
+</section>
+<section class="table-scn">
+    <div *ngIf="submitClicked" class="table-container">
+        <form #updateForm="ngForm" (ngSubmit)="saveChanges(updateForm)">
+        <table class="table">
+          <thead>
+            <tr>
+                <th>#</th>
+                <th>Subject</th>
+                <th>Level</th>
+                <th>Questions</th>
+                <th>Correct</th>
+                <th>Wrong</th>
+                <th>Total Marks</th>
+                <th>Accuracy (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of testDetails; let i = index">
+              <td>
+                <div class="mob-flx">
+                    <!-- <label>#</label> -->
+                <span>{{ i + 1 }}</span>
+                  </div>
+            </td>
+              <td>
+                <div class="mob-flx">
+                  <label>Subject</label>
+                  <span>{{ data.subject }}</span>
+                </div>
+              </td>
+              <td>
+                <div class="mob-flx">
+                  <label>Level</label>
+                  <span>{{ data.level }}</span>
+              </div>
+              </td>
+              <td>
+                <div class="mob-flx">
+                  <label>Questions</label>
+                  <span>{{ data.noOfQuestions }}</span>
+                </div>
+              </td>
+              <td>
+                <div class="mob-flx">
+                  <label>Correct</label>
+                  <input type="tel" (keypress)="keyPress($event)" [name]="'correct' + i" [(ngModel)]="data.correct" (ngModelChange)="calculateRightMarks(data)" required>
+                </div>
+              </td>
+              <td>
+                <div class="mob-flx">
+                  <label>Wrong</label>
+                  <input type="tel" (keypress)="keyPress($event)" [name]="'wrong' + i" [(ngModel)]="data.wrong" (ngModelChange)="calculateWrongMarks(data)" required>
+                </div>
+              </td>
+              <td>
+                <div class="mob-flx">
+                  <label>Total Marks</label>
+                  <span>{{ data.totalMarks }}</span>
+                </div>
+              </td>
+              <td>
+                <div class="mob-flx">
+                  <label>Accuracy (%)</label>
+                  <span>{{ data.accuracy }}</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div  class="modal-footer">
+            <button *ngIf="!updateClicked" type="submit" [disabled]="updateForm.invalid" [ngClass]="updateForm.valid ? 'valid':''">Update</button>
+          </div>
+        </form>
+      </div>
+</section>

@@ -1,0 +1,83 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    } @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    } @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    } @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+.frm-scn{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .wrapper{
+        width: 375px;
+        background-color: #FFF;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        padding: 2em;
+        @include screen('tablet'){
+            width: 400px;
+        }
+        @include screen('mobile'){
+            width: 90%;
+        }
+        .heading{
+            color: #003177;
+           }
+           .heading p{ 
+            color: #4C4C4C;
+            margin-bottom: 0;
+           }
+        .input-group{
+            .input-field{
+                width: 100%;
+                height: 45px;
+                border: none;
+                padding: 10px;
+                background-color: #eeeeee;
+                color: gray;
+                outline: none;
+                font-size: 15px;
+                margin-top: 20px;
+                transition: .5s;
+                border-radius: 5px;
+               }              
+               button{
+                width: 100%;
+                height: 45px;
+                border: none;
+                color: #FFF;
+                background-color: rgba(0, 49, 119, .7);
+                border-radius: 5px;
+                margin-top: 20px;
+                font-size: 17px;
+                font-weight: 500;
+                transition: 0.3s;
+               }
+               .valid{
+                background-color: #003177;
+               }
+        }
+        .error-message {
+            color: red;
+            font-size: 0.875em;
+            margin-top: 0.25em;
+          }
+       }
+   }

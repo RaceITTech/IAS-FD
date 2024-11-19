@@ -1,0 +1,189 @@
+<section class="log-in-scn">
+<div class="container">
+<div class="login-card">
+    <div class="row login-rw">
+        <div class="col-lg-8 col-md-12 col-sm-12 login-area">
+<div *ngIf="currentStep === 1" class="form-1">
+    <div>
+        <img class="ias-logo" src="./assets/Homepage/ias-blue-logo.svg" alt=""><br>
+    <span>Contact Details</span>
+    <div *ngIf="showPhoneInput" class="phone-fld">
+        <div>
+            <h3>Let’s get you started!</h3>
+        <h6>First we need your phone number</h6>
+        </div>
+        <div class="inpt-area">
+            <input class="form-control" placeholder="Mobile number" type="tel" (keypress)="keyPress($event)" minlength="10" maxlength="10" ngModel required name="phonenumber" #phonenumber="ngModel" autocomplete="off">
+            <button [disabled]="phonenumber.invalid" [ngClass]="phonenumber.valid ?'valid':''" (click)="getOtp(phonenumber)" type="button">Continue to OTP</button>
+        </div>
+    </div>
+    <div *ngIf="!showPhoneInput" class="otp-fld">
+        <div>
+            <h3>We’ve sent you an OTP</h3>
+        <h6>To your mobile number <em>+91 {{mobObj.phonenumber}}</em></h6>
+        </div>
+        <div class="inpt-area">
+            <ng-otp-input inputmode="numeric" (onInputChange)="onInputChange($event)" [config]="{length:4,allowNumbersOnly:true}"></ng-otp-input>
+            <div class="response-area">
+                <div *ngIf="otpInvalid">Invalid OTP </div>
+            </div>
+            <button [disabled]="!otpResend" [ngClass]="otpResend ? 'resend-btn':'resend-btn-invalid'" class="" (click)="resendOtp()">Didn’t receive OTP? Resend</button><br>
+            <button class="valid" (click)="verifyOtp()"> Verify OTP</button>
+        </div>
+    </div>
+</div>
+    <p>By entering the OTP and clicking continue, I confirm that I have read, understood and agree with the <a href="">Terms and Conditions</a> and <a href="">Privacy Policy</a> </p>
+</div>
+<div *ngIf="currentStep === 2" class="form-2">
+    <h4>Complete your profile & join us!</h4>
+    <form #profileForm="ngForm" (ngSubmit)="goToNextStep()">
+    <div class="inpt-flds-gd">
+        <div>
+            <label>First Name</label>
+            <input class="form-control" placeholder="Enter first name" type="text" name="firstName" [(ngModel)]="formData.firstName" required autocomplete="off">
+        </div>
+        <div>
+            <label>Last Name</label>
+            <input class="form-control" placeholder="Enter last name" type="text" name="lastName" [(ngModel)]="formData.lastName" required autocomplete="off">
+        </div>
+        <div>
+            <label>Email ID</label>
+            <input class="form-control" placeholder="Enter your email ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" type="email" name="emailId" [(ngModel)]="formData.emailId" required autocomplete="off">
+        </div>
+        <div>
+            <label>Course</label>
+            <select class="form-select" name="course" [(ngModel)]="formData.course" (change)="onCourseSelect($event)" required>
+                <option value="" hidden selected>Select your course</option>
+                <option *ngFor="let course of courseData" [value]=course.name>{{course.name}}</option>
+            </select>
+        </div>
+        <div>
+            <label>Date of Birth</label>
+            <input class="form-control" type="date" name="dob" [(ngModel)]="formData.dob" required>
+        </div>
+        <div>
+            <label>Gender</label>
+            <select class="form-select" name="gender" [(ngModel)]="formData.gender" required>
+                <option value="" hidden>Select your Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Transgender">Transgender</option>
+            </select>
+        </div>
+        <div>
+            <label>Address</label>
+            <input class="form-control" placeholder="Enter your full address" type="text" name="address" [(ngModel)]="formData.address" required autocomplete="off">
+        </div>
+        <div>
+            <label>Pin code</label>
+            <input class="form-control" placeholder="Enter your pincode" type="tel" name="pinCode" (keypress)="keyPress($event)" minlength="6" maxlength="6" [(ngModel)]="formData.pinCode" required autocomplete="off">
+        </div>
+        <div>
+            <label>State</label>
+            <select class="form-select" name="state" [(ngModel)]="formData.state" (change)="onStateChange($event)" required>
+                <option value="" hidden>Select your State</option>
+                <option *ngFor="let data of allStates" [value]="data.code">{{data.stateName}}</option>
+            </select>
+        </div>
+        <div>
+            <label>District</label>
+            <select class="form-select" name="district" [(ngModel)]="formData.district" required>
+                <option value="" hidden>Select your district</option>
+                <option *ngFor="let district of allDistricts" [value]="district">{{district}}</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit" [disabled]="profileForm.invalid" [ngClass]="profileForm.valid ? 'valid':''">Continue</button>
+</form>
+  </div>
+  <div *ngIf="currentStep === 3" class="form-3">
+<h4>Here are the details of the course !</h4>
+<h2>{{selectedCourse.name}}</h2>
+<p>{{selectedCourse.description}}</p>
+<ul>
+    <li>Course Validity: <em>{{selectedCourse.validity}}</em></li>
+    <li>Learning Format: <em>{{selectedCourse.mode}}</em></li>
+    <li>Class Session Days: <em>{{selectedCourse.sessions}}</em></li>
+    <li>Recorded Videos: <em>{{selectedCourse.videos}}</em></li>
+</ul>
+<hr>
+<div class="course-fee-flex">
+    <h6>Final Course Fee</h6>
+    <div class="course-fee-dtls">
+<div class="pri-dis"><h1>₹ {{selectedCourse.amount}}</h1><del>{{selectedCourse.discount}}% off</del></div>
+<div class="strike-pri"><del>₹ {{selectedCourse.samt}}</del><em>(Excluding GST)</em></div>
+    </div>
+</div>
+<hr>
+<div class="slot-selection">
+    <h6>Slot Booking</h6>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" [checked]="selectedPrice === 5000" (change)="onCheckboxChange(5000)">
+        <label class="form-check-label" for="slotCheckbox">₹ 5000</label>
+      </div>
+</div>
+<hr>
+<button [disabled]="!selectedPrice" [ngClass]="selectedPrice ? 'valid':''" data-bs-toggle="modal" data-bs-target="#exampleModal">Pay Now</button>
+  </div>
+
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-12" [ngClass]="currentStep===3 ? 'details-col':'img-area'">
+<div *ngIf="currentStep===3" class="personal-details">
+<h4>Personal Details</h4>
+<div class="dtls-gd">
+    <div>
+        <label>Name</label>
+        <small>{{formData.firstName+' '+formData.lastName}}</small>
+    </div>
+    <div>
+        <label>Email ID</label>
+        <small>{{formData.emailId}}</small>
+    </div>
+    <div>
+        <label>Gender</label>
+        <small>{{formData.gender}}</small>
+    </div>
+    <div>
+        <label>Date of Birth</label>
+        <small>{{formData.dob}}</small>
+    </div>
+    <div>
+        <label>Place of Residence</label>
+        <small>{{formData.address}}</small>
+    </div>
+    <div>
+        <label>Pincode</label>
+        <small>{{formData.pinCode}}</small>
+    </div>
+    <div>
+        <label>State</label>
+        <small>{{formData.state}}</small>
+    </div>
+    <div>
+        <label>District</label>
+        <small>{{formData.district}}</small>
+    </div>
+</div>
+</div>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+  
+  <!-- Modal -->
+  <div class="modal fade confirm-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+            <h5>Confirm Your Slot Booking</h5>
+            <p>You've selected to pay a token amount to book your slot for the {{selectedCourse.name}}. You’re aware that the token amount and GST charges are non-refundable. The remaining balance amount (including GST) must be paid by the specified deadline.</p>
+            <p class="mb-0">By proceeding, you confirm that you understand and agree to these terms and the Veranda IAS Terms and Conditions.</p>
+            <div class="modal-btns-flx">
+                <button data-bs-dismiss="modal">Cancel</button>
+                <button (click)="addOrder()">Confirm & Pay</button>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>

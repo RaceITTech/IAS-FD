@@ -1,0 +1,21 @@
+<div class="container-fluid" style="background: rgba(0, 49, 119, .7);">
+    <nav class="navbar navbar-expand-lg nav-head">
+      <!-- Logo -->
+      <a class="navbar-brand" href="#">
+        <img src="./assets/Homepage/ias-white-logo.png" class="h-8" alt="IAS Logo">
+      </a>
+      <!-- Navbar toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse nav-cpse" id="navbarCollapse">
+        <!-- Nav -->
+        <div class="navbar-nav nav-list-btns ms-lg-auto">
+          <!-- <a class="nav-item nav-link" routerLink="courses">Courses</a> -->
+          <a *ngFor="let link of navLinks" class="nav-item nav-link" [routerLink]="link.path">{{link.label}}</a>
+        </div>
+      </div>
+    </nav>
+
+</div>

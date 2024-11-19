@@ -1,0 +1,192 @@
+<app-marketing-nav></app-marketing-nav>
+<section class="bnr-scn">
+    <div class="container">
+<div class="row">
+    <div class="col-lg-7">
+<h1>Become a Group I Officer in the Tamil Nadu Govt. in 2024</h1>
+<h2>TNPSC Group I <br><em>Online Coaching</em></h2>
+<h3>Bilingual (தமிழ் & English)</h3>
+<p>Join our dedicated TNPSC Group 1 Online Course designed to set you on the path to success with IAS-model Group I preparation. Our expert instructors and comprehensive curriculum provide you with the strategies and knowledge you need to excel. With focused study plans, practice tests and personalized support, you'll be fully prepared to achieve your goal. Don't miss this opportunity to make your dream a reality. Enroll today and take the first step toward securing your Group I post in the Tamil Nadu Government!</p>
+    </div>
+    <div class="col-lg-5" #formarea>
+        <div class="form-card">
+            <h2>Prepare TNPSC Group I Online</h2>
+            <form #courseForm="ngForm">
+                  <div class="inpts-gd">
+                    <div>
+                      <label class="form-label">Full Name </label>
+                      <input type="text" class="form-control" placeholder="Enter your full name" name="student_Name" ngModel required>
+                    </div>
+                    <div>
+                      <label class="form-label"> Mobile Number </label>
+                      <div class="input-group">
+                        <input type="tel" class="form-control" placeholder="Enter your mobile number" name="phone_Number" maxlength="10" minlength="10" (keypress)="keyPress($event)" #phone_Number="ngModel" ngModel required autocomplete="off">
+                        <div class="input-group-append" *ngIf="otpStatus!='Verified'">
+                            <button class="form-control" [disabled]="!phone_Number.valid" [ngClass]="phone_Number.valid ? 'valid':''"  (click)="getOtp(phone_Number)">Get OTP</button>
+                        </div>
+                    </div>
+                    <div class="response-area" *ngIf="otpStatus">
+                      <div *ngIf="otpStatus=='inValid'" style="color: red;">Invalid OTP</div>
+                      <div *ngIf="otpVerified" style="color: #003177;">OTP Verified Successfully</div>
+                      <div *ngIf="otpStatus=='Sent'" style="color: #003177;">OTP Sent Successfully</div>
+                      <div *ngIf="otpStatus=='reSent'" style="color: #003177;">OTP Resent Successfully</div>
+                  </div>
+                    <div class="otp-inpt-area" *ngIf="otpStatus!='Verified' && otpStatus!=''">
+                      <ng-otp-input inputmode="numeric" (onInputChange)="onInputChange($event)" [config]="{length:4,allowNumbersOnly:true}"></ng-otp-input>
+                      <div class="otp-action-flex">
+                        <button [disabled]="!otpResend" [ngClass]="otpResend ? 'otp-action-valid':'resend-btn-invalid'" class="" (click)="resendOtp()">Resend OTP</button><br>
+                        <button class="otp-action-valid" (click)="verifyOtp()"> Verify</button>
+                      </div>
+                  </div>
+                    </div>
+                    <div>
+                      <label class="form-label">Email ID </label>
+                      <input type="email" class="form-control" placeholder="Enter your E-mail" name="email_ID" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required>
+                    </div>
+                    <div>
+                      <label class="form-label">Location</label>
+                      <input type="text" class="form-control" placeholder="Enter your Location" name="location" ngModel required>
+                  </div>
+                  <div>
+                    <label class="form-label">Questions</label>
+                    <textarea type="text" class="form-control" placeholder="Please enter your questions" name="questions" ngModel></textarea>
+                  </div>
+                  </div>
+                  <button *ngIf="!submitClicked" [disabled]="!(courseForm.valid && otpStatus=='Verified')" [ngClass]="courseForm.valid && otpStatus=='Verified' ? 'valid':''" (click)="onSubmit(courseForm)">Register Now</button>
+                  <button *ngIf="submitClicked" class="valid">Please Wait</button>
+                </form>
+                    <div class="terms-cons">By continuing & signing in, you agree to Veranda's <a routerLink="/termsofservice">Terms & Conditions</a> and <a routerLink="/privacy-policy">Privacy Policy</a></div>
+        </div>
+    </div>
+</div>
+    </div>
+</section>
+
+<section class="crs-ftrs-scn">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+               <h2>Our Course Features</h2>
+               <p>Comprehensive TNPSC Group I Online Course with engaging classes by top TNPSC faculty and online mock tests for effective revision & preparation</p>
+            </div>
+            <div class="col-lg-7">
+                <div class="crs-ftrs-gd">
+                     <div class="ftrs-content">
+                        <h3>365</h3>
+                        <div>
+                            <h4>Validity</h4>
+                            <h6>Get 365 days access to Group 1 Online Coaching Course</h6>
+                        </div>
+                     </div>
+                     <div class="ftrs-content">
+                        <h3>50</h3>
+                        <div>
+                            <h4>Mock Tests</h4>
+                            <h6>Attend online tests for Group 1 prelims - subject-wise tests, combined tests & full mock tests</h6>
+                        </div>
+                     </div>
+                     <div class="ftrs-content">
+                        <h3>500+</h3>
+                        <div>
+                            <h4>Study Hours</h4>
+                            <h6>Attend regular class session, mentorship sessions & test discussion sessions</h6>
+                        </div>
+                     </div>
+                     <div class="ftrs-content">
+                        <h3>150+</h3>
+                        <div>
+                            <h4>Mentoring Hours</h4>
+                            <h6>Get mentored by experienced and renowned TNPSC faculty & mentors</h6>
+                        </div>
+                     </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="posts-scn">
+    <div class="container">
+                <h2>Posts in the TNPSC Group 1 Exam 2024</h2>
+                <div class="post-grid">
+                    <div class="gvt-cd" *ngFor="let post of posts">
+                      <img [src]="post.imgSrc" alt="{{ post.title }}">
+                      <div>
+                        <h5>{{ post.title }}</h5>
+                        <span>{{ post.description }}</span>
+                      </div>
+                    </div>
+                  </div>    
+    </div>
+</section>
+
+<section class="tnpsc-card-scn">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 card-left">
+                <img src="../../../../assets/Marketing/tnpsc-online/tnpsc-news.webp">
+            </div>
+              <div class="col-lg-6 col-md-12 col-sm-12 card-right">
+                <h3>டிஎன்பிஎஸ்சி குரூப் 1 தேர்வு 2025 அறிவிப்பு தேதி: 01 ஏப்ரல் 2025</h3>
+                <h3>டிஎன்பிஎஸ்சி குரூப் 1 தேர்வு 2025 தேதி அறிவிப்பு: 15 ஜூன் 2025</h3>
+                <button (click)="scroll(formarea)">Get a Call Back</button>
+              </div>
+        </div>
+    </div>
+</section>
+
+<section class="infra-scn">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12">
+<h2>TNPSC Gr 1 Online Course Features</h2>
+<h5>Our TNPSC Group 1 Online Course offers comprehensive Group 1 exam coaching taught by our established TNPSC faculty and regular online circle sessions. Students can get extensive coaching for the upcoming TNPSC Group 1 Exam 2024 through Veranda IAS’ TNPSC Group 1 Online Course Programme</h5>
+<ul>
+    <li *ngFor="let data of items"><img src="./assets/Homepage/blue-tick.png">{{ data }}</li>
+  </ul>  
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 vdo-clmn">
+                <img  src="../../../../assets/Marketing/tnpsc-online/grp-1-ftrs.png" alt="TNPSC GRP 1 Features">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="beyond-scn">
+    <div class="container">
+        <h2>Proven Beyond Doubt</h2>
+        <h5>Highly effective TNPSC coaching that yields fabulous results in various TNPSC for our students. Our success rate every year in TNPSC Exams is proof for it!</h5>
+        <div class="results-gd">
+                <div class="results-cd" *ngFor="let result of results">
+                  <h4>{{ result.title }}</h4>
+                  <h3>{{ result.number }}</h3>
+                  <h5>{{ result.subtitle }}</h5>
+                  <p>{{ result.description }}</p>
+              </div>
+        </div>
+    </div>
+</section>
+
+<section class="questions-scn">
+    <div class="container">
+        <div class="qns-card">
+            <div class="inr-flw">
+                <div>
+                    <h2>Have any questions?</h2>
+                <h5>Our expert counsellors can answer all your queries over a phone call. </h5>
+                </div>
+                <div class="cta-btns">
+                    <button (click)="scroll(formarea)">Get a Call From Us</button>
+                    <a href="tel:+91 9150288819">Or Call Us <br><b>+91 91502 88819</b></a>
+                </div>
+            </div>
+            <img src="../../../../assets/Marketing/tnpsc-online/call-us.png">
+        </div>
+    </div>
+</section>
+
+<section class="cloud-scn">
+    <h2>I want to know more about the<br><b>TNPSC Gr I Revision Course</b></h2>
+        <button (click)="scroll(formarea)">Enquire Now</button>
+    </section>
+    <app-marketing-footer></app-marketing-footer>

@@ -1,0 +1,47 @@
+<app-dashboard-nav></app-dashboard-nav>
+<div class="main-content">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" [(opened)]="isSidenavOpen">
+      <mat-nav-list>
+        <a mat-list-item 
+           *ngIf="userLevel === 'admin'"
+           [ngClass]="{'active-tab': currentComponent === 'createTest'}"
+           (click)="selectComponent('createTest')">Create Test</a>
+        <a mat-list-item 
+           *ngIf="userLevel === 'admin'"
+           [ngClass]="{'active-tab': currentComponent === 'downloadTestData'}"
+           (click)="selectComponent('downloadTestData')">Download Test Data</a>
+        <a mat-list-item 
+           *ngIf="userLevel === 'admin' || userLevel === 'mentor'"
+           [ngClass]="{'active-tab': currentComponent === 'studentTestUpdate'}"
+           (click)="selectComponent('studentTestUpdate')">Student Test Update</a>
+           <a mat-list-item 
+           *ngIf="userLevel === 'admin' || userLevel === 'mentor'"
+           [ngClass]="{'active-tab': currentComponent === 'availableTests'}"
+           (click)="selectComponent('availableTests')">Available Tests</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <button (click)="toggleSidenav()" class="toggle-button">
+        <mat-icon>{{ isSidenavOpen ? 'close' : 'menu' }}</mat-icon>
+      </button>
+      <div class="contents-area">
+        <ng-container *ngIf="currentComponent === 'createTest' && userLevel === 'admin'">
+          <app-create-test></app-create-test>
+        </ng-container>
+        <ng-container *ngIf="currentComponent === 'downloadTestData' && userLevel === 'admin'">
+          <app-download-test-data></app-download-test-data>
+        </ng-container>
+        <ng-container *ngIf="currentComponent === 'studentTestUpdate' && (userLevel === 'admin' || userLevel === 'mentor')">
+          <app-student-test-update></app-student-test-update>
+        </ng-container>
+        <ng-container *ngIf="currentComponent === 'availableTests'">
+          <app-available-tests></app-available-tests>
+        </ng-container>
+        <!-- <ng-container *ngIf="currentComponent === 'students'">
+          <app-students></app-students>
+        </ng-container> -->  
+      </div>
+          </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

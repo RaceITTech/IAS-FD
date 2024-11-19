@@ -1,0 +1,326 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    }
+    @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    }
+    @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    }
+    @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+
+  h2{
+    font-size: 24px;
+    font-size: 700;
+    span{
+        font-size: 16px;
+        font-weight: 500;
+        @include screen('tablet'){
+font-size: 14px;
+        }
+    }
+    @include screen('tablet'){
+font-size: 22px;
+    }
+    @include screen('mobile'){
+font-size: 20px;
+    }
+}
+
+.sticky-container {
+    background-color:#74D6FF;
+    padding: 1.5em 2em 1.5em .8em;
+    position: fixed;
+    z-index: 9999;
+    top: 35%;
+    border-radius: 10px 0px 0px 10px;
+    right: 0px;
+    width: 25px;
+    @include screen('mobile'){
+      display: none;
+    }
+    span {
+        writing-mode: vertical-rl; 
+        color: #003177;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+  }
+
+  .webinar-scn{
+    padding: 3em 0;
+    @include screen('tablet'){
+padding: 2em 0;
+    }
+    @include screen('mobile'){
+        padding: 1.5em 0;
+    }
+    .dtls-col{
+        .type-span{
+            background: #74D6FF;
+            color: #003177;
+            border-radius: 10px;
+            padding: 5px 15px;
+            font-size: 16px;
+            font-weight: 500;
+            @include screen('mobile'){
+        margin: auto;
+        display: block;
+        width: max-content;
+            }
+            }
+            h1{
+                    color: #000000;
+                    font-size: 30px;
+                    font-weight: 700;
+                    line-height: 40px;
+                    margin: .8em 0 1em 0;
+                    @include screen('tablet'){
+                        font-size: 26px;
+                        line-height: 35px;
+                    }
+                    @include screen('mobile'){
+                        text-align: center;
+                        font-size: 24px;
+                        line-height: 30px;
+                    }
+            }
+            .webinar-dtls-card{
+                padding: 1em;
+                border-radius: 10px;
+                border: solid 2px #000000;
+                box-shadow: 10px 10px #A8E8FF;
+                .mbile-flex-resets{
+                    display: flex;
+                    align-items: center;
+                    gap: 1em;
+
+                    h2{
+                        display: none;
+                        @include screen('tablet'){
+                            display: block;
+                        }
+                        @include screen('mobile'){
+                           display: block; 
+                        }
+                    }
+                }
+                .webinar-hro-img{
+                    width: 100%;
+                    border: 2px solid #a8e8ff;
+                    border-radius: 10px;
+                    @include screen('tablet'){
+width: 30%;
+                    }
+                    @include screen('mobile'){
+        width: 40%;
+                    }
+                  }
+                  h2{
+                    color: #003177;
+                    @include screen('tablet'){
+                        display: none;
+                    }
+                    @include screen('mobile'){
+                            display: none;
+                    }
+                  }
+                  .webinar-dtls-inr-gd{
+                    display: grid;
+                    gap: .5em;
+                    margin: 1em 0 0 0;
+                    @include screen('tablet'){
+                        grid-template-columns: repeat(2,1fr);
+                    }
+                    @include screen('mobile'){
+                        grid-template-columns: repeat(2,1fr);
+                    }
+                    .inr-dlts-cd{
+                        padding: .5em 1em;
+                        border-radius: 10px;
+                        border: solid 2px #000000;
+                        display: flex;
+                        align-items: center;
+                        gap: 1em;
+                        @include screen('tablet'){
+                            justify-content: center;
+                        }
+                        @include screen('mobile'){
+                            padding: .5em;
+                        }
+                        .dtl-type-icon{
+                            width: 50px;
+                            height: 50px;
+                            margin: 0 1em;
+                            @include screen('tablet'){
+                                display: none;
+                            }
+                            @include screen('mobile'){
+                                margin: 0;
+                                width: 40px;
+                                height: 40px;
+                            }
+                        }
+                        h5{
+                            font-size: 18px;
+                            font-weight: 700;
+                            margin-bottom: 0;
+                            @include screen('tablet'){
+                                text-align: center;
+                            }
+                            @include screen('mobile'){
+font-size: 16px;
+                            }
+                            em{
+                                font-size: 16px;
+                                font-weight: 500;
+                                font-style: normal;
+                                @include screen('mobile'){
+font-size: 14px;
+                                }
+                            }
+                        }
+                      }
+                  }
+              }
+              .outcome-dtls{
+                margin-top: 2em;
+                h2{
+                    margin-bottom: 0;
+                }
+                ul{
+                    margin: 1em 0 2em 0;
+                    display: grid;
+                    gap: .5em;
+                    li{
+                        list-style-type:circle;
+                        font-size: 18px;
+                        font-weight: 600;
+                    }
+                }
+              }
+              p{
+                font-size: 18px;
+                font-weight: 600;
+                margin-bottom: 0;
+                @include screen('mobile'){
+padding: 1em;
+background: #a8e8ff;
+color: #003177;
+text-align: center;
+margin-bottom: 1.5em;
+                }
+              }
+    }
+    .form-col{
+        .form-card{
+            width: 90%;
+            margin: auto;
+            padding: 1.5em;
+            border-radius: 15px;
+            border: none;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            @include screen('mobile'){
+width: 100%;
+            }
+            h2{
+                color: #003177;
+                text-align: center;
+                margin-bottom: 0;
+            }
+            .frm-inpts-gd{
+                display: grid;
+                grid-template-columns: repeat(1,1fr);
+                gap: 1em;
+                margin-top: 1.5em;
+                label{
+                    font-size: 16px;
+                    font-weight: 500;
+                    margin-bottom: .5em;
+                }
+                .form-control , .form-select{
+                    padding: 8px 12px;
+                }
+            }
+            button{
+                width: 100%;
+                background: #336699;
+                color: #fff;
+                font-weight: 600;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                margin: 2em 0 0 0;
+            }
+            .valid{
+                background: #003177;
+            }
+            .agree-txt{
+                margin-top: 1em;
+                font-size: 16px;
+                text-align: center;
+                color: #8F9BA1;
+                @include screen('tablet'){
+font-size: 14px;
+                }
+                span{
+                    color:#2DA77D;font-weight: 500;
+                }
+                a{
+                    color: #003177;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+  }
+  .transform-scn{
+    padding: 2em 0;
+    background: #003177;
+.trsfm-hd{
+    max-width: 60%;
+    margin: auto;
+    font-size: 36px;
+    font-weight: 600;
+        color: #fff;
+        margin-bottom: 1em;
+        text-align: center;
+        @include screen('tablet'){
+max-width: 100%;
+font-size: 26px;
+        }
+        @include screen('mobile'){
+max-width: 100%;
+font-size: 24px;
+        }
+    }
+    a{
+        border: solid 2px #fff;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-decoration: none;
+        padding: 8px 40px;
+        margin: auto;
+        display: block;
+        width: max-content;
+    }
+  }
+
+ 

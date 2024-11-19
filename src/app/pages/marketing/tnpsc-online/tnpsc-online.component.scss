@@ -1,0 +1,609 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    }
+    @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    }
+    @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    }
+    @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+  h2{
+    color:#003177;
+    font-size: 32px;
+    font-weight: 700;
+    @include screen('tablet'){
+        font-size: 30px;
+    }
+    @include screen('mobile'){
+        font-size: 26px;
+    }
+  }
+  h3{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 34px;
+    @include screen('tablet'){
+        font-size: 22px;
+        line-height: 30px;
+    }
+    @include screen('mobile'){
+        font-size: 20px;
+        line-height: 28px;
+    }
+  }
+  h4{
+    font-size: 20px;
+    @include screen('tablet'){
+        font-size: 18px;
+    }
+    @include screen('mobile'){
+        font-size: 18px;
+    }
+  }
+  h5{
+    color: #000000;
+    font-size: 18px;
+    line-height: 26px; 
+    font-weight: 400;
+}
+h6{
+    font-size: 16px; 
+}
+  p{
+    font-size: 16px;
+  }
+
+  .form-control:focus, .form-select:focus {
+    box-shadow: none;
+  }
+
+  .bnr-scn{
+    padding: 2em 0;
+    background-image: url(../../../../assets/Marketing/tnpsc-online/tnpsc-bnr-dsk.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    @include screen('tablet'){
+        background-image: url(../../../../assets/Marketing/tnpsc-online/tnpsc-bnr-mob.png);
+        background-position: top;
+    }
+    @include screen('mobile'){
+        background-image: linear-gradient(to bottom, #ffffff, #eeedfa, #dadcf5, #c5cbf1, #acbced, #97abe1, #839bd4, #6d8bc8, #5b76b1, #49629a, #374e84, #253b6f);    }
+    h1{
+        color: #003177;
+        font-weight: 700;
+        margin-bottom: 1em;
+        @include screen('mobile'){
+            margin-bottom: .5em;
+        }
+    }
+    h2{
+        color: #003177;
+        font-size: 40px;
+        line-height: 60px;
+        @include screen('mobile'){
+            font-size: 36px;
+        }
+        em{
+            color: #fff;
+            background: #003177;
+            font-size: 36px;
+            padding: 5px 10px;
+            @include screen('mobile'){
+            font-size: 32px;
+            }
+        } 
+    }
+    h3{
+        color: #003177;
+        text-shadow: 2px 2px 4px #fff;
+    }
+    p{
+        color: #fff;
+        max-width: 75%;
+        text-shadow: 2px 2px 4px #fff;
+        margin-top: 12em;
+        @include screen('tablet'){
+            color: #000;
+            margin: 2em 0;
+            max-width: 100%;
+        }
+        @include screen('mobile'){
+            color: #000;
+            font-weight: 500;
+            margin-top: 2em;
+            max-width: 100%;
+        }
+    }
+    .form-card{
+        width: 90%;
+        background: #fff;
+        padding: 2em;
+        box-shadow: 0 4px 30px #0000001a;
+        border-radius: 25px;
+        margin-left: auto;
+        @include screen('tablet'){
+            width: 60%;
+            margin: auto;
+        }
+        @include screen('mobile'){
+            width: 100%;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        h2{
+            color:#003177;
+            font-size: 22px;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 1em;
+            @include screen('mobile'){
+                font-size: 20px;
+            }
+        }
+        .inpts-gd{
+            display: grid;
+            gap: 1em;
+            margin: 1em auto 1.5em auto;
+            .form-label{
+                color: #212529;
+                font-weight: 400;
+                span{
+                    color: red;
+                }
+                }
+                .input-group{
+                    align-items: center;
+                    .input-group-append{
+                        button{
+                            border-left: none;
+                            border: solid 1px #dee2e6;
+                            border-radius: 0 5px 5px 0;
+                        }
+                    }
+                }
+                .response-area{
+                    margin-top: .5em;
+                    text-align: center;
+                }
+                .otp-inpt-area{
+                    display: grid;
+                    justify-content: center;
+                    gap: .5em;
+                    margin-top: 1em;
+                    .otp-action-flex{
+                        display: flex;
+                        justify-content: center;
+                        gap: 1em;
+                        button{
+                            width: max-content;
+                            padding: 0;
+                            background: none;
+                            color: #29363f;
+                        }
+                        .otp-action-valid{
+                            color: #003177;
+                        }
+                        
+                    }
+                }
+        }
+        button{
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            padding: 6px 30px;
+            background: #d2d2d2;
+            color: #29363f;
+        }
+        .valid{
+            background: #003177;
+            color: #fff;
+        }
+        .terms-cons{
+            font-size: 14px;
+            text-align: center;
+            margin-top: 1em;
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+  .crs-ftrs-scn{
+    padding: 3em 0;
+    @include screen('tablet'){
+        padding: 2em 0;
+    }
+    @include screen('mobile'){
+     padding: 1.5em 0;   
+    }
+    h2{
+        margin-bottom: .8em;
+        @include screen('mobile'){
+            margin-bottom: .5em;
+        }
+    }
+    p{
+        color: #90989E;
+    }
+    .crs-ftrs-gd{
+        background-color: #FFF1F2;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap:2em;
+        padding: 1.5em;
+        border-radius: 15px;
+        @include screen('mobile') {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 25px;
+        }
+        .ftrs-content{
+            display: flex;
+            gap: 20px;
+            h3{
+                color: #213A72;
+                font-weight: 700;
+               }
+               h4{
+                color: #71717B;
+                margin-bottom: .5em;
+               }
+               h6{
+                color: #989AA0;
+                font-weight: 400;
+                margin-bottom: 0;
+               }
+         }
+       }      
+   }
+
+  .posts-scn{
+    padding: 3em 0;
+    @include screen('tablet'){
+        padding: 2em 0;
+    }
+    @include screen('mobile'){
+     padding: 1.5em 0;   
+    }
+    h2{
+        text-align: center;
+    }
+    .post-grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5em;
+        margin-top: 2em;
+        @include screen('tablet'){
+            grid-template-columns: repeat(2,1fr);
+        }
+        @include screen('mobile'){
+         grid-template-columns: repeat(1,1fr);
+         gap: 1em; 
+        }
+        .gvt-cd{
+            display: flex;
+            gap: 1em;
+            align-items: center;
+            border: 1px solid #E9EEF2;
+            padding: .8em;
+            border-radius: 5px;
+            h5{
+                color: #000;
+                font-weight: 600;
+                margin-bottom: .3em;
+            }
+            span{
+                color: #3C4852;
+                font-size: 14px;
+                font-weight: 400;
+                margin-bottom: 0;
+            }
+        }
+    }
+       
+        
+    }
+
+  .tnpsc-card-scn{
+    background-image: url(../../../../assets/Marketing/tnpsc-online/news-bnr.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 2em 0;
+    @include screen('tablet'){
+         background-position: center;   
+    }
+    .card-left{
+        img{
+            width: 75%;
+            margin: auto;
+            display: block;
+            @include screen('tablet'){
+            width: 50%;
+            }
+        }
+    }
+.card-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    @include screen('tablet'){
+        gap: 1.5em;    
+    }
+    @include screen('mobile'){
+        gap: 1em;
+        margin-top: 1em;
+    }
+    h3{
+        color: #fff;
+        line-height: 30px;
+        font-weight: 600;
+        margin-bottom: 0;
+        @include screen('tablet'){
+            margin-top: 1em;
+            text-align: center;
+        }
+        @include screen('mobile'){
+          text-align: center;
+        }
+    }
+      button{
+        background: #fff;
+        color: #003177;
+        font-size: 16px;
+        font-weight: 500;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 40px;
+        width: max-content;
+        display: block;
+        @include screen('tablet'){
+            margin: auto;
+        }
+        @include screen('mobile'){
+          margin: auto;
+        }
+    }
+}
+}
+
+  .infra-scn{
+    padding: 3em 0;
+    @include screen('tablet'){
+        padding: 2em 0;
+    }
+    @include screen('mobile'){
+     padding: 1.5em 0;   
+    }
+    h2{
+        margin-bottom: .8em;
+        @include screen('tablet'){
+            text-align: center;
+        margin-bottom: .5em;
+        }
+        @include screen('mobile'){
+        margin-bottom: .5em;
+        }
+    }
+    h5{
+        margin-bottom: 0;
+        @include screen('tablet'){
+            max-width: 90%;
+            margin: auto;
+        text-align: center;
+        }
+        @include screen('mobile'){
+        text-align: justify;
+        }
+    }
+    ul{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 1em;
+        padding-left: 0;
+        margin: 1.5em 0 0 0;
+        @include screen('tablet'){
+        margin-bottom: 2em;
+        }
+        @include screen('mobile'){
+            grid-template-columns: repeat(1,1fr);
+        margin: 1.5em 0;
+        }
+        li{
+            color:#000000;
+            display: flex;
+            gap: 1em;
+            align-items: center;
+        }
+    }
+    .vdo-clmn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 95%;
+            border-radius: 25px;
+            @include screen('tablet'){
+    display: none;
+            }
+            @include screen('mobile'){
+display: none;
+            }
+          }
+      }
+  }
+
+  .beyond-scn{
+    background:#FFF1F2;
+    padding: 3em 0;
+    @include screen('tablet'){
+        padding: 2em 0;
+    }
+    @include screen('mobile'){
+     padding: 1.5em 0;   
+    }
+    h2{
+        text-align: center;
+    }
+    h5{
+        max-width: 75%;
+        margin: auto;
+        text-align: center;
+    }
+    .results-gd{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 3em;
+        margin-top: 2em;
+        @include screen('tablet'){
+            grid-template-columns: repeat(2,1fr);
+            gap: 2em;
+        }
+        @include screen('mobile'){
+            grid-template-columns: repeat(1,1fr);
+            gap: 1.5em;
+            margin-top: 1.5em;
+        }
+        .results-cd{
+            background: #fff;
+            border-radius: 15px;
+            padding: 1.5em 1em;
+            text-align: center;
+            h4{
+                color: #213A72;
+                border: solid 1px #FFCCD4;
+                border-radius: 50px;
+                padding: 5px 20px;
+                width: max-content;
+                margin: auto;
+            }
+            h3{
+                font-weight: 700;
+                margin-top: .8em;
+            }
+            h5{
+                color:#213A72;
+                background:#DEEBFC;
+                border-radius: 5px;
+                padding: 5px 15px;
+                margin:1em auto auto auto;
+                width: max-content;  
+            }
+            p{
+                color:#000000;
+                margin: 1em 0 0 0;
+            }
+        }
+    }
+  }
+
+  .questions-scn{
+    padding: 3em 0;
+    @include screen('tablet'){
+        padding: 2em 0;
+    }
+    @include screen('mobile'){
+     padding: 1.5em 0;   
+    }
+    .qns-card{
+        background: #FFF;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 10px;
+        padding: 2em;
+        display: flex;
+        justify-content: space-between;
+@include screen('mobile'){
+    display: block;
+    padding: 1.5em 1.5em 0 1.5em;
+}
+.inr-flw{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include screen('mobile'){
+            gap: 2em;
+            margin-bottom: 2em;
+    }
+    h2{
+        margin-bottom: .3em;
+    }
+    .cta-btns{
+        display: flex;
+        gap: 1em;
+        button{
+            background: #213A72;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 25px;
+            @include screen('mobile'){
+            padding: 5px 15px;
+            }
+        }
+        a{
+            font-size: 14px;
+text-decoration: none;
+color: #7A8CA3;
+border-left: solid 1.5px rgba(155, 155, 155, 0.65);
+padding-left: 20px;
+b{
+color: #E31318;
+font-size: 16px;
+}
+        }
+    }
+}
+img{
+    @include screen('tablet'){
+         width: 40%;   
+    }
+}
+    }
+  }
+
+  .cloud-scn{
+    background-image:url(../../../../assets/Marketing/tnpsc-online/tnpsc-enq.png);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding:3em 0;
+    h2{
+        color:#3C4852;;
+        text-align: center;
+        line-height: 40px;
+        @include screen('mobile'){
+            font-size: 24px;
+            line-height: 30px;
+        }
+    }
+    button{
+        background: #213A72;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 40px;
+        margin:2em auto 20em auto;
+        display: block;
+        @include screen('mobile'){
+            margin: 2em auto 15em auto;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+:host {
+  display: block;
+  height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 64px); /* Adjust based on header height */
+}
+
+.sidenav-wrapper {
+  display: flex;
+  align-items: flex-start; /* Aligns button and sidenav at the top */
+}
+
+.close-button {
+  margin-right: 8px; /* Space between button and sidenav */
+  margin-top: 8px; /* Optional: add space from the top */
+  z-index: 1; /* Ensure button stays above sidenav when overlaying */
+}
+
+mat-sidenav-container {
+  flex: 1;
+}
+
+mat-sidenav {
+  width: 250px;
+}
+
+mat-nav-list {
+  padding: 0;
+}
+
+.mat-list-item {
+  color: #000; /* Default text color */
+  background-color: transparent; /* No background */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  border-radius: 4px; /* Optional: Rounded corners */
+}
+
+.active-tab {
+  background-color: rgba(0, 49, 119, 0.7); /* Primary color background */
+  color: #fff !important; /* White text for active tab */
+  font-weight: bold;
+}
+
+.mat-list-item:hover {
+  background-color: #e3f2fd; /* Lighter shade of primary color */
+}
+
+.toggle-button {
+  background-color: transparent;
+  border: none;
+  color: #333; /* Icon color */
+  font-size: 24px; /* Size of the icon */
+  cursor: pointer; /* Shows pointer cursor on hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+  padding: 0 5px;
+  &:hover {
+    background-color: rgba(0, 49, 119, 0.1);
+    color: #00417d; /* Change color on hover */
+  }
+  &:focus {
+    outline: none; /* Remove default focus outline */
+  }
+}
+
+.contents-area{
+  padding: 16px;
+}
+

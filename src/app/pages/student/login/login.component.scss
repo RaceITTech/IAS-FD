@@ -1,0 +1,114 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    } @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    } @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    } @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+  
+.login-scn{
+height: 100vh;
+display: flex;
+align-items: center;
+    .login-cd{
+        border-radius: 25px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        .cd-rw{
+            padding: 1em;
+            .img-clmn{
+                .left-img{
+                    width: 75%;
+                    margin: auto;
+                    display: block;
+                }
+            }
+            .form-clmn{
+                .right-img{
+                    margin: auto;
+                    display: block;
+                }
+                h1{
+                    text-align: center;
+                    font-weight: 700;
+                    color: #003177;
+                }
+                .inpts-gd{
+                    display: grid;
+                    gap: 1em;
+                    margin: 1.5em auto;
+                    .form-label{
+                        color: #212529;
+                        font-weight: 500;
+                        span{
+                            color: red;
+                        }
+                        }
+                        .form-select:focus{
+                            box-shadow: none;
+                        }
+                        .input-group{
+                            align-items: center;
+                            .input-group-append{
+                                button{
+                                    border-left: none;
+                                    border: solid 1px #dee2e6;
+                                    border-radius: 0 5px 5px 0;
+                                }
+                            }
+                        }
+                        .response-area{
+                            margin-top: .5em;
+                            text-align: center;
+                        }
+                        .otp-inpt-area{
+                            display: grid;
+                            justify-content: center;
+                            gap: .5em;
+                            margin-top: 1em;
+                            .otp-action-flex{
+                                display: flex;
+                                justify-content: center;
+                                gap: 1em;
+                                button{
+                                    width: max-content;
+                                    padding: 0;
+                                    background: none;
+                                    color: #29363f;
+                                }
+                                .otp-action-valid{
+                                    color: #003177;
+                                }
+                                
+                            }
+                        }
+                }
+                button{
+                    width: 100%;
+                    border: none;
+                    border-radius: 5px;
+                    padding: 6px 30px;
+                    background-color: rgba(0, 49, 119, .7);
+                    color: #fff;
+                }
+                .valid{
+                    background-color: #003177;
+                }
+            }
+        }
+    }
+}

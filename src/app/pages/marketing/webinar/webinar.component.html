@@ -1,0 +1,92 @@
+<!-- sticky button  -->
+<div class="sticky-container">
+      <a href="tel:+919150288819"><span>CALL NOW</span></a>
+</div>
+  <!-- sticky button end  -->
+<app-navbar></app-navbar>
+<section class="webinar-scn">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 dtls-col">
+      <span class="type-span">Live Webinar</span>
+      <h1>When to Start TNPSC Group-1 Preparation?</h1>
+      <div class="webinar-dtls-card">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 col-sm-12 mbile-flex-resets">
+      <img class="webinar-hro-img" src="./assets/Marketing/webinar/Sengottaiyan.png" >
+      <h2>Mr. Sengottaiyan <br><span>TNPSC Faculty and Mentor, Veranda IAS</span></h2>
+            </div>
+            <div class="col-lg-7 col-md-12 col-sm-12">
+      <h2>Mr. Sengottaiyan <br><span>TNPSC Faculty and Mentor, Veranda IAS</span></h2>
+      <div class="webinar-dtls-inr-gd">
+      <div class="inr-dlts-cd">
+            <img class="dtl-type-icon" src="./assets/Marketing/webinar/Calendar.png">
+            <h5>Date <br><em>23-11-2024</em></h5>
+      </div>
+      <div class="inr-dlts-cd">
+            <img class="dtl-type-icon" src="./assets/Marketing/webinar/Clock.png">
+            <h5>Time <br><em>6 PM</em> - <em>7 PM</em></h5>
+      </div>
+      </div>
+            </div>
+        </div>
+      </div>
+      <div class="outcome-dtls">
+        <h2>Outcomes of the webinar:</h2>
+      <ul>
+        <li>Exam-oriented study approach</li>
+      <li>TNPSC Group1 Preparation Tips</li>
+      <li>Strategies to clear Group 1 exam</li>
+      </ul>
+      </div>
+      <p>Have your questions ready! Mr. Sengottaiyan TNPSC Faculty and Mentor, Veranda IAS will be responding to all your queries.</p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 form-col">
+                <div class="form-card">
+                    <h2>Register Now to Attend</h2>
+                    <form #webform="ngForm">
+<div class="frm-inpts-gd">
+    <div>
+        <label>Participant Name</label>
+    <input class="form-control" type="text" placeholder="Enter your full name" name="studentName" ngModel required>
+    </div>
+    <div>
+        <label>Phone Number</label>
+    <input class="form-control" type="tel" placeholder="Enter your phone number" name="phoneNumber" (keypress)="keyPress($event)" maxlength="10" minlength="10" ngModel required >
+    </div>
+    <div>
+        <label>Email ID</label>
+    <input class="form-control" type="email" placeholder="Enter your email ID" name="emailID"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required >
+    </div>
+    <div>
+        <label>State / Union Territory</label>
+    <select class="form-select" name="state" (ngModelChange)="onStateChange($event)" ngModel required>
+      <option value="" hidden>-- select state / union Territory --</option>
+      <option (click)="onStateChange(statename)" *ngFor="let statename of states" [value]="statename">{{ statename }}</option>
+    </select>
+    </div>
+    <div>
+        <label>District</label>
+    <select class="form-select" name="district" [(ngModel)]="selectedDistrict" required>
+      <option value="" hidden>-- select District --</option>
+                    <option *ngFor="let districtname of districtList" [value]="districtname">{{ districtname }}</option>
+    </select>
+    </div>
+</div> 
+                    <button *ngIf="!submitClicked" [disabled]="webform.invalid"[ngClass]="webform.valid ? 'valid' : '' "  (click)="newZohoApi(webform)"> REGISTER NOW </button>
+                    <button *ngIf="submitClicked" class="valid" > Please Wait... </button>
+                    <div class="agree-txt">By continuing, you agree to <span>Veranda</span>'s <a routerLink="/termsofservice"><em>terms and conditions</em></a> & <a routerLink="/privacy-policy"><em>privacy policy</em></a></div>
+                    </form>
+                    </div>
+            </div>
+        </div>
+      </div>
+</section>
+<section class="transform-scn">
+    <div class="container">
+        <div class="trsfm-hd">Ready to transform how you
+            prepare for UPSC CSE prelims?</div>
+            <a href="tel:+919150288819">CALL NOW</a>
+    </div>
+</section>
+<app-marketing-footer></app-marketing-footer>
