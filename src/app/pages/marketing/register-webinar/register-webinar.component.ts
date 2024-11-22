@@ -28,10 +28,10 @@ export class RegisterWebinarComponent {
       "phonenumber":data.value.phoneNumber,
       "url": window.location.href
     }
-    this.http.post("https://backend.raceinstitute.in/veranda/getiasDemoclass",obj).subscribe((data:any)=>{
+    this.http.post("https://backend.verandarace.com/veranda/getiasDemoclass",obj).subscribe((data:any)=>{
       debugger
       if(data.success==true){
-        window.location.href="https://zoom.us/j/99759970716?pwd=1sWnZjMpPUzzISaoVgldDdO5Z1apST.1"
+        window.location.href="https://zoom.us/j/96858326310?pwd=A0k7UCakVVnr9WXCJ0IDQfYRNYgayq.1"
       }
     })
   }
