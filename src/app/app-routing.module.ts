@@ -31,7 +31,8 @@ const routes: Routes = [
   { path: 'online-ias-coaching', loadChildren: () => import('./pages/marketing/ias-weekend-evening-lp/ias-weekend-evening-lp.module').then(m => m.IasWeekendEveningLpModule) },
   { path: 'online-ips-coaching', loadChildren: () => import('./pages/marketing/ips-weekend-evening-lp/ips-weekend-evening-lp.module').then(m => m.IpsWeekendEveningLpModule) },
   // { path: 'students', loadChildren: () => import('./pages/student/student.module').then(m => m.StudentModule) },
-  { path: 'tnpsc-online-coaching', loadChildren: () => import('./pages/product/tnpsc-online-coaching/tnpsc-online-coaching.module').then(m => m.TnpscOnlineCoachingModule) }
+  { path: 'tnpsc-online-coaching', loadChildren: () => import('./pages/product/tnpsc-online-coaching/tnpsc-online-coaching.module').then(m => m.TnpscOnlineCoachingModule) },
+  { path: 'upsc-residential-programme', loadChildren: () => import('./pages/marketing/upsc-residential-programme/upsc-residential-programme.module').then(m => m.UpscResidentialProgrammeModule) }
 ];
 
 @NgModule({

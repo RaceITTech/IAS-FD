@@ -1,0 +1,270 @@
+<app-marketing-nav></app-marketing-nav>
+<section class="upsc-res-bnr-scn">
+<div class="container">
+    <div class="row">
+      <div class="col-lg-7 col-md-6 col-sm-12">
+        <img src="../../../../assets/Marketing/upsc-res-pro-lp/b-cam-lg.png">
+                <h1>India’s First Holistic  Residential Programme </h1>
+                <h5>Discover the power of transformative learning for IAS/IPS exam and unlock your path to success with Veranda IAS, leading the way in shaping future bureaucrats.</h5>
+      </div>
+      <div class="col-lg-5 col-md-6 col-sm-12 form-col">
+        <div class="form-card">
+          <h2>Register to get Course Details</h2>
+          <form #courseForm="ngForm">
+                <div class="inpts-gd">
+                  <div>
+                    <label class="form-label">Full Name </label>
+                    <input type="text" class="form-control" placeholder="Enter your full name" name="student_Name" ngModel required>
+                  </div>
+                  <div>
+                    <label class="form-label"> Mobile Number </label>
+                    <div class="input-group">
+                      <input type="tel" class="form-control" placeholder="Enter your mobile number" name="phone_Number" maxlength="10" minlength="10" (keypress)="keyPress($event)" #phone_Number="ngModel" ngModel required autocomplete="off">
+                      <div class="input-group-append" *ngIf="otpStatus!='Verified'">
+                          <button class="form-control" [disabled]="!phone_Number.valid" [ngClass]="phone_Number.valid ? 'valid':''"  (click)="getOtp(phone_Number)">Get OTP</button>
+                      </div>
+                  </div>
+                  <div class="response-area" *ngIf="otpStatus">
+                    <div *ngIf="otpStatus=='inValid'" style="color: red;">Invalid OTP</div>
+                    <div *ngIf="otpVerified" style="color: #003177;">OTP Verified Successfully</div>
+                    <div *ngIf="otpStatus=='Sent'" style="color: #003177;">OTP Sent Successfully</div>
+                    <div *ngIf="otpStatus=='reSent'" style="color: #003177;">OTP Resent Successfully</div>
+                </div>
+                  <div class="otp-inpt-area" *ngIf="otpStatus!='Verified' && otpStatus!=''">
+                    <ng-otp-input inputmode="numeric" (onInputChange)="onInputChange($event)" [config]="{length:4,allowNumbersOnly:true}"></ng-otp-input>
+                    <div class="otp-action-flex">
+                      <button [disabled]="!otpResend" [ngClass]="otpResend ? 'otp-action-valid':'resend-btn-invalid'" class="" (click)="resendOtp()">Resend OTP</button><br>
+                      <button class="otp-action-valid" (click)="verifyOtp()"> Verify</button>
+                    </div>
+                </div>
+                  </div>
+                  <div>
+                    <label class="form-label">Email ID </label>
+                    <input type="email" class="form-control" placeholder="Enter your E-mail" name="email_ID" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required>
+                  </div>
+                  <!-- <div>
+                    <label class="form-label">Batch</label>
+                    <select class="form-select" name="batch" ngModel required>
+                        <option value="" hidden>-- select batch--</option>
+                        <option value="Evening Online">Evening Online</option>
+                        <option value="Weekend Online">Weekend Online</option>
+                    </select>
+                </div> -->
+                  <div>
+                    <label class="form-label">State</label>
+                    <select class="form-select" (ngModelChange)="onStateChange($event)" name="state" ngModel required>
+                        <option value="" hidden>-- select state / union Territory --</option>
+                        <option (click)="onStateChange(statename)" *ngFor="let statename of states" [value]="statename">{{ statename }}</option>
+                    </select>
+                </div>
+                <div>
+                  <label class="form-label">District</label>
+                    <select class="form-select" name="district" ngModel required>
+                        <option value="" hidden>-- select District --</option>
+                        <option *ngFor="let districtname of districtList" [value]="districtname">{{ districtname }}</option>
+                       </select>
+                </div>
+                <!-- <div>
+                  <label class="form-label">Questions</label>
+                  <textarea type="text" class="form-control" placeholder="Please enter your questions" name="questions" ngModel></textarea>
+                </div> -->
+                </div>
+                <button *ngIf="!submitClicked" [disabled]="!(courseForm.valid && otpStatus=='Verified')" [ngClass]="courseForm.valid && otpStatus=='Verified' ? 'valid':''" (click)="onSubmit(courseForm)">Register Now</button>
+                <button *ngIf="submitClicked" class="valid">Please Wait</button>
+              </form>
+                  <div class="terms-cons">By continuing & signing in, you agree to Veranda's <a routerLink="/termsofservice">Terms & Conditions</a> and <a routerLink="/privacy-policy">Privacy Policy</a></div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="des-cd-scn">
+    <div class="container">
+        <h4>At Veranda IAS, we operate on a simple philosophy — stellar UPSC coaching in a distraction-free focused learning environment. Whether you're coming from a rural far-off village or a bustling metropolitan city, we consider this an opportunity — to nurture your learning skills, develop peer learning and extend support to help you crack India's toughest government competitive exam, UPSC CSE.</h4>
+    </div>
+</section>
+<section class="typical-scn">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 fst-clmn">
+                <div class="into-flx">
+                    <h3>What do we do at</h3>
+                    <h2>Veranda IAS</h2>
+                    <h3>that typical institutes don’t</h3>
+                    <h5>(and perhaps can’t)</h5>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="typical-gd">
+                    <div class="typical-cd" *ngFor="let data of typicaldata">
+                        <img src="{{data.imagePath}}">
+                        <h6>{{data.title}}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="cch-scn">
+    <div class="container">
+        <h2>Pronounced focus on focused holistic UPSC coaching </h2>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="misn-cd">
+                    <img src="../../assets/Marketing/upsc-res-pro-lp/sagayam-img.webp" alt="">
+                    <div>
+                        <h4>“I am immensely pleased to be part of this unique and novel holistic residential programme. It is a first of its kind in the nation & I genuinely hope & truly believe that the students who are here will utilise the opportunity to the best of their advantage. I hope they set clear goals, plan meticulously, work hard, strain every nerve & crack the UPSC CSE.”</h4>
+                        <h5>Sagayam IAS (VR)</h5>
+                        <h6>Chief Mentor of Veranda IAS</h6>
+                    </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="misn-cd">
+                    <img src="../../../assets/Marketing/upsc-res-pro-lp/bharath-img.webp" alt="">
+                    <div>
+                        <h4>“Today, it's possible for the daughter of a farmer in a remote village or a student studying in less renowned colleges in obscure towns to master the intricacies of preparing the subjects for UPSC exams. There are brilliant minds scattered throughout India, waiting to be nurtured, so that they can contribute meaningfully to our nation's governance and progress as a bureaucrat.”</h4>
+                        <h5>Bharat Seeman</h5>
+                        <h6>CEO of Veranda IAS</h6>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</section>
+<section class="iop-scn">
+    <div class="container">
+        <h2>Residential Programme Features</h2>
+                <div class="row iop-rw">
+                    <div class="col-lg-4 gp-rsts">
+                           <div class="ftrs-pt">
+                                <img src="assets/Marketing/upsc-res-pro-lp/rec-classes.webp">
+                             <div>
+                                <h4>650+ hours </h4>
+                                <p>Preparation Time</p>
+                             </div>
+                           </div>
+                           <div class="ftrs-pt">
+                                <img src="assets/Marketing/upsc-res-pro-lp/pre-mains.webp">
+                             <div>
+                                <h4>1,000+</h4>
+                                <p>Mock Test</p>
+                             </div>
+                           </div>
+                    </div>
+                    <div class="col-lg-4 sliders">
+                          <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-interval="2000">
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img class="cntr-rw-img" src="assets/Marketing/upsc-res-pro-lp/cr-img-1.webp">
+                              </div>
+                              <div class="carousel-item">
+                                <img class="cntr-rw-img" src="assets/Marketing/upsc-res-pro-lp/cr-img-2.webp">
+                              </div>
+                              <div class="carousel-item">
+                                <img class="cntr-rw-img" src="assets/Marketing/upsc-res-pro-lp/cr-img-3.webp">
+                              </div>
+                              <div class="carousel-item">
+                                <img class="cntr-rw-img" src="assets/Marketing/upsc-res-pro-lp/cr-img-4.webp">
+                              </div>
+                              <div class="carousel-item">
+                                <img class="cntr-rw-img" src="assets/Marketing/upsc-res-pro-lp/cr-img-5.webp">
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-lg-4 gp-rsts">
+                        <div class="ftrs-pt">
+                            <img src="assets/Marketing/upsc-res-pro-lp/study-mat.webp">
+                          <div>
+                             <h4>650+ Hours</h4>
+                             <p>Mentorship Classes</p>
+                          </div>
+                        </div>
+                        <div class="ftrs-pt">
+                             <img src="assets/Marketing/upsc-res-pro-lp/1-1.webp">
+                          <div>
+                             <h4>1-on-1</h4>
+                             <p>Mentor Sessions</p>
+                          </div>
+                        </div>
+                 </div>
+                </div>
+            </div>    
+</section>
+<section class="facility-scn">
+    <div class="container">
+        <h2>Facilities @ Brindhavan Campus</h2>
+        <div class="fac-gd">
+            <div class="fac-cd" *ngFor="let facility of libraryFacilities">
+                <div class="img-hd-flx">
+                    <img [src]="facility.imagePath">
+                    <h3>{{ facility.title }}</h3>
+                </div>
+                    <p *ngFor="let point of facility.points">{{ point }}</p>
+            </div>
+        </div>
+        <div class="fac-crsl-mob">
+            <div id="facilityCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item" *ngFor="let facility of libraryFacilities; let i = index"
+                        [class.active]="i === 0">
+                        <div class="fac-cd">
+                            <div>
+                                <img [src]="facility.imagePath" alt="Facility Image">
+                                <h3>{{ facility.title }}</h3>
+                            </div>
+                                <p *ngFor="let point of facility.points" class="list-group-item">{{ point }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="smtrs-section">
+    <div class="container">
+        <h2>Veranda IAS’ Star Mentors</h2>
+        <h5>As a part of Veranda IAS’ UPSC residential courses, get expert guidance from our star mentors with over 10+ years of experience in UPSC exams</h5>
+        <div class="smtrs-grid">
+ <div class="smtrs-cds">
+    <img src="assets/Marketing/upsc-res-pro-lp/Ilanchezian.webp">
+    <div>
+        <h3>Mr. Ilanchezhian</h3>
+        <p>Geography</p>
+    </div>
+ </div>
+ <div class="smtrs-cds">
+    <img src="assets/Marketing/upsc-res-pro-lp/Sagayam.webp">
+    <div>
+        <h3>Mr. U. Sagayam IAS (VR)</h3>
+        <p>Ethics, Integrity & Aptitude</p>
+    </div>
+ </div>
+ <div class="smtrs-cds">
+    <img src="assets/Marketing/upsc-res-pro-lp/Priya-krishnan.webp">
+    <div>
+        <h3>Mrs. Priya Krishnan</h3>
+        <p>Essay Writing</p>
+    </div>
+ </div>
+ <div class="smtrs-cds">
+    <img src="assets/Marketing/upsc-res-pro-lp/Sivaraj.webp">
+    <div>
+        <h3>Mr. M. Sivaraj</h3>
+        <p>CSAT</p>
+    </div>
+ </div>
+ <div class="smtrs-cds">
+    <img src="assets/Marketing/upsc-res-pro-lp/Idris.webp">
+    <div>
+        <h3>Mr. M.S. Idris</h3>
+        <p>Indian Polity</p>
+    </div>
+ </div>
+        </div>
+        </div>
+ </section>
+ <app-marketing-footer></app-marketing-footer>

@@ -1,0 +1,546 @@
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    }
+    @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    }
+    @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    }
+    @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+
+  h2{
+    color:#003177;
+    font-size: 32px;
+    font-weight: 700;
+    @include screen('tablet'){
+        font-size: 30px;
+    }
+    @include screen('mobile'){
+        font-size: 26px;
+    }
+  }
+  h3{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 34px;
+    @include screen('tablet'){
+        font-size: 22px;
+        line-height: 30px;
+    }
+    @include screen('mobile'){
+        font-size: 20px;
+        line-height: 28px;
+    }
+  }
+  h4{
+    font-size: 20px;
+    @include screen('tablet'){
+        font-size: 18px;
+    }
+    @include screen('mobile'){
+        font-size: 18px;
+    }
+  }
+  h5{
+    color: #000000;
+    font-size: 18px;
+    line-height: 26px; 
+    font-weight: 400;
+}
+h6{
+    font-size: 16px; 
+}
+  p{
+    font-size: 16px;
+  }
+
+  .form-control:focus, .form-select:focus {
+    box-shadow: none;
+  }
+
+  .upsc-res-bnr-scn{
+    position: relative;
+    padding: 3em 0;
+    background-image: url('../../../../assets/Marketing/upsc-res-pro-lp/campus-ilstn.webp');
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+        @include screen('tablet'){
+        padding: 2em 0;
+}
+    @include screen('mobile'){
+            padding: 2em 0;
+            background-position: left;
+    }
+    img{
+        width: 50%;
+        @include screen('mobile'){
+            width: 75%;
+            margin: auto;
+            display: block;
+        }
+    }
+    h1 {
+        color: 
+        #231F40;
+        font-size: 52px;
+        font-weight: 700;
+        line-height: 60px;
+        max-width: 100%;
+        margin: .8em 0;
+        font-family: Playfair Display;
+        @include screen('mobile'){
+            text-align: center;
+            font-size: 32px;
+            line-height: 40px;
+            margin: .5em 0;
+        }
+    }
+    h5 {
+        font-weight: 600;
+        font-family: IBM Plex Sans;
+        max-width: 75%;
+        margin-bottom: 0;
+        @include screen('mobile'){
+            max-width: 100%;
+            margin-bottom: 1.5em;
+        }
+    }
+                .form-col{
+                    display: flex;
+                    align-items: center;
+                    justify-content: end;
+                    .form-card{
+                        background-image: linear-gradient(to right bottom, rgba(252, 252, 252, 0.5), rgba(253, 253, 253, 0.5), rgba(253, 253, 253, 0.5), rgba(254, 254, 254, 0.5), rgba(254, 254, 254, 0.5), rgba(254, 254, 254, 0.5), rgba(254, 254, 254, 0.5), rgba(254, 254, 254, 0.5), rgba(254, 254, 254, 0.5), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+                        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                        backdrop-filter: blur(10px);
+                        width: 90%;
+                        padding: 2em;
+                        border-radius: 25px;
+                        @include screen('tablet'){
+                            width: 100%;
+                        }
+                        @include screen('mobile'){
+                            width: 100%;
+                        }
+                        h2{
+                            color:#003177;
+                            font-size: 22px;
+                            text-align: center;
+                            font-weight: 600;
+                            margin-bottom: 1em;
+                            @include screen('mobile'){
+                                font-size: 20px;
+                            }
+                        }
+                        .inpts-gd{
+                            display: grid;
+                            gap: 1em;
+                            margin: 1em auto 1.5em auto;
+                            .form-label{
+                                display: none;
+                                color: #212529;
+                                font-weight: 400;
+                                span{
+                                    color: red;
+                                }
+                                }
+                                .input-group{
+                                    align-items: center;
+                                    .input-group-append{
+                                        button{
+                                            border-left: none;
+                                            border: solid 1px #dee2e6;
+                                            border-radius: 0 5px 5px 0;
+                                        }
+                                    }
+                                }
+                                .response-area{
+                                    margin-top: .5em;
+                                    text-align: center;
+                                }
+                                .otp-inpt-area{
+                                    display: grid;
+                                    justify-content: center;
+                                    gap: .5em;
+                                    margin-top: 1em;
+                                    .otp-action-flex{
+                                        display: flex;
+                                        justify-content: center;
+                                        gap: 1em;
+                                        button{
+                                            width: max-content;
+                                            padding: 0;
+                                            background: none;
+                                            color: #29363f;
+                                        }
+                                        .otp-action-valid{
+                                            color: #003177;
+                                        }
+                                        
+                                    }
+                                }
+                        }
+                        button{
+                            width: 100%;
+                            border: none;
+                            border-radius: 5px;
+                            padding: 6px 30px;
+                            background: #d2d2d2;
+                            color: #29363f;
+                        }
+                        .valid{
+                            background: #003177;
+                            color: #fff;
+                        }
+                        .terms-cons{
+                            font-size: 14px;
+                            text-align: center;
+                            margin-top: 1em;
+                            a{
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+  }
+
+  .des-cd-scn{
+    padding: 2em 0;
+    h4{
+        line-height: 30px;
+        max-width: 75%;
+        color: #2B2838;
+        text-align: center;
+        margin: auto;
+    }
+  }
+
+  .typical-scn{
+    background:#E3F9FD;
+    padding: 3em 0;
+    @include screen('mobile'){
+           padding: 2em 0; 
+    }
+    .fst-clmn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #003177;
+        @include screen('mobile'){
+            justify-content: left;
+        }
+        .into-flx{
+            display: grid;
+            gap: .3em;
+            h2{
+                margin-bottom: 0;
+            }
+            h3{
+                margin-bottom: 0;
+            }
+            h5{
+                color: #003177;
+                margin-bottom: 0;
+            }
+        }
+    }
+    .typical-gd{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 2em;
+        @include screen('mobile'){
+            grid-template-columns: repeat(1,1fr);
+            gap: 1.5em;
+            margin-top: 1.5em;
+        }
+        .typical-cd{
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            img{
+width: 50px;
+height: 50px;
+            }
+            h6{
+color: #2B2838;
+margin-bottom: 0;
+            }
+        }
+    }
+  }
+
+  .cch-scn{
+    background: #FDF7E9;
+    padding: 2em 0;
+    h2{
+        text-align: center;
+        color: #2B2838;
+        margin-bottom: 0;
+        @include screen('mobile'){
+            font-size: 24px;
+        }
+    }
+    .misn-cd{
+        display: flex;
+        gap: 1.5em;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 2em 0 0 0;
+        @include screen('mobile'){
+            flex-direction: column;
+        }
+        img{
+            width: 25%;
+            @include screen('mobile'){
+            width: 50%;
+            }
+        }
+        div{
+            width: 50%;
+            @include screen('mobile'){
+            width: 100%;
+            }
+                h4{
+                    font-weight: 400;
+                    font-style: italic;
+                    color: #2b2838;
+                    line-height: 30px;
+                }
+            h5{
+                text-align: right;
+                color: #003177;
+                font-weight: 600;
+                margin: 1em 0 0 0;
+            }
+            h6{
+                font-style: italic;
+                text-align: right;
+                color: #2b2838;
+                margin: .5em 0 0 0;
+            }
+        }
+    }
+  }
+
+  .iop-scn{
+    background-image: url(../../../../assets/Marketing/upsc-res-pro-lp/iop-features-bg.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 3em 0;
+    @include screen('mobile'){
+            padding: 2em 0;
+    }
+ h2{
+        color: #2DA77D;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    .iop-rw{
+        padding-top: 2em;
+        @include screen('mobile'){
+            padding-top: 1.5em;
+            gap: 1em;
+        }
+        .gp-rsts{
+            display: grid;
+            gap: 10px;
+        }
+        .ftrs-pt{
+            display: flex;
+            gap: 2em;
+            align-items: center;
+            background: #003177;
+            border-radius: 10px;
+            padding:.8em;
+            img{
+                width: 60px;
+                height: 60px;
+            }
+            h4{
+                color: #fff;
+                font-weight: 500;
+                margin-bottom: .3em;
+            }
+            p{
+                color: #fff;
+                margin-bottom: 0;
+            }
+        }
+    }
+    .sliders{
+        display: flex;
+        align-items: center;
+        img{
+            width: 100%;
+            margin: auto;
+        }
+    }
+}
+
+.facility-scn{
+    background: #E3F9FD;
+    padding: 3em 0;
+    @include screen('mobile'){
+            padding: 2em 0;
+    }
+    h2{
+text-align: center;
+color: #2B2838;
+font-weight: 500;
+margin-bottom: 0;
+    }
+    .fac-gd{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+gap: 2em;
+margin-top: 2em;
+    @include screen('mobile'){
+        display: none;
+    }
+    }
+    .fac-crsl-mob{
+        display: none;
+        @include screen('mobile'){
+            display: block;
+            margin-top: 2em;
+        }
+    }
+    .fac-cd{
+background: #fff;
+padding: 1.5em;
+box-shadow: 3px 4px 25px 0px rgba(0, 0, 0, 0.15);
+border-radius: 10px;
+    }
+    .fac-cd div{
+display: flex;
+align-items: center;
+gap: 2em;
+margin-bottom: 1em;
+    }
+    .fac-cd div img{
+        width: 60px;
+        height: 60px;
+    }
+    .fac-cd div h3{
+        margin-bottom: 0;
+    }
+    .fac-cd p{
+        margin-bottom: 0;
+    }
+  }
+
+  .smtrs-section{
+    padding: 3em 0;
+    @include screen('mobile'){
+           padding: 2em 0; 
+    }
+    h2{
+        text-align: center;
+        color: #003177;
+        margin-bottom: .8em;
+    }
+    h5{
+        text-align: center;
+        max-width: 75%;
+        margin: auto auto 0 auto;
+        @include screen('mobile'){
+            max-width: 100%;
+        }
+    }
+    .smtrs-grid{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        gap: 2em;
+        margin-top: 2em;
+  @include screen('mobile'){
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+    }
+    .smtrs-cds{
+  border: solid 1.5px  #f5f5f5;
+  border-radius: 25px;
+  @include screen('mobile'){
+    overflow: hidden;
+    flex-basis: 40%;
+  }
+    }
+    .smtrs-cds img{
+  width: 100%;
+  border-radius: 25px;
+  @include screen('mobile'){
+    border-radius: 0;
+  }
+    }
+    .smtrs-cds div{
+        margin-top: -5em;
+        @include screen('mobile'){
+    margin-top: -4em;
+        }
+    }
+    .smtrs-cds div h3{
+  text-align: center;
+  margin-bottom: 0;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  @include screen('mobile'){
+    font-size: 12px;
+  }
+    }
+    .smtrs-cds div p{
+        text-align: center;
+        margin-bottom: 0;
+        color: #fff;
+        font-size: 13px;
+        @include screen('mobile'){
+            font-size: 10px;
+        }
+    }
+    .skm-ln h1{
+        font-size: 30px;
+        line-height: 40px;
+        max-width: 80%;
+        margin: auto;
+        margin-top: 1.5em;
+        color: #060318;
+        @include screen('mobile'){
+            font-size: 20px;
+            line-height: 30px;
+            max-width: 100%;
+            margin: auto;
+            margin-top: 0.5em;
+        } 
+       }
+    .skm-ln p{
+        color: #0D0C22;
+        text-align: center;
+        margin-top: 1em;
+        font-size: 16px;
+        font-weight: 500;
+        padding-bottom: 2.5em;
+        @include screen('mobile'){
+            font-size: 14px;
+            padding-bottom: 1.5em;
+        }
+    }
+  }
