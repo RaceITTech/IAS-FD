@@ -52,7 +52,7 @@
                     <textarea type="text" class="form-control" placeholder="Please enter your questions" name="questions" ngModel></textarea>
                   </div>
                   </div>
-                  <button *ngIf="!submitClicked" [disabled]="!(courseForm.valid && otpStatus=='Verified')" [ngClass]="courseForm.valid && otpStatus=='Verified' ? 'valid':''" (click)="onSubmit(courseForm)">Register Now</button>
+                  <button id="data_enrol" *ngIf="!submitClicked" [disabled]="!(courseForm.valid && otpStatus=='Verified')" [ngClass]="courseForm.valid && otpStatus=='Verified' ? 'valid':''" (click)="onSubmit(courseForm)">Register Now</button>
                   <button *ngIf="submitClicked" class="valid">Please Wait</button>
                 </form>
                     <div class="terms-cons">By continuing & signing in, you agree to Veranda's <a routerLink="/termsofservice">Terms & Conditions</a> and <a routerLink="/privacy-policy">Privacy Policy</a></div>
