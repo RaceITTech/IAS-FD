@@ -1,0 +1,268 @@
+<div *ngIf="isLoading">
+    <app-skeleton-loader></app-skeleton-loader>
+
+</div>
+
+<div *ngIf="!isLoading && articleData">
+
+    <app-navbar></app-navbar>
+
+<!-- <section class="blog-bnr-scn">
+    <div class="container">
+        <h1>{{articleData.metaTitle}}</h1>
+    </div>
+</section> -->
+<section>
+    <div class="container">
+        <div class="blog-bnr-scn">
+            <h1>{{articleData.metaTitle}}</h1>
+        </div>
+        <div class="bcumbs">
+            <a href="">Home&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>{{articleData.breadcrumb}}
+        </div>
+    </div>
+</section>
+<section class="blg-cont-area">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12">
+            <div [innerHTML]="articleData.content" class="cont-inr-divs"></div> 
+<!-- <div class="cont-inr-divs">
+    <h3>FAQs</h3>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item" *ngFor="let faq of faqs; let i = index">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            [attr.data-bs-target]="'#flush-collapse' + i" aria-expanded="false"
+            [attr.aria-controls]="'flush-collapse' + i">
+            {{ faq.question }}
+          </button>
+          <div [id]="'flush-collapse' + i" class="accordion-collapse collapse"
+            data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">{{ faq.answer }}</div>
+          </div>
+        </div>
+      </div>
+      
+</div> -->
+        </div>
+        
+            
+        <div class="col-lg-4 col-md-4 col-sm-12 action-clmn">
+            <div class="action-cd">
+                <h4>Top Stories</h4>
+                <h2 *ngFor="let recent of recentBlogs; let i = index">{{recent.metaTitle}}</h2>
+            </div>
+            <div class="action-cd">
+                <h4>Testimonials</h4>
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators mt-5">
+                      <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                      <button *ngFor="let testimonial of testimonials; let i = index" type="button" data-bs-target="#testimonialCarousel" [attr.data-bs-slide-to]="i" [ngClass]="{'active': i === 0}"></button>
+                    </div>
+                  
+                    <div class="carousel-inner">
+                      <div *ngFor="let testimonial of testimonials; let i = index" class="carousel-item" [ngClass]="{'active': i === 0}">
+                        <div class="sucss-gd">
+                          <div class="sucss-cd">
+                            <img class="comma-in" src="./assets/Coursepage/comma.png" alt="">
+                            <p>{{ testimonial.content }}</p>
+                            <div class="sussr-dtls">
+                              <img [src]="testimonial.imageUrl" alt="">
+                              <div>
+                                <h5>{{ testimonial.name }}</h5>
+                                <h6>{{ testimonial.achievement }}</h6>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                  
+            </div>
+            <div class="action-cd">
+                <h4>Learn with Veranda IAS</h4>
+                <form #articleForm="ngForm">
+                <div class="form-area">
+                    <input class="form-control" name="fullName" type="text" placeholder="Enter your full name" ngModel required>
+                    <input class="form-control" name="mobileNumber" type="tel" placeholder="Enter your mobile number" (keypress)="keyPress($event)" minlength="10" maxlength="10" ngModel required>
+                    <input class="form-control" name="email" type="email" placeholder="Enter your email ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required>
+                    <select class="form-select" name="qualification" ngModel required>
+                        <option value="" hidden>Select your qualification</option>
+                        <option value="10th">10th</option>
+                        <option value="12th">12th</option>
+                        <option value="UG Degree">UG Degree</option>
+                    </select>
+                    <select class="form-select" name="preferredCourse" ngModel required>
+                        <option value="" hidden>Select your preferred course</option>
+                        <option value="Bank">Bank</option>
+                        <option value="SSC">SSC</option>
+                        <option value="TNPSC">TNPSC</option>
+                        <option value="Railways">Railways</option>
+                        <option value="TNUSRB">TNUSRB</option>
+                    </select>
+                    <select class="form-select" name="learningMode" ngModel required>
+                        <option value="" hidden>Select your learning mode</option>
+                        <option value="Online">Online</option>
+                        <option value="Offline">Offline</option>
+                        <option value="Residential">Residential</option>
+                    </select>
+                    <button type="submit" [disabled]="articleForm.invalid" [ngClass]="articleForm.valid ? 'valid':''" (click)="onSubmit(articleForm.value)">Talk to our Counsellors</button>
+                </div>
+            </form>
+            </div>
+            <!-- <div class="action-cd">
+                <h4>Our Residential Campuses</h4>
+                <div class="grid-info grid-1">
+<p>VR Practice Village - Chennai Campus</p>
+<p>VR Practice Village - Madurai Campus</p>
+<p>VR Practice Village - Kadakkal Campus</p>
+                </div>
+            </div> -->
+            <!-- <div class="action-cd">
+                <h4>Our Offline Centres</h4>
+                <div class="grid-info grid-2">
+                    <p *ngFor="let centre of offlineCentres">{{ centre }}</p>
+                </div>
+            </div> -->
+            <!-- <div class="action-cd">
+                <h4>Upcoming {{articleData.course}} Exams</h4>
+                <div class="grid-info grid-1">
+                    <p *ngFor="let exam of filteredExams[0].exams">{{ exam }}</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+</section>
+<!-- <section class="achievers-scn">
+    <div class="container">
+        <h2>Hear From Our Achievers</h2>
+        <h5>Watch our students describe how Veranda RACE helped them with their learning journey and achieve their dream Bank / Central / State Govt. job within a short amount of time.</h5>
+        <div class="achvrs-cds-gd">
+            <div class="achvrs-cd" *ngFor="let video of filteredVideos">
+              <div class="vdo-cd-bg">
+                <img *ngIf="video.videoUrl" class="play-icon" src="https://verandarace.com/verandarace-assets/assets/Blog-New/play-btn.png" (click)="videoplay(video.videoUrl, content)">
+                <img class="vdo-thumbnail" [src]="video.thumbnail">
+              </div>
+              <div class="info-flx">
+                <div class="info-nm-pst">
+                  <h4>{{ video.name }}</h4>
+                  <span><b>{{ video.position }}</b>, {{ video.exam }}</span>
+                </div>
+                <img class="info-logo" [src]="video.logo" alt="">
+              </div>
+              <p>{{ video.testimonial }}</p>
+            </div>
+          </div>
+          
+    </div>
+</section> -->
+
+<section class="related-courses-scn">
+    <div class="container">
+        <div class="row">
+                <h2>Related Coaching Programmes</h2>
+<!-- <div class="owl-carousel-div">
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let course of filteredRelatedCourses">
+            <div class="crs-area">                           
+
+                <div  class="crs-cd">
+                    <img loading="lazy" class="crs-mn-ig" [src]="course.images" [alt]="course.altcourse"  >
+                    <img loading="lazy" class="round-img" [src]="course.image2" [alt]="course.logo" >
+                    <div class="crs-desc-area">
+                        <h3>{{ course.name }}</h3>
+                        <div class="course-features-grid">
+                            <div class="course-features-flex"><img loading="lazy" src="https://verandarace.com/verandarace-assets/assets/coursepage/card-icon-1.webp">
+                                <p>{{ course.coachingMode }}</p>
+                            </div>
+                            <div class="course-features-flex"><img loading="lazy" src="https://verandarace.com/verandarace-assets/assets/coursepage/card-icon-2.webp">
+                                <p>{{ course.language }}</p>
+                            </div>
+                            <div class="course-features-flex"><img loading="lazy" src="https://verandarace.com/verandarace-assets/assets/coursepage/card-icon-3.webp">
+                                <p>{{ course.exam }}</p>
+                            </div>
+                            <div class="course-features-flex"><img loading="lazy" src="https://verandarace.com/verandarace-assets/assets/coursepage/card-icon-4.webp">
+                                <p>{{ course.sessions }}</p>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <div class="amount">
+                                <h4>{{course.amount}} </h4>
+                                <h5 class="mb-0"><del>{{course.strike}} </del></h5>
+                            </div>
+                            <div class="validitity">
+                                <p>{{course.validitity}}</p>
+                                <h6>{{course.percentage}} </h6>
+                            </div>
+                        </div>
+                        <div class="btns-flx">
+                            <a [href]="course.link"><button>View Course</button></a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </ng-template>      
+      </owl-carousel-o>
+</div> -->
+                
+<!-- <h2>UPSC Programmes from <em>Veranda IAS</em></h2> -->
+<div class="crs-cds-gd">
+    <div *ngFor="let course of courses" class="crs-cd">
+      <img class="crs-mn-ig" [src]="course.imgSrc" alt="">
+      <div class="crs-cont-area">
+        <h6>{{ course.title }}</h6>
+        <h4>{{ course.subtitle }}</h4>
+        <div class="cont-inr-flx">
+          <div>
+            <img src="./assets/Coursepage/coaching-mode-in.png" alt="">
+            {{ course.coachingMode }}
+          </div>
+          <div>
+            <img src="./assets/Coursepage/language-in.png" alt="">
+            {{ course.language }}
+          </div>
+          <div>
+            <img src="./assets/Coursepage/exam-in.png" alt="">
+            {{ course.exam }}
+          </div>
+        </div>
+        <div class="btns-flx">
+          <a [routerLink]="course.courseLink" class="btn">View Course</a>
+          <a [href]="course.syllabusLink" class="btn" download>Syllabus</a>
+        </div>
+      </div>
+    </div>
+  </div>
+            
+        </div>
+           
+        </div>
+   
+</section>
+
+<app-footer></app-footer>
+</div>
+<ng-template #content let-modal let-c="close" let-d="dismiss">
+    <button mat-icon class="close_btn" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <iframe
+    class="video_modal"
+      [src]="video_id"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </ng-template>

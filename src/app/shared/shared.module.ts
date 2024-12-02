@@ -10,6 +10,7 @@ import { MarketingNavComponent } from './marketing-nav/marketing-nav.component';
 import { TestimonialCarouselComponent } from './testimonial-carousel/testimonial-carousel.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { MatIconModule } from '@angular/material/icon';
+import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.component';
 
 
 
@@ -22,12 +23,13 @@ import { MatIconModule } from '@angular/material/icon';
     DashboardNavComponent,
     MarketingNavComponent,
     TestimonialCarouselComponent,
+    SkeletonLoaderComponent,
   ],
   imports: [
     CommonModule,RouterModule,CarouselModule,MatIconModule
   ],
   exports: [
-    NavbarComponent,FooterComponent,UpscOpputunitiesComponent,MarketingFooterComponent,DashboardNavComponent,MarketingNavComponent,TestimonialCarouselComponent
+    NavbarComponent,FooterComponent,UpscOpputunitiesComponent,MarketingFooterComponent,DashboardNavComponent,MarketingNavComponent,TestimonialCarouselComponent,SkeletonLoaderComponent
   ]
 })
 export class SharedModule { }

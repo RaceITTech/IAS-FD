@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   // backend:"http://localhost:3534/verandaias",
   backend:"https://backend.verandaias.com/verandaias",
+  blogBackend:"https://resultbackend.verandarace.com/result/",
   usersRoute:"/users",
   ordersRoute:"/orders",
   paymentUrl: '/initiate_payment',
