@@ -27,7 +27,7 @@
 </section>
 <section class="table-scn">
     <div *ngIf="submitClicked" class="table-container">
-        <form #updateForm="ngForm" (ngSubmit)="saveChanges(updateForm)">
+        <form #updateForm="ngForm">
         <table class="table">
           <thead>
             <tr>
@@ -95,7 +95,7 @@
           </tbody>
         </table>
         <div  class="modal-footer">
-            <button *ngIf="!updateClicked" type="submit" [disabled]="updateForm.invalid" [ngClass]="updateForm.valid ? 'valid':''">Update</button>
+            <button *ngIf="!updateClicked" type="submit" [disabled]="updateForm.invalid" [ngClass]="updateForm.valid ? 'valid':''" (click)="saveChanges(updateForm)">Update</button>
           </div>
         </form>
       </div>
