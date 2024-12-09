@@ -65,7 +65,7 @@ let obj={
   channel:"Event",
   category:"Event",
   eventname:"UPSC Webinar",
-  eventdate:"23/11/2024",
+  eventdate:"14/12/2024",
 }
 let url = window.location.href
 const objdata=this.crmApi.getEventObj(obj,url)
