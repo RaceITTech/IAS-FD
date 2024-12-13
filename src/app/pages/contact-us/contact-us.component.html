@@ -41,7 +41,7 @@
                           </select>
                     </div>
                     <div>
-                        <select class="form-select" placeholder="Message" name="district" [(ngModel)]="selectedDistrict" required>
+                        <select class="form-select" name="district" [(ngModel)]="selectedDistrict" required>
                             <option value="" hidden>-- select District --</option>
                                           <option *ngFor="let districtname of districtList" [value]="districtname">{{ districtname }}</option>
                           </select>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <!-- <div class="info-txt"><img src="../../../assets/contact-us/info-icon.png" alt="">By clicking "Submit," I consent to Veranda IAS contacting me using the provided contact details to share more information about their UPSC coaching programmes. I understand that Veranda IAS may use computer-assisted dialing or pre-recorded messages for communication purposes.</div> -->
-                <button *ngIf="!submitClicked" [disabled]="contactForm.invalid"[ngClass]="contactForm.valid ? 'valid' : '' "> SUBMIT </button>
+                <button *ngIf="!submitClicked" [disabled]="contactForm.invalid"[ngClass]="contactForm.valid ? 'valid' : '' " (click)="onContactSubmit(contactForm)"> SUBMIT </button>
                     <button *ngIf="submitClicked" class="valid" > Please Wait... </button>
                 </form>
             </div>
