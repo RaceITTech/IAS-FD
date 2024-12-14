@@ -31,7 +31,7 @@ export class RegisterWebinarComponent {
     this.http.post("https://backend.verandarace.com/veranda/getiasDemoclass",obj).subscribe((data:any)=>{
       debugger
       if(data.success==true){
-        window.location.href="https://zoom.us/j/93530936600?pwd=DRC7sV2cBKxVyzeO0TautDncAd4loz.1"
+        window.location.href="https://zoom.us/j/96069834799?pwd=w0aAASbevOat353NRv1TQ1jQMQDQzb.1"
       }
     })
   }
