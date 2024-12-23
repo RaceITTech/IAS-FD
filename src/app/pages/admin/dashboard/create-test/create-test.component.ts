@@ -131,7 +131,7 @@ export class CreateTestComponent implements OnInit{
       console.log(requestObj)
 
       // Send to API
-      this.http.post('https://backend.verandaias.com/verandaias/users/rd-test-upload', requestObj).subscribe((response:any) => {
+      this.http.post('https://backend.verandaias.com/verandaias/users/createRDData', requestObj).subscribe((response:any) => {
         if(response.success === true){
           Swal.fire({
             icon: 'success',
