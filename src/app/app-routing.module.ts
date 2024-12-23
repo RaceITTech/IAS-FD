@@ -34,7 +34,8 @@ const routes: Routes = [
   { path: 'tnpsc-online-coaching', loadChildren: () => import('./pages/product/tnpsc-online-coaching/tnpsc-online-coaching.module').then(m => m.TnpscOnlineCoachingModule) },
   { path: 'upsc-residential-programme', loadChildren: () => import('./pages/marketing/upsc-residential-programme/upsc-residential-programme.module').then(m => m.UpscResidentialProgrammeModule) },
   { path: 'blogs', loadChildren: () => import('./pages/blogs/blog-explore/blog-explore.module').then(m => m.BlogExploreModule) },
-  { path: 'blog/:id', loadChildren: () => import('./pages/blogs/blog-new/blog-new.module').then(m => m.BlogNewModule) }
+  { path: 'blog/:id', loadChildren: () => import('./pages/blogs/blog-new/blog-new.module').then(m => m.BlogNewModule) },
+  { path: 'refund-policy', loadChildren: () => import('./pages/refund-policy/refund-policy.module').then(m => m.RefundPolicyModule) },
 ];
 
 @NgModule({

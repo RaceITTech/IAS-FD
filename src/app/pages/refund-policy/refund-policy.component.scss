@@ -1,0 +1,114 @@
+@mixin screen($size) {
+  $desktop: "(min-width: 1024px)";
+  $tablet: "(min-width: 768px) and (max-width: 1023px)";
+  $mobile: "(max-width: 767px)";
+  @if $size == desktop {
+    @media only screen and #{$desktop} {
+      @content;
+    }
+  }
+  @else if $size == tablet {
+    @media only screen and #{$tablet} {
+      @content;
+    }
+  }
+  @else if $size == mobile {
+    @media only screen and #{$mobile} {
+      @content;
+    }
+  }
+  @else {
+    @media only screen and #{$size} {
+      @content;
+    }
+  }
+}
+.breadcrumbs-sec{
+  .breadcrumbs{
+     padding-top: 2em;
+     padding-bottom: 2em;
+  }
+ .breadcrumbs ul li::after, .breadcrumbs ul li::before {
+     content: "";
+     position: absolute;
+     right: -16px;
+     width: 1px;
+     height: 6px;
+     color: #142958;
+     background-color: #142958;
+     @include screen('mobile'){
+         right: -13px;
+
+     }
+ }
+ .breadcrumbs ul li.active a {
+     color: #E5214E;
+     font-weight: 600 !important;
+ }
+ .breadcrumbs ul li::before {
+     transform: rotate(-45deg);
+     top: 6px;
+
+ }
+ .breadcrumbs ul li::after {
+     transform: rotate(45deg);
+     top: 10px;
+     &:last-child{
+         width: 0 !important;
+     }
+
+ }
+ .breadcrumbs ul li a {
+     text-decoration: none;
+     // font-family: 'Montserrat', sans-serif;
+     font-weight: 500;
+     font-size: 14px;
+     letter-spacing: -0.01em;
+     color: #142958;
+ @include screen('mobile'){
+     font-size: 14px;
+
+ }
+
+ }
+ .breadcrumbs ul li a:hover{
+     opacity: 0.7;
+     // color: red;
+ }
+ .breadcrumbs ul {
+     margin: 0px;
+     padding: 0px;
+     display: flex;
+     flex-wrap: wrap;
+ }
+ .breadcrumbs ul li {
+     list-style: none;
+     margin-right: 30px;
+     position: relative;
+ @include screen('mobile'){
+     margin-right: 25px;
+ }
+ }
+ .breadcrumbs ul li:last-child::after,
+ .breadcrumbs ul li:last-child::before {
+     display: none;
+ }
+   }
+.background{
+
+  overflow: hidden;
+  // background: #fceeee;
+  @include screen('mobile'){
+      background: #fff;
+  }
+// background: linear-gradient(180deg, #fceded, #fcf0f0, #fdf2f2, #fdf5f5, #fef7f7, #fefafa, #fffcfc, #ffffff);
+  }
+  .card{
+    box-shadow: 0 2px 1px -1px #0003, 0 1px 1px #00000024, 0 1px 3px #0000001f;
+    margin-top: 20px;
+    padding: 10px 10px 10px 10px;
+  }
+  .title{
+    font-size: 20px;
+    font-weight: bolder;
+  }
