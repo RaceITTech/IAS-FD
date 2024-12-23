@@ -19,65 +19,179 @@
       @content;
     }
   }
-} 
+}
 
-h2{
+h2 {
   color: #000;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 600;
-  @include screen('tablet'){
-      font-size: 30px;
+  @include screen("tablet") {
+    font-size: 30px;
   }
-  @include screen('mobile'){
-      font-size: 26px;
+  @include screen("mobile") {
+    font-size: 26px;
   }
 }
-h3{
+h3 {
   font-size: 24px;
   font-weight: 700;
   line-height: 34px;
-  @include screen('tablet'){
-      font-size: 22px;
-      line-height: 30px;
+  @include screen("tablet") {
+    font-size: 22px;
+    line-height: 30px;
   }
-  @include screen('mobile'){
-      font-size: 20px;
-      line-height: 28px;
+  @include screen("mobile") {
+    font-size: 20px;
+    line-height: 28px;
   }
 }
-h4{
+h4 {
   font-size: 20px;
-  @include screen('tablet'){
-      font-size: 18px;
+  @include screen("tablet") {
+    font-size: 18px;
   }
-  @include screen('mobile'){
-      font-size: 18px;
+  @include screen("mobile") {
+    font-size: 18px;
   }
 }
-h5{
+h5 {
   color: #000000;
   font-size: 18px;
   font-weight: 600;
-  line-height: 26px; 
-  
+  line-height: 26px;
 }
-h6{
-  font-size: 16px; 
+h6 {
+  font-size: 16px;
   font-weight: 400;
 }
-p{
+p {
   font-size: 16px;
 }
 
-
-
-.procuct-rw{
-  margin: 3em 0;
-  @include screen('tablet'){
-      margin:2em 0 ;
+.container-fluid {
+  padding: 0.8em 1.5em;
+  @include screen("mobile") {
+    padding: 0.8em 1em;
   }
-  @include screen('mobile'){
-      margin: 1.5em 0;
+}
+.nav-head {
+  padding: 0;
+  button.navbar-toggler {
+    border: #fff solid;
+    font-size: 12px;
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+  }
+  button.navbar-toggler:focus {
+    box-shadow: none;
+  }
+  .navbar-brand {
+    padding: 0;
+    img {
+      width: 90%;
+      @include screen("mobile") {
+        width: 75%;
+      }
+    }
+  }
+  .nav-list-btns {
+    display: flex;
+    gap: 1.5em;
+    @include screen("tablet") {
+      padding: 1.5em 0 1em 0;
+    }
+    @include screen("mobile") {
+      gap: 1em;
+      margin-top: 1em;
+    }
+
+    div#navbarCollapse {
+      @include screen("mobile") {
+        position: relative;
+      }
+    }
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+      position: absolute;
+    }
+    .dropdown-menu[data-bs-popper] {
+      top: 30px;
+      left: -104px;
+      margin-top: var(--bs-dropdown-spacer);
+
+      @include screen("mobile") {
+        left: 0px;
+      }
+    }
+    ul.dropdown-menu.show {
+      padding: 8px 14px;
+      @include screen("mobile") {
+        position: absolute;
+      }
+    }
+    a.dropdown-item {
+      margin-bottom: 13px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    a.dropdown-item:nth-child(5) {
+      margin-bottom: 0px;
+    }
+    a {
+      color: #fff;
+      font-weight: 500;
+      padding: 0;
+      border-bottom: solid 2px transparent;
+      transition: 0.8s;
+      width: max-content;
+    }
+    //   a:hover {
+    //     color: #e5214e;
+    //     border-bottom: solid 2px #e5214e;
+    //     width: max-content;
+    //   }
+
+    //   .active_tab {
+    //     color: #e5214e;
+    //     border-bottom: solid 2px #e5214e;
+    //     width: max-content;
+    //   }
+  }
+
+  .nav-btns-flx {
+    display: flex;
+    gap: 1em;
+
+    @include screen("tablet") {
+      flex-direction: row;
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+
+    @include screen("mobile") {
+      flex-direction: row;
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+
+    a {
+      width: max-content;
+      text-decoration: none;
+      color: #fff;
+      border: solid 1px #fff;
+      border-radius: 5px;
+      padding: 3px 15px;
+    }
+  }
+}
+
+.procuct-rw {
+  margin: 3em 0;
+  @include screen("tablet") {
+    margin: 2em 0;
+  }
+  @include screen("mobile") {
+    margin: 1.5em 0;
   }
   .stick-col {
     position: -webkit-sticky;
@@ -88,219 +202,379 @@ p{
     // -webkit-align-self: flex-start;
     // -ms-flex-item-align: start;
     align-self: flex-start;
-    @include screen('mobile'){
-        position: relative;
-        top: 0;
-    }
-    @include screen('tablet'){
+    @include screen("mobile") {
       position: relative;
       top: 0;
+    }
+    @include screen("tablet") {
+      position: relative;
+      top: 0;
+    }
   }
-  }
-  .carousel-inner{
+  .carousel-inner {
     background: #f1f3f6;
-    padding:1.5em;
+    padding: 1.5em;
     margin: auto;
-    width:100%;
-    @include screen('tablet'){
+    width: 90%;
+    @include screen("tablet") {
       width: 75%;
     }
-    @include screen('mobile'){
+    @include screen("mobile") {
       padding: 1em;
     }
-    .book-img{
+
+    .images {
+      display: grid;
+      margin: 25px 0px;
+      grid-template-columns: repeat(4,1fr);
+      gap: 6px;
+    }
+    .small-img img {
+      cursor: pointer;
+      width: 75%;
+      border: 1px solid #e5e5e5;
+      border-radius: 10px;
+    }
+    .book-img {
       margin: auto;
       display: block;
       width: 80%;
-
+      // height: 350px;
     }
-    .preview{
+    .preview {
       position: absolute;
       bottom: -10px;
       right: -10px;
-      button{
+      button {
         border: none;
         background-color: #fff;
         border-radius: 5px;
         font-size: 10px;
         font-weight: 500;
         color: #1b2124;
-        padding: .5em 1em;
-        box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
+        padding: 0.5em 1em;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -2px rgba(0, 0, 0, 0.1);
       }
     }
   }
-  .product-cont-area{
+  .product-cont-area {
     display: grid;
     gap: 1.5em;
     margin-bottom: 4em;
-    @include screen('tablet'){
+    @include screen("tablet") {
       margin: 2em 0;
     }
-    @include screen('mobile'){
-      margin:2em 0;
+    @include screen("mobile") {
+      margin: 2em 0;
     }
-    .hdng-area{
-      h1{
+    .hdng-area {
+      h1 {
         font-size: 36px;
         font-weight: 700;
-        @include screen('mobile'){
-      font-size: 28px;
+        @include screen("mobile") {
+          font-size: 28px;
         }
       }
-      p{
+      p {
         color: #003177;
         font-weight: 600;
         margin-bottom: 0;
       }
     }
-    .price-flex-area{
+    .price-flex-area {
       display: flex;
       flex-direction: column;
-      gap: .5em;
-      div{
+      gap: 0.5em;
+      div {
         display: flex;
         align-items: flex-end;
-        gap: .8em;
-        @include screen('mobile'){
-      gap: .5em;
+        gap: 0.8em;
+        @include screen("mobile") {
+          gap: 0.5em;
         }
-        h2{
-    font-weight: 700;
-    margin-bottom: 0;
+        h2 {
+          font-weight: 700;
+          margin-bottom: 0;
         }
-        del{
+        del {
           color: #8d9091;
         }
-        b{
+        b {
           color: #003177;
         }
       }
-      span{
+      span {
         color: #003177;
         font-weight: 600;
       }
     }
-    .btns-flx{
+    .btns-flx {
       display: flex;
       flex-direction: column;
       gap: 1.5em;
-      @include screen('mobile'){
+      @include screen("mobile") {
         flex-direction: row;
-      gap: 1em;
+        gap: 1em;
       }
-      a{
+      a {
         text-align: center;
         font-weight: 600;
         border-radius: 15px;
         width: 50%;
-        padding: .8em;
+        padding: 0.8em;
         text-decoration: none;
-        @include screen('mobile'){
-      padding: .5em;
+        @include screen("mobile") {
+          padding: 0.5em;
         }
       }
-      a:nth-child(1){
+      a:nth-child(1) {
         background: #003177;
         color: #fff;
       }
-      a:nth-child(2){
+      a:nth-child(2) {
         background: #fff;
         color: #003177;
         border: solid 1px #003177;
       }
     }
-    .specification-area{
+    .specification-area {
       display: flex;
       flex-direction: column;
-      gap: .5em;
-      p{
-        letter-spacing: .025em;
+      gap: 0.5em;
+      p {
+        letter-spacing: 0.025em;
         font-weight: 500;
         color: #374151;
         margin-bottom: 0;
-        span{
+        span {
           font-weight: 700;
         }
       }
     }
-      .pro-dtls-area{
-        b{
-          font-weight: 500;
-        }
-        h3{
-          margin-bottom: .5em;
+    .pro-dtls-area {
+      b {
+        font-weight: 500;
       }
-      h4{
-        margin-bottom: .5em;
+      h3 {
+        margin-bottom: 0.5em;
       }
-      ul{
+      h4 {
+        margin-bottom: 0.5em;
+      }
+      ul {
         margin-bottom: 1em;
         display: grid;
-        gap: .3em;
-        li{
+        gap: 0.3em;
+        li {
           color: #212529;
         }
       }
-      }
-      .faq-area{
-        h3{
-            margin-bottom: 0;
-        }
-        .accordion{
-            margin: 1.5em auto auto auto;
-            display: grid;
-            gap: 1em;
-            .accordion-item{
-              border: none;
-                border-radius: .5em;
-                overflow: hidden;
-                button{
-                  background-color: #f0f4fa;
-                    padding: 1em 2em;
-                    @include screen('tablet'){
-                        padding: 1em;
-                    }
-                    @include screen('mobile'){
-                        padding: 1em;
-                    }
-                    h5{
-                        color: #003177;
-                        margin-bottom: 0;
-                    }
-                }
-                button:focus{
-                    box-shadow: none;
-                }
-    .accordion-body{
-        display: flex;
-        gap: 2em;
-        align-items: center;
-        padding: 1em 2em;
-        text-align: justify;
-        background-color: #f9fafb;
-        @include screen('tablet'){
-            gap: 1em;
-                padding: 1em;
-        }
-        @include screen('mobile'){
-            flex-direction: column;
-               gap: 1em;
-               padding: 1em; 
-        }
-        img{
-            width: 30%;
-            border-radius: 10px;
-            @include screen('tablet'){
-                width: 25%;
-            }
-            @include screen('mobile'){
-               width: 100%; 
-            }
-        }
     }
+    .faq-area {
+      h3 {
+        margin-bottom: 0;
+      }
+      .accordion {
+        margin: 1.5em auto auto auto;
+        display: grid;
+        gap: 1em;
+        .accordion-item {
+          border: none;
+          border-radius: 0.5em;
+          overflow: hidden;
+          button {
+            background-color: #f0f4fa;
+            padding: 1em 2em;
+            @include screen("tablet") {
+              padding: 1em;
             }
+            @include screen("mobile") {
+              padding: 1em;
+            }
+            h5 {
+              color: #003177;
+              margin-bottom: 0;
+            }
+          }
+          button:focus {
+            box-shadow: none;
+          }
+          .accordion-body {
+            display: flex;
+            gap: 2em;
+            align-items: center;
+            padding: 1em 2em;
+            text-align: justify;
+            background-color: #f9fafb;
+            @include screen("tablet") {
+              gap: 1em;
+              padding: 1em;
+            }
+            @include screen("mobile") {
+              flex-direction: column;
+              gap: 1em;
+              padding: 1em;
+            }
+            img {
+              width: 30%;
+              border-radius: 10px;
+              @include screen("tablet") {
+                width: 25%;
+              }
+              @include screen("mobile") {
+                width: 100%;
+              }
+            }
+          }
         }
       }
+    }
+  }
+}
+
+.footer-scn {
+  p {
+    color: #747475;
+  }
+  span {
+    color: #747475;
+  }
+  padding: 3em 0 2em 0;
+  background: #f5f5f7;
+  @include screen("tablet") {
+    padding: 2em 0;
+  }
+  @include screen("mobile") {
+    padding: 2em 0 1em 0;
+  }
+  .fst-col {
+    .ftr-lg {
+      width: 250px;
+      @include screen("tablet") {
+        width: 225px;
+      }
+      @include screen("mobile") {
+        width: 175px;
+      }
+    }
+    span {
+      color: #747475;
+      font-size: 15px;
+      @include screen("tablet") {
+        font-size: 14px;
+      }
+      @include screen("mobile") {
+        font-size: 12px;
+      }
+    }
+    p {
+      color: #747475;
+      font-size: 13px;
+      text-align: justify;
+      max-width: 95%;
+      margin-top: 3em;
+      @include screen("tablet") {
+        margin: 1.5em 0 0 0;
+      }
+      @include screen("mobile") {
+        margin: 1em 0 0 0;
+      }
+    }
+  }
+  .scnd-col,
+  .thrd-col,
+  .frth-col {
+    h6 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #747475;
+      margin-bottom: 0;
+      @include screen("mobile") {
+        margin-top: 2em;
+      }
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin: 1em 0 2em 0;
+      @include screen("tablet") {
+        gap: 0.5em;
+      }
+      @include screen("mobile") {
+        margin: 1em 0;
+      }
+      a {
+        font-size: 14px;
+        text-decoration: none;
+        color: #747475;
+        @include screen("mobile") {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .frth-col div {
+    @include screen("tablet") {
+      margin: 1em 0;
+    }
+  }
+  .cntct-dtls {
+    padding: 1em 0;
+    @include screen("mobile") {
+      gap: 2em;
+    }
+    .flx-dtls {
+      display: flex;
+      gap: 1em;
+      align-items: flex-start;
+      @include screen("tablet") {
+        gap: 0.5em;
+      }
+      @include screen("mobile") {
+        align-items: center;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        h6 {
+          font-weight: 600;
+          color: #747475;
+        }
+        a {
+          font-size: 14px;
+          text-decoration: none;
+          color: #747475;
+        }
+      }
+    }
+  }
+  .cprgts-flx {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 0 0 0;
+    @include screen("tablet") {
+      flex-direction: column-reverse;
+      gap: 0.5em;
+    }
+    @include screen("mobile") {
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 1em;
+    }
+    div {
+      font-size: 14px;
+      color: #747475;
+      a {
+        color: #747475;
+        text-decoration: none;
+      }
+    }
+    .scl-icons {
+      display: flex;
+      gap: 1.5em;
+    }
   }
 }
