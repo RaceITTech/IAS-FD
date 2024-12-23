@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NewProductService } from 'src/app/services/new-product.service';
 import { PaymentService } from 'src/app/services/payment.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -23,7 +24,8 @@ export class PaymentPageComponent {
   currentDate!:any
   expiryDate!:any
 
-  constructor(private productService:ProductService,private paymentService: PaymentService,private router:Router) {   
+  constructor(private productService:NewProductService,private paymentService: PaymentService,private router:Router) { 
+    debugger  
   var d = this.courseData  = this.productService.getCourseDetails() 
   if(!d.courseId||!d.product){
     this.router.navigateByUrl('/')
@@ -194,6 +196,7 @@ export class PaymentPageComponent {
       productBatch:this.courseData.batch,
       zohoBatchDate:this.currentDate,
       expiryDate:this.expiryDate,
+      mode:this.courseData.mode,
       amount: Number(this.courseData.totalAmount.replace(/,/g, '')),
       email: userData.email,
       phonenumber: '+91' + userData.phonenumber,
@@ -205,6 +208,7 @@ export class PaymentPageComponent {
       state: this.state,
       pincode: userData.pincode,
       payment_gate: "easebuzz",
+      shippingPrice:this.courseData.shippingPrice,
       orderId:"",
       zohoItemId:this.courseData.zohoItemId
        };

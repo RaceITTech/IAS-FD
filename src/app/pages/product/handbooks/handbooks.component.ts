@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
+import { NewProductService } from 'src/app/services/new-product.service';
+import { ProductDetails, ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-handbooks',
@@ -8,11 +10,11 @@ import { Router } from '@angular/router';
 })
 
 export class HandbooksComponent{
+  courseData: ProductDetails | undefined;
+  constructor(private router:Router,private productService:NewProductService){ 
+    this.loadCourseData();
+  }
 
-  constructor(
-    private router:Router
-    ) { 
-   }
 
   ngOnInit(): void {
   
@@ -24,8 +26,24 @@ export class HandbooksComponent{
     window.open(pdfUrl, '_blank');  
   }
 
+
+  private loadCourseData(): void {
+    this.productService.getProductDetails("GI010").subscribe({
+      next: (value) => {
+        debugger
+        this.courseData = this.productService.setCourseDetails(value);
+        const courseDetails = this.productService.getCourseDetails();
+        console.log(courseDetails)
+
+      },
+      error: (err) => {
+        alert("Error loading page");
+      }
+    });
+  }
+
   onBuyClick(): void {
-    
+    this.router.navigateByUrl('/payment')
   }
 
   faqs = [
@@ -44,3 +62,4 @@ export class HandbooksComponent{
   ];
 
 }
+
