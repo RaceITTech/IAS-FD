@@ -23,13 +23,13 @@
 
 h2 {
   color: #000;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   @include screen("tablet") {
-    font-size: 30px;
+    font-size: 24px;
   }
   @include screen("mobile") {
-    font-size: 26px;
+    font-size: 18px;
   }
 }
 h3 {
@@ -224,16 +224,19 @@ p {
     }
 
     .images {
-      display: grid;
-      margin: 25px 0px;
-      grid-template-columns: repeat(4,1fr);
-      gap: 6px;
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 10px 0;
+    }
+    .small-img {
+      margin-right: 10px;
     }
     .small-img img {
       cursor: pointer;
-      width: 75%;
       border: 1px solid #e5e5e5;
       border-radius: 10px;
+      height: 100px;
     }
     .book-img {
       margin: auto;
@@ -310,32 +313,37 @@ p {
       }
     }
     .btns-flx {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5em;
-      @include screen("mobile") {
-        flex-direction: row;
-        gap: 1em;
-      }
-      a {
-        text-align: center;
-        font-weight: 600;
-        border-radius: 15px;
-        width: 50%;
-        padding: 0.8em;
-        text-decoration: none;
-        @include screen("mobile") {
-          padding: 0.5em;
+      @include screen("desktop") {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+        a {
+          text-align: center;
+          font-weight: 600;
+          border-radius: 15px;
+          width: 50%;
+          padding: 0.8em;
+          text-decoration: none;
+          @include screen("mobile") {
+            padding: 0.5em;
+          }
+        }
+        a:nth-child(1) {
+          background: #003177;
+          color: #fff;
+        }
+        a:nth-child(2) {
+          background: #fff;
+          color: #003177;
+          border: solid 1px #003177;
         }
       }
-      a:nth-child(1) {
-        background: #003177;
-        color: #fff;
+      @include screen("mobile") {
+        display: none !important;
       }
-      a:nth-child(2) {
-        background: #fff;
-        color: #003177;
-        border: solid 1px #003177;
+      @include screen("tablet") {
+        display: none !important;
       }
     }
     .specification-area {
@@ -443,10 +451,18 @@ p {
   padding: 3em 0 2em 0;
   background: #f5f5f7;
   @include screen("tablet") {
-    padding: 2em 0;
+    padding: 2em 0 4em 0;
   }
   @include screen("mobile") {
-    padding: 2em 0 1em 0;
+    p {
+      color: #747475;
+      font-size: 8px;
+    }
+    span {
+      color: #747475;
+      font-size: 14px;
+    }
+    padding: 2em 0 4em 0;
   }
   .fst-col {
     .ftr-lg {
@@ -576,5 +592,49 @@ p {
       display: flex;
       gap: 1.5em;
     }
+  }
+}
+
+.btns-flx-2 {
+  @include screen("desktop"){
+    display: none !important;
+  }
+  @include screen("mobile") {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    padding: .8rem 0;
+    background: #f8f8f8;
+  }
+  @include screen("tablet") {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    padding: .8rem 0;
+    background: #f8f8f8;
+  }
+  a {
+    text-align: center;
+    font-weight: 600;
+    border-radius: 15px;
+    width: 50%;
+    padding: 0.8em;
+    text-decoration: none;
+    @include screen("mobile") {
+      padding: 0.5em;
+    }
+  }
+  a:nth-child(1) {
+    background: #003177;
+    color: #fff;
+  }
+  a:nth-child(2) {
+    background: #fff;
+    color: #003177;
+    border: solid 1px #003177;
   }
 }
