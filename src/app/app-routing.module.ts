@@ -36,6 +36,8 @@ const routes: Routes = [
   { path: 'blogs', loadChildren: () => import('./pages/blogs/blog-explore/blog-explore.module').then(m => m.BlogExploreModule) },
   { path: 'blog/:id', loadChildren: () => import('./pages/blogs/blog-new/blog-new.module').then(m => m.BlogNewModule) },
   { path: 'refund-policy', loadChildren: () => import('./pages/refund-policy/refund-policy.module').then(m => m.RefundPolicyModule) },
+  { path: 'payment-success/:id', loadChildren: () => import('./pages/product/payment/payment-success/payment-success.module').then(m => m.PaymentSuccessModule) },
+  { path: 'payment-failed/:id', loadChildren: () => import('./pages/product/payment/payment-failed/payment-failed.module').then(m => m.PaymentFailedModule) },
 ];
 
 @NgModule({
