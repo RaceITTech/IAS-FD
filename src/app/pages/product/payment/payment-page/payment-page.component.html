@@ -1,4 +1,13 @@
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar> -->
+<div class="header">
+  <div class="container-fluid" style="background: rgba(0, 49, 119, .7);">
+    <nav class="navbar navbar-expand-lg nav-head">
+      <a class="navbar-brand" href="#">
+        <img src="./assets/Homepage/ias-white-logo.png" class="h-8" alt="IAS Logo">
+      </a>
+    </nav>
+  </div>
+</div>
 <section class="payment-scn">
     <div class="container">
         <form #payment="ngForm" (ngSubmit)="onsub(payment)" novalidate>
@@ -113,7 +122,7 @@
                             <option value="Tamil Nadu">Tamil Nadu</option>
                             <option value="Telangana">Telangana</option>
                             <option value="Tripura">Tripura</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>                
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
                             <option value="Uttarakhand">Uttarakhand</option>
                             <option value="West Bengal">West Bengal</option>
                             <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -124,17 +133,17 @@
                           </select>
                     </div>
 
-                   
+
 
                     <div class="imput-form">
                         <label class="form-label">District</label>
                           <input type="text" ngModel required #district="ngModel" class="input-box form-control" name="district" placeholder="Enter your district" id="district">
                   <div *ngIf="!district?.valid && (district?.dirty || district?.touched)" class="error">
                     <div *ngIf="district.errors?.['required']" class="supportError">District is required</div>
-                  </div>                     
+                  </div>
                     </div>
 
-                   
+
                     <div class="imput-form">
                         <label class="form-label">Pincode</label>
                         <input type="tel" ngModel required #pincode="ngModel" class="input-box form-control" (keypress)="keyPress($event)" minlength="6" maxlength="6" name="pincode" placeholder="Enter your pincode" id="pincode">
@@ -144,9 +153,9 @@
                     </div>
             </div>
             <div class="col-lg-4 right">
-                
+
                 <div class="course desktop">
-                    <h1>Course Details          
+                    <h1>Course Details
                     </h1>
                     <h3>{{courseData.product}}</h3>
                     <p >Get stellar coaching for upcoming exams from highly established  faculty and
@@ -158,7 +167,7 @@
 
                        <div>
                     </div>
-                        
+
                     <div class="total">
                         <h4> Total <span>(Inc. of all taxes)</span></h4>
                         <h4><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
@@ -179,4 +188,20 @@
     </div>
 </section>
 
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->
+
+<section class="footer-scn">
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <img class="ftr-lg" src="./assets/Homepage/ias-grey-logo.png" alt=""><br>
+        <div class="mt-3">
+          <span>Where your dreams become a reality</span>
+          <p>Veranda IAS, with over 12+ years of educational excellence in competitive exam coaching, has helped our
+            students towards their dreams and ambition of becoming bureaucrats by providing excellent coaching for UPSC
+            Exam.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

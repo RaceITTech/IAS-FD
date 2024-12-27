@@ -18,18 +18,12 @@
 </section>
 
 
-<section class="payment-failed" *ngIf="paymentStatus !== 'success'">
+<section class="payment-failed" *ngIf="paymentStatus === 'Payment failed'">
     <div class="container">
         <div class="payment-failed-cd">
             <img class="status-icon" src="./assets/payment/Failed_Icon.png" alt="">
             <h4>Payment Failed !</h4>
             <hr>
-            <ul>
-                <li><span>Product Name</span>{{paymentDetails.product}}</li>
-                <li><span>Order id</span>{{paymentDetails.orderId}}</li>
-                <li><span>Transcation id</span>{{paymentDetails.txnId}}</li>
-                <li><span>Amount</span>{{paymentDetails.amount}}</li>
-            </ul>
             <p>Your transcation has failed. Please go back and try again</p>
             <hr>
             <a routerLink="/">Back To Home</a>

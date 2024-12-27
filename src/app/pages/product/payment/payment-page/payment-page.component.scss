@@ -60,7 +60,7 @@
     max-width: 93%;
     }
  h1{
-    
+
     color:#3C4852 ;
     font-size: 20px;
     font-weight: 600;
@@ -212,13 +212,13 @@ line-height: 19px;
 font-weight: 400;
     color: #404040;
     line-height: 22px;
-} 
+}
 h5{
     font-size: 16px;
 font-weight: 400;
     color: #1A1326;
     margin-bottom: 10px;
-} 
+}
 h6{
     font-size: 12px;
 font-weight: 500;
@@ -228,7 +228,7 @@ font-weight: 500;
 
 }
 h1{
-    
+
     color:#3C4852 ;
     font-size: 20px;
     font-weight: 600;
@@ -283,12 +283,12 @@ font-weight: 400;
     padding: 20px 0px;
     margin: 25px 0px;
     h4{
-        
+
         font-size: 20px;
         font-weight: 600;
             color: #1A1326;
            margin-bottom: 0px;
-          
+
            span{
 
             font-size: 14px;
@@ -330,13 +330,13 @@ font-weight: 400;
 font-weight: 400;
     color: #404040;
     line-height: 22px;
-} 
+}
 h5{
     font-size: 16px;
 font-weight: 400;
     color: #1A1326;
     margin-bottom: 10px;
-} 
+}
 h6{
     font-size: 12px;
 font-weight: 500;
@@ -347,7 +347,7 @@ font-weight: 500;
 }
 
 
-button.btn.box-card { 
+button.btn.box-card {
      background-color: #003177;
     border-radius: 0px 8px 8px 0px;
     font-size: 14px;
@@ -384,7 +384,7 @@ button.btn.box-card {
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: 7px;
-  
+
     option{
        color: #000;
        font-weight: 500;
@@ -399,7 +399,7 @@ button.btn.box-card {
 }
 
 .available-coupons{
- 
+
     box-shadow: 8px 8px 24px 0px #0000000A;
     background-color: #fff;
     padding: 20px;
@@ -408,7 +408,7 @@ button.btn.box-card {
 margin-top: 30px;
 
 h2{
-    
+
     color:#7E808C ;
     font-size: 18px;
     font-weight: 500;
@@ -435,7 +435,7 @@ img{
     color:#7E808C;
     font-size:12px;
     font-weight:400;
-    
+
 span{
     font-size:12px;
     font-weight:500;
@@ -460,7 +460,7 @@ span{
     font-weight: 500;
     color: #003177;
    padding: 8px 35px;
-   
+
 
  }
 }
@@ -486,12 +486,12 @@ span{
   padding: 30px 0px;
     // height: 100vh;
   }
-  
+
   .logo-img {
     width: 200px;
-  
+
   }
-  
+
   .paymentContainer {
     display: flex;
     flex-direction: row;
@@ -499,7 +499,7 @@ span{
     justify-content: center;
     // margin:30px 0px;
   }
-  
+
   .payment {
     animation: bouncingCard 0.6s ease-out infinite alternate;
     background-color: white;
@@ -510,8 +510,8 @@ span{
     font-family: "poppins";
     padding: 30px 0px;
   }
-  
-  
+
+
   /* payment Content */
 
   .paymentTitle {
@@ -534,11 +534,11 @@ span{
     width: 90%;
     border: 1px solid #efefef;
   }
-  
+
   .paymentDetail {
     font-size: 1.1rem;
     font-weight: 500;
-  
+
   }
   .coupon-name{
     font-size: 16px;
@@ -580,38 +580,38 @@ span{
     padding: 12px 16px;
     color: #A4AABC;
   }
-  
+
   .paymentSubDetail .code {
     margin-right: 24px;
   }
-  
+
   /* payment Ripper */
   .paymentRip {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .circleLeft {
     width: 17px;
     height: 34px;
     background-color: #EFF2F9;
     border-radius: 0 30px 30px 0;
   }
-  
+
   .ripLine {
     width: 80%;
     border-top: 1px solid #2DA177;
     border-top-style: dashed;
   }
-  
+
   .circleRight {
     width: 17px;
     height: 34px;
     background-color: #EFF2F9;
     border-radius: 30px 0 0 30px;
   }
-  
+
   /* payment Bouncing Animation */
   // @keyframes bouncingCard {
   //     from { transform: translateY(0);}
@@ -621,10 +621,10 @@ span{
   //     from { transform: translateY(0px);}
   //     to {transform: translateY(4px);}
   // }
-  
-  
-  
-  
+
+
+
+
   .checkmark__circle {
     stroke-dasharray: 166;
     stroke-dashoffset: 166;
@@ -634,7 +634,7 @@ span{
     fill: none;
     animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
   }
-  
+
   .checkmark {
     width: 56px;
     height: 56px;
@@ -661,7 +661,7 @@ span{
     justify-content: space-between;
     align-items: center;
     gap: 11px;
-    
+
   }
   .down{
     width: 15px;
@@ -672,25 +672,25 @@ span{
     stroke-dashoffset: 48;
     animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards
   }
-  
+
   @keyframes stroke {
     100% {
       stroke-dashoffset: 0
     }
   }
-  
+
   @keyframes scale {
-  
+
     0%,
     100% {
       transform: none
     }
-  
+
     50% {
       transform: scale3d(1.1, 1.1, 1)
     }
   }
-  
+
   @keyframes fill {
     100% {
       box-shadow: inset 0px 0px 0px 30px rgb(13,204,173);
@@ -717,4 +717,159 @@ span{
   font-size: 16px;
   font-weight: 600;
   border-radius: 8px;
+}
+
+
+.footer-scn {
+  p {
+    color: #747475;
+  }
+  span {
+    color: #747475;
+  }
+  padding: 3em 0 2em 0;
+  background: #f5f5f7;
+  @include screen("tablet") {
+    padding: 2em 0 4em 0;
+  }
+  @include screen("mobile") {
+    p {
+      color: #747475;
+      font-size: 8px;
+    }
+    span {
+      color: #747475;
+      font-size: 14px;
+    }
+    padding: 2em 0 4em 0;
+  }
+  .fst-col {
+    .ftr-lg {
+      width: 250px;
+      @include screen("tablet") {
+        width: 225px;
+      }
+      @include screen("mobile") {
+        width: 175px;
+      }
+    }
+    span {
+      color: #747475;
+      font-size: 15px;
+      @include screen("tablet") {
+        font-size: 14px;
+      }
+      @include screen("mobile") {
+        font-size: 12px;
+      }
+    }
+    p {
+      color: #747475;
+      font-size: 13px;
+      text-align: justify;
+      max-width: 95%;
+      margin-top: 3em;
+      @include screen("tablet") {
+        margin: 1.5em 0 0 0;
+      }
+      @include screen("mobile") {
+        margin: 1em 0 0 0;
+      }
+    }
+  }
+  .scnd-col,
+  .thrd-col,
+  .frth-col {
+    h6 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #747475;
+      margin-bottom: 0;
+      @include screen("mobile") {
+        margin-top: 2em;
+      }
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin: 1em 0 2em 0;
+      @include screen("tablet") {
+        gap: 0.5em;
+      }
+      @include screen("mobile") {
+        margin: 1em 0;
+      }
+      a {
+        font-size: 14px;
+        text-decoration: none;
+        color: #747475;
+        @include screen("mobile") {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .frth-col div {
+    @include screen("tablet") {
+      margin: 1em 0;
+    }
+  }
+  .cntct-dtls {
+    padding: 1em 0;
+    @include screen("mobile") {
+      gap: 2em;
+    }
+    .flx-dtls {
+      display: flex;
+      gap: 1em;
+      align-items: flex-start;
+      @include screen("tablet") {
+        gap: 0.5em;
+      }
+      @include screen("mobile") {
+        align-items: center;
+      }
+      div {
+        display: flex;
+        flex-direction: column;
+        h6 {
+          font-weight: 600;
+          color: #747475;
+        }
+        a {
+          font-size: 14px;
+          text-decoration: none;
+          color: #747475;
+        }
+      }
+    }
+  }
+  .cprgts-flx {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 0 0 0;
+    @include screen("tablet") {
+      flex-direction: column-reverse;
+      gap: 0.5em;
+    }
+    @include screen("mobile") {
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 1em;
+    }
+    div {
+      font-size: 14px;
+      color: #747475;
+      a {
+        color: #747475;
+        text-decoration: none;
+      }
+    }
+    .scl-icons {
+      display: flex;
+      gap: 1.5em;
+    }
+  }
 }

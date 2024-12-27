@@ -30,7 +30,7 @@ export class OrderstatusComponent {
           orderId,
         })
         .subscribe((response: any) => {
-          if (response.message.status == 'success') {
+          if (response.message == 'success') {
             this.http
               .post(
                 'https://backend.verandaias.com/verandaias/orders/doAllOrderOperations',
@@ -38,9 +38,9 @@ export class OrderstatusComponent {
               )
               .subscribe((data) => {});
             this.paymentDetails = response.message;
-            this.paymentStatus = response.message.status;
+            this.paymentStatus = response.message;
           } else {
-            this.paymentStatus = response.message.status;
+            this.paymentStatus = response.message;
           }
         });
     } else {

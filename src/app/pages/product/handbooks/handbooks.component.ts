@@ -13,27 +13,50 @@ import {
 })
 export class HandbooksComponent {
   courseData: ProductDetails | undefined;
-  mainImgSrc = "./assets/Coursepage/creatives/hand_books.jpg"
+  mainImgSrc = './assets/Coursepage/creatives/hand_books.jpg';
   subImages = [
-    "./assets/Coursepage/creatives/hand_books.jpg",
-    "./assets/Coursepage/creatives/HDB-1.jpg",
-    "./assets/Coursepage/creatives/HDB-2.jpg",
-    "./assets/Coursepage/creatives/HDB-3.jpg",
-    "./assets/Coursepage/creatives/HDB-4.jpg",
-    "./assets/Coursepage/creatives/HDB-5.jpg",
-    "./assets/Coursepage/creatives/HDB-6.jpg",
-    "./assets/Coursepage/creatives/HDB-7.jpg",
-    "./assets/Coursepage/creatives/HDB-8.jpg",
-    "./assets/Coursepage/creatives/HDB-9.jpg",
-    "./assets/Coursepage/creatives/HDB-10.jpg",
-    "./assets/Coursepage/creatives/HDB-11.jpg",
-    "./assets/Coursepage/creatives/HDB-12.jpg",
-  ]
+    './assets/Coursepage/creatives/hand_books.jpg',
+    './assets/Coursepage/creatives/HDB-1.jpg',
+    './assets/Coursepage/creatives/HDB-2.jpg',
+    './assets/Coursepage/creatives/HDB-3.jpg',
+    './assets/Coursepage/creatives/HDB-4.jpg',
+    './assets/Coursepage/creatives/HDB-5.jpg',
+    './assets/Coursepage/creatives/HDB-6.jpg',
+    './assets/Coursepage/creatives/HDB-7.jpg',
+    './assets/Coursepage/creatives/HDB-8.jpg',
+    './assets/Coursepage/creatives/HDB-9.jpg',
+    './assets/Coursepage/creatives/HDB-10.jpg',
+    './assets/Coursepage/creatives/HDB-11.jpg',
+    './assets/Coursepage/creatives/HDB-12.jpg',
+  ];
+  bookDetail = {
+    getProduct: {
+      _id: '676518f53835b1746f988855',
+      amount: 4499,
+      description: '14 Mantras to clear UPSC Exams Books',
+      groupId: 'GI010',
+      isActive: 1,
+      language: 'English',
+      name: '14 Mantras to clear UPSC Exams Books',
+      samt: '4999',
+      shippingPrice: 424,
+      verticalName: 'VERANDA IAS',
+      zohoItemId: '2476421000092995445',
+      batch: [''],
+      demo_lms: '123',
+      courseId: 'VBN-IAS-CO-024',
+      totalAmount: '4999',
+      mode: 'Book',
+    },
+    getBatch: null,
+  };
   constructor(
     private router: Router,
     private productService: NewProductService
   ) {
-    this.loadCourseData();
+    // this.loadCourseData();
+    this.courseData = this.productService.setCourseDetails(this.bookDetail);
+    // const courseDetails = this.productService.getCourseDetails();
   }
 
   ngOnInit(): void {}
@@ -53,8 +76,7 @@ export class HandbooksComponent {
       next: (value) => {
         debugger;
         this.courseData = this.productService.setCourseDetails(value);
-        const courseDetails = this.productService.getCourseDetails();
-        console.log(courseDetails);
+        // const courseDetails = this.productService.getCourseDetails();
       },
       error: (err) => {
         alert('Error loading page');
