@@ -1,0 +1,163 @@
+<!-- <app-navbar></app-navbar> -->
+<div class="header">
+  <div class="container-fluid" style="background: rgba(0, 49, 119, .7);">
+    <nav class="navbar navbar-expand-lg nav-head">
+      <a class="navbar-brand" href="#">
+        <img src="./assets/Homepage/ias-white-logo.png" class="h-8" alt="IAS Logo">
+      </a>
+    </nav>
+  </div>
+</div>
+<div class="container">
+  <div class="row procuct-rw">
+    <div class="col-lg-5 col-md-12 col-sm-12  stick-col">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="">
+            <img [src]="mainImgSrc" class="book-img">
+          </div>
+          <!-- <div class="preview">
+                <button  (click)="previewBooks()">Preview Book </button>
+              </div> -->
+          <div class="images">
+            <div class="small-img" *ngFor="let imageSrc of subImages">
+              <img [src]="imageSrc" (click)="changeMainImage(imageSrc)">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7 col-md-12 col-sm-12 product-cont-area ">
+      <div class="hdng-area">
+        <h2>UPSC 2025 Civil Services Exam Master Kit: 12 Books + Video Lectures | Prelims & Mains | Current Affairs,
+          NCERTs, PYQs | 14 Mantras to Clear UPSC | Veranda IAS</h2>
+        <p>Hand Books by Veranda IAS</p>
+      </div>
+
+      <div class="price-flex-area">
+        <div>
+          <h2>1</h2>
+          <del>12,000</del>
+          <b>(58% OFF)</b>
+        </div>
+        <!-- <span>(inclusive of GST)</span> -->
+      </div>
+      <div class="btns-flx">
+        <a (click)="onBuyClick()">Buy Now</a>
+        <!-- <a href="" download>Download Books List</a> -->
+      </div>
+
+      <div class="specification-area">
+        <p>Exam : <span>UPSC Exams</span></p>
+        <p> Status : <span>Pre-order </span></p>
+        <p> Language : <span>English </span></p>
+        <p> No. Of Books : <span> 12 Books </span></p>
+      </div>
+
+      <div class="pro-dtls-area">
+        <h3>Product Description</h3>
+        <p>Prepare smarter for the <b>UPSC Civil Services Examination</b> with the <b>Veranda IAS Ultimate Master
+            Kit</b>, your one-stop solution for comprehensive <b>IAS study material</b>. This meticulously designed kit
+          includes 12 expertly curated books and video lectures to provide UPSC aspirants with the knowledge, practice,
+          and strategies essential to excel in <b>Prelims</b>, <b>Mains</b>, and beyond.</p>
+        <br>
+        <h3>What’s Inside the Kit?</h3>
+        <h4>General Studies (12 Books):</h4>
+        <p>Delve deep into the <b>UPSC syllabus</b> with focused coverage of:</p>
+        <ul>
+          <li>Indian Economy</li>
+          <li>Environment & Ecology</li>
+          <li>Ancient and Medieval Indian History</li>
+          <li>Modern Indian History</li>
+          <li>Indian Polity & Governance</li>
+          <li>International Relations</li>
+          <li>Internal Security</li>
+          <li>Art & Culture</li>
+          <li>Governance</li>
+          <li>Geography (India & World)</li>
+          <li>World History</li>
+          <li>Science and Technology</li>
+        </ul>
+        <h4>Bonus Video Lectures:</h4>
+        <p>Enhance your preparation with detailed explanatory videos:</p>
+        <ul>
+          <li><b>Previous Year Questions (PYQs)</b>: Analyze <b>UPSC exam patterns</b>, question styles, and past
+            trends.</li>
+          <li><b>Topic-Wise Practice Questions</b>: Strengthen core concepts with targeted practice.</li>
+          <li><b>Current Affairs for UPSC</b>: Stay updated with regular insights into crucial topics.</li>
+        </ul>
+        <br>
+        <h3>Why Choose the Veranda IAS Master Kit?</h3>
+        <ul>
+          <li><b>Comprehensive UPSC Exam Books</b>: Covers all major subjects required for success in the Civil Services
+            Examination.</li>
+          <li><b>Expert-Curated Content</b>: Created by experienced faculty to ensure accuracy and relevance.</li>
+          <li><b>Smart Study Strategies</b>: Learn time-saving techniques and methods tailored for <b>UPSC
+              preparation</b>.</li>
+          <li><b>Focused Practice</b>: Solve <b>UPSC PYQs</b> and topic-based questions to build exam confidence.</li>
+          <li><b>Step-by-Step Guidance</b>: A structured approach to mastering the entire <b>IAS syllabus</b>.</li>
+        </ul>
+        <br>
+        <h3>Key Benefits:</h3>
+        <ul>
+          <li><b>Master UPSC Exam Patterns</b>: Decode question trends and understand weightage across topics.</li>
+          <li><b>Prioritize Important Topics</b>: Focus on frequently asked areas to maximize your score.</li>
+          <li><b>Evaluate & Improve</b>: Practice regularly to identify strengths and address weaknesses.</li>
+          <li><b>Plan for Success</b>: Learn time management and effective strategies to ace the <b>UPSC Prelims and
+              Mains</b>.</li>
+        </ul>
+        <p>With Veranda IAS’s <b>14 Proven Mantras for Success</b>, this kit is perfect for those aiming to excel in the
+          <b>Civil Services Examination</b> and achieve their dream of becoming an <b>IAS officer</b>.
+        </p>
+        <br>
+        <h3>Perfect For:</h3>
+        <ul>
+          <li>Aspirants preparing for <b>UPSC Prelims</b>, <b>Mains</b>.</li>
+          <li>Those seeking high-quality <b>UPSC books</b>, <b>current affairs for IAS</b>, and practice resources.</li>
+        </ul>
+        <p>Order now and take the first step toward your IAS dream with Veranda IAS!</p>
+      </div>
+
+      <div class="faq-area">
+        <h3>Frequently Asked Questions</h3>
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item" *ngFor="let faq of faqs; let i = index">
+            <div class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#collapse' + i" [attr.aria-controls]="'collapse' + i" aria-expanded="false">
+                <h5>{{ faq.question }}</h5>
+              </button>
+            </div>
+            <div [id]="'collapse' + i" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                {{ faq.answer }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="btns-flx-2">
+  <a (click)="onBuyClick()">Buy Now</a>
+  <!-- <a href="" download>Download Books List</a> -->
+</div>
+<!-- <app-footer></app-footer> -->
+<section class="footer-scn">
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <img class="ftr-lg" src="./assets/Homepage/ias-grey-logo.png" alt=""><br>
+        <div class="mt-3">
+          <span>Where your dreams become a reality</span>
+          <p>Veranda IAS, with over 12+ years of educational excellence in competitive exam coaching, has helped our
+            students towards their dreams and ambition of becoming bureaucrats by providing excellent coaching for UPSC
+            Exam.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

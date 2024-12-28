@@ -38,6 +38,7 @@ const routes: Routes = [
   { path: 'refund-policy', loadChildren: () => import('./pages/refund-policy/refund-policy.module').then(m => m.RefundPolicyModule) },
   { path: 'payment-success/:id', loadChildren: () => import('./pages/product/payment/payment-success/payment-success.module').then(m => m.PaymentSuccessModule) },
   { path: 'payment-failed/:id', loadChildren: () => import('./pages/product/payment/payment-failed/payment-failed.module').then(m => m.PaymentFailedModule) },
+  { path: 'demo-product', loadChildren: () => import('./pages/product/demo-product/demo-product.module').then(m => m.DemoProductModule) },
 ];
 
 @NgModule({
