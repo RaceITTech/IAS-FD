@@ -38,7 +38,7 @@ export class DemoProductComponent {
       language: 'English',
       name: '14 Mantras to clear UPSC Exams Books',
       samt: '1',
-      shippingPrice: 424,
+      shippingPrice: 0,
       verticalName: 'VERANDA IAS',
       zohoItemId: '2476421000092995445',
       batch: [''],
