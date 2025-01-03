@@ -11,6 +11,7 @@ import { TestimonialCarouselComponent } from './testimonial-carousel/testimonial
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { MatIconModule } from '@angular/material/icon';
 import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.component';
+import { FacultyComponent } from './faculty/faculty.component';
 
 
 
@@ -24,12 +25,13 @@ import { SkeletonLoaderComponent } from './skeleton-loader/skeleton-loader.compo
     MarketingNavComponent,
     TestimonialCarouselComponent,
     SkeletonLoaderComponent,
+    FacultyComponent,
   ],
   imports: [
     CommonModule,RouterModule,CarouselModule,MatIconModule
   ],
   exports: [
-    NavbarComponent,FooterComponent,UpscOpputunitiesComponent,MarketingFooterComponent,DashboardNavComponent,MarketingNavComponent,TestimonialCarouselComponent,SkeletonLoaderComponent
+    NavbarComponent,FooterComponent,UpscOpputunitiesComponent,MarketingFooterComponent,DashboardNavComponent,MarketingNavComponent,TestimonialCarouselComponent,SkeletonLoaderComponent,FacultyComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,118 @@
+@mixin screen($size) {
+  $desktop: "(min-width: 1024px)";
+  $tablet: "(min-width: 768px) and (max-width: 1023px)";
+  $mobile: "(max-width: 767px)";
+  @if $size == desktop {
+    @media only screen and #{$desktop} {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media only screen and #{$tablet} {
+      @content;
+    }
+  } @else if $size == mobile {
+    @media only screen and #{$mobile} {
+      @content;
+    }
+  } @else {
+    @media only screen and #{$size} {
+      @content;
+    }
+  }
+}
+.smtrs-section {
+  padding: 3em 0;
+  @include screen("tablet") {
+    padding: 2em 0;
+  }
+  @include screen("mobile") {
+    padding: 1.5em 0;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 0.5em;
+    @include screen("tablet") {
+      max-width: 75%;
+      margin: auto auto 0.5em auto;
+    }
+  }
+  h5 {
+    max-width: 60%;
+    margin: auto;
+    text-align: center;
+    @include screen("tablet") {
+      max-width: 90%;
+    }
+    @include screen("mobile") {
+      max-width: 100%;
+    }
+  }
+  .smtrs-gd {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2em;
+    margin-top: 2em;
+    @include screen("tablet") {
+      display: none;
+    }
+    @include screen("mobile") {
+      display: none;
+    }
+  }
+  .mentors-carousel {
+    display: none;
+    @include screen("tablet") {
+      display: block;
+      margin-top: 2em;
+    }
+    @include screen("mobile") {
+      display: block;
+      margin-top: 2em;
+    }
+    .carousel-indicators {
+      margin-bottom: -1rem;
+      button {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #003177;
+      }
+    }
+  }
+  .smtrs-cds {
+    border: solid 1.5px #f5f5f5;
+    border-radius: 30px;
+    overflow: hidden;
+    @include screen("tablet") {
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      width: 30%;
+      margin: auto;
+    }
+    @include screen("mobile") {
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      width: 75%;
+      margin: auto;
+    }
+    img {
+      width: 100%;
+      border-radius: 30px;
+    }
+    div {
+      padding-bottom: 1em;
+      margin-top: -3em;
+      h6 {
+        text-align: center;
+        color: #fff;
+        font-weight: 500;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      }
+      p {
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        color: #fff;
+        font-size: 14px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

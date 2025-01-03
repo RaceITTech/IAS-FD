@@ -1,0 +1,39 @@
+<section class="smtrs-section">
+  <div class="container">
+    <h2>Veranda IAS’ Faculty</h2>
+    <h5>As a part of Veranda IAS’ online UPSC courses, get expert guidance from our faculty with over 10+ years of
+      experience in UPSC exams</h5>
+    <div class="smtrs-gd">
+      <div *ngFor="let mentor of mentors" class="smtrs-cds">
+        <img [src]="mentor.imageUrl" alt="{{ mentor.name }}">
+        <div>
+          <h6>{{ mentor.name }}</h6>
+          <!-- Uncomment if description is available -->
+          <!-- <p>{{ mentor.description }}</p> -->
+        </div>
+      </div>
+    </div>
+    <div id="mentorsCarousel" class="carousel carousel-dark slide mentors-carousel" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div *ngFor="let mentor of mentors; let i = index" class="carousel-item" [class.active]="i === 0"
+          [attr.data-bs-interval]="i === 0 ? 10000 : 2000">
+          <div class="d-block w-100">
+            <div class="smtrs-cds">
+              <img [src]="mentor.imageUrl" alt="{{ mentor.name }}">
+              <div>
+                <h6>{{ mentor.name }}</h6>
+                <!-- Uncomment if description is available -->
+                <!-- <p>{{ mentor.description }}</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-indicators">
+        <button *ngFor="let mentor of mentors; let i = index" type="button" [attr.data-bs-target]="'#mentorsCarousel'"
+          [attr.data-bs-slide-to]="i" [class.active]="i === 0" [attr.aria-current]="i === 0 ? 'true' : null"
+          [attr.aria-label]="'Slide ' + (i + 1)"></button>
+      </div>
+    </div>
+  </div>
+</section>

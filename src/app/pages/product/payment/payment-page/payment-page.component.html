@@ -9,183 +9,185 @@
   </div>
 </div>
 <section class="payment-scn">
-    <div class="container">
-        <form #payment="ngForm" (ngSubmit)="onsub(payment)" novalidate>
-        <div class="row">
-            <div class="col-lg-8 left">
-                <h1>Learner Details</h1>
-                    <div class="imput-form">
-                        <label class="form-label">Name</label>
-                        <input type="text" name="name" ngModel required class=" input-box form-control" #name="ngModel" placeholder="Enter your full name" id="name" aria-describedby="emailHelp">
-                        <div *ngIf="!name?.valid && (name?.dirty || name?.touched)" class="error">
-                            <div *ngIf="name.errors?.['required']" class="supportError">Name is required</div>
-                        </div>
-                    </div>
+  <div class="container">
+    <form #payment="ngForm" (ngSubmit)="onsub(payment)" novalidate>
+      <div class="row">
+        <div class="col-lg-8 left">
+          <h1>Learner Details</h1>
+          <div class="imput-form">
+            <label class="form-label">Name</label>
+            <input type="text" name="name" ngModel required class=" input-box form-control" #name="ngModel"
+              placeholder="Enter your full name" id="name" aria-describedby="emailHelp">
+            <div *ngIf="!name?.valid && (name?.dirty || name?.touched)" class="error">
+              <div *ngIf="name.errors?.['required']" class="supportError">Name is required</div>
+            </div>
+          </div>
 
-                    <div class="imput-form">
-                        <label class="form-label">Email</label>
-                        <input name="email" type="email" #email="ngModel"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required
-                            class="input-box form-control" placeholder="Enter your email" id="email">
-                        <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
-                            <div *ngIf="email.errors?.['required']" class="supportError">Email is required</div>
-                            <div *ngIf="email.errors?.['pattern']" class="supportErrors">
-                                Email Pattern is invalid
-                            </div>
-                        </div>
-                    </div>
+          <div class="imput-form">
+            <label class="form-label">Email</label>
+            <input name="email" type="email" #email="ngModel" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+              ngModel required class="input-box form-control" placeholder="Enter your email" id="email">
+            <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="error">
+              <div *ngIf="email.errors?.['required']" class="supportError">Email is required</div>
+              <div *ngIf="email.errors?.['pattern']" class="supportErrors">
+                Email Pattern is invalid
+              </div>
+            </div>
+          </div>
 
-                    <div class="mb-3">
-                        <div class="input-groups">
-                            <label class="form-label">Mobile Number</label>
-                            <div class="mobile">
-                                <div class="input-group-append">
-                                    <p class="btn box-card get-otp-invalid" disabled="">+91</p>
-                                </div>
-                                <input name="phonenumber" #phonenumber="ngModel" type="tel"
-                                    class="input-box  input-box-2 form-control" ngModel required
-                                    (keypress)="keyPress($event)" minlength="10" maxlength="10"
-                                    placeholder="Enter your mobile number" id="phonenumber"
-                                    autocomplete="off" />
-                            </div>
-                            <div *ngIf="
+          <div class="mb-3">
+            <div class="input-groups">
+              <label class="form-label">Mobile Number</label>
+              <div class="mobile">
+                <div class="input-group-append">
+                  <p class="btn box-card get-otp-invalid" disabled="">+91</p>
+                </div>
+                <input name="phonenumber" #phonenumber="ngModel" type="tel" class="input-box  input-box-2 form-control"
+                  ngModel required (keypress)="keyPress($event)" minlength="10" maxlength="10"
+                  placeholder="Enter your mobile number" id="phonenumber" autocomplete="off" />
+              </div>
+              <div *ngIf="
                                     !phonenumber?.valid &&
                                     (phonenumber?.dirty || phonenumber?.touched)
                                   " class="error">
-                                <div *ngIf="phonenumber.errors?.['required']" class="supportError">
-                                    Number is required
-                                </div>
-                                <div *ngIf="phonenumber.errors?.['minlength']" class="supportError">
-                                    Phone Number is required with minimum of 10
-                                </div>
-
-                            </div>
-
-
-
-
-                            <div class="mt-2"></div>
-                        </div>
-                    </div>
-                    <div class="imput-form">
-                        <label class="form-label">Address 1</label>
-                        <input type="text" name="address1" class=" input-box form-control"
-                            placeholder="Enter your complete address" #address1="ngModel" ngModel required
-                            id="address1" aria-describedby="emailHelp">
-                        <div *ngIf="!address1?.valid && (address1?.dirty || address1?.touched)" class="error">
-                            <div *ngIf="address1.errors?.['required']" class="supportError">Address Line 1 is required
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="imput-form">
-                        <label class="form-label">Address 2</label>
-                        <input type="text" name="address2" class=" input-box form-control"
-                            placeholder="Enter your complete address" #address2="ngModel" ngModel required
-                            id="address2" aria-describedby="emailHelp">
-                        <div *ngIf="!address2?.valid && (address2?.dirty || address2?.touched)" class="error">
-                            <div *ngIf="address2.errors?.['required']" class="supportError">Address Line 2 is required
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="imput-form">
-                        <label class="form-label">State</label>
-                          <select class="input-box form-select" id="state" name="state"  required ng-required="true" #state  ngModel>
-                            <option value="" hidden>Select Your State</option>
-                            <option value="Andhra Pradesh">Andhra Pradesh</option>
-                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                            <option value="Assam">Assam</option>
-                            <option value="Bihar">Bihar</option>
-                            <option value="Chattisgarh">Chattisgarh</option>
-                            <option value="Delhi">Delhi</option>
-                            <option value="Goa">Goa</option>
-                            <option value="Gujarat">Gujarat</option>
-                            <option value="Haryana">Haryana</option>
-                            <option value="Himachal Pradesh">Himachal Pradesh</option>
-                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                            <option value="Jharkhand">Jharkhand</option>
-                            <option value="Karnataka">Karnataka</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="lakshadweep Islands">lakshadweep Islands</option>
-                            <option value="Madhya Pradesh">Madhya Pradesh</option>
-                            <option value="Maharashtra">Maharashtra</option>
-                            <option value="Manipur">Manipur</option>
-                            <option value="Meghalaya">Meghalaya</option>
-                            <option value="Mizoram">Mizoram</option>
-                            <option value="Nagaland">Nagaland</option>
-                            <option value="Odisha">Odisha</option>
-                            <option value="Pondicherry">Pondicherry</option>
-                            <option value="Punjab">Punjab</option>
-                            <option value="Rajasthan">Rajasthan</option>
-                            <option value="Sikkim">Sikkim</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Telangana">Telangana</option>
-                            <option value="Tripura">Tripura</option>
-                            <option value="Uttar Pradesh">Uttar Pradesh</option>
-                            <option value="Uttarakhand">Uttarakhand</option>
-                            <option value="West Bengal">West Bengal</option>
-                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                            <option value="Chandigarh">Chandigarh</option>
-                            <option value="Dadra & Nagar Haveli and Daman & Diu">Dadra & Nagar Haveli and Daman & Diu</option>
-                            <option value="Ladakh">Ladakh</option>
-                            <option value="Other Territory">Other Territory</option>
-                          </select>
-                    </div>
-
-
-
-                    <div class="imput-form">
-                        <label class="form-label">District</label>
-                          <input type="text" ngModel required #district="ngModel" class="input-box form-control" name="district" placeholder="Enter your district" id="district">
-                  <div *ngIf="!district?.valid && (district?.dirty || district?.touched)" class="error">
-                    <div *ngIf="district.errors?.['required']" class="supportError">District is required</div>
-                  </div>
-                    </div>
-
-
-                    <div class="imput-form">
-                        <label class="form-label">Pincode</label>
-                        <input type="tel" ngModel required #pincode="ngModel" class="input-box form-control" (keypress)="keyPress($event)" minlength="6" maxlength="6" name="pincode" placeholder="Enter your pincode" id="pincode">
-                        <div *ngIf="!pincode?.valid && (pincode?.dirty || pincode?.touched)" class="error">
-                            <div *ngIf="pincode.errors?.['required']" class="supportError">Pincode is required</div>
-                        </div>
-                    </div>
-            </div>
-            <div class="col-lg-4 right">
-
-                <div class="course desktop">
-                    <h1>Course Details
-                    </h1>
-                    <h3>{{courseData.product}}</h3>
-                    <p >Get stellar coaching for upcoming exams from highly established  faculty and
-                        top-notch study materials</p>
+                <div *ngIf="phonenumber.errors?.['required']" class="supportError">
+                  Number is required
+                </div>
+                <div *ngIf="phonenumber.errors?.['minlength']" class="supportError">
+                  Phone Number is required with minimum of 10
                 </div>
 
-                <div class="payment">
-                    <h1>Payment Details</h1>
+              </div>
 
-                       <div>
-                    </div>
 
-                    <div class="total">
-                        <h4> Total <span>(Inc. of all taxes)</span></h4>
-                        <h4><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
-  <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
-</svg>
-{{courseData.totalAmount}}
-</h4>
-                    </div>
-                    <!-- <button class="pay-btn"></button> -->
-                    <button  [disabled]="!payment.valid" [ngClass]="payment.valid ? 'proceed-btn' : 'proceed-btn-invalid' " type="submit" data-bs-toggle="collapse" data-bs-target="#collapseThree">Pay Now</button>
 
-                </div>
+
+              <div class="mt-2"></div>
             </div>
+          </div>
+          <div class="imput-form">
+            <label class="form-label">Address 1</label>
+            <input type="text" name="address1" class=" input-box form-control" placeholder="Enter your complete address"
+              #address1="ngModel" ngModel required id="address1" aria-describedby="emailHelp">
+            <div *ngIf="!address1?.valid && (address1?.dirty || address1?.touched)" class="error">
+              <div *ngIf="address1.errors?.['required']" class="supportError">Address Line 1 is required
+              </div>
 
+            </div>
+          </div>
+          <div class="imput-form">
+            <label class="form-label">Address 2</label>
+            <input type="text" name="address2" class=" input-box form-control" placeholder="Enter your complete address"
+              #address2="ngModel" ngModel required id="address2" aria-describedby="emailHelp">
+            <div *ngIf="!address2?.valid && (address2?.dirty || address2?.touched)" class="error">
+              <div *ngIf="address2.errors?.['required']" class="supportError">Address Line 2 is required
+              </div>
+
+            </div>
+          </div>
+          <div class="imput-form">
+            <label class="form-label">State</label>
+            <select class="input-box form-select" id="state" name="state" required ng-required="true" #state ngModel>
+              <option value="" hidden>Select Your State</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chattisgarh">Chattisgarh</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="lakshadweep Islands">lakshadweep Islands</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Pondicherry">Pondicherry</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+              <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Dadra & Nagar Haveli and Daman & Diu">Dadra & Nagar Haveli and Daman & Diu</option>
+              <option value="Ladakh">Ladakh</option>
+              <option value="Other Territory">Other Territory</option>
+            </select>
+          </div>
+
+
+
+          <div class="imput-form">
+            <label class="form-label">District</label>
+            <input type="text" ngModel required #district="ngModel" class="input-box form-control" name="district"
+              placeholder="Enter your district" id="district">
+            <div *ngIf="!district?.valid && (district?.dirty || district?.touched)" class="error">
+              <div *ngIf="district.errors?.['required']" class="supportError">District is required</div>
+            </div>
+          </div>
+
+
+          <div class="imput-form">
+            <label class="form-label">Pincode</label>
+            <input type="tel" ngModel required #pincode="ngModel" class="input-box form-control"
+              (keypress)="keyPress($event)" minlength="6" maxlength="6" name="pincode" placeholder="Enter your pincode"
+              id="pincode">
+            <div *ngIf="!pincode?.valid && (pincode?.dirty || pincode?.touched)" class="error">
+              <div *ngIf="pincode.errors?.['required']" class="supportError">Pincode is required</div>
+            </div>
+          </div>
         </div>
+        <div class="col-lg-4 right">
+
+          <div class="course desktop">
+            <h1>Course Details
+            </h1>
+            <h3>{{courseData.product}}</h3>
+            <p>Get stellar coaching for upcoming exams from highly established faculty and
+              top-notch study materials</p>
+          </div>
+
+          <div class="payment">
+            <h1>Payment Details</h1>
+
+            <div>
+            </div>
+
+            <div class="total">
+              <h4> Total <span>(Inc. of all taxes)</span></h4>
+              <h4><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                  <path
+                    d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z" />
+                </svg>
+                {{courseData.totalAmount}}
+              </h4>
+            </div>
+            <!-- <button class="pay-btn"></button> -->
+            <button [disabled]="!payment.valid" [ngClass]="payment.valid ? 'proceed-btn' : 'proceed-btn-invalid' "
+              type="submit" data-bs-toggle="collapse" data-bs-target="#collapseThree">Pay Now</button>
+
+          </div>
+        </div>
+
+      </div>
     </form>
 
-    </div>
+  </div>
 </section>
 
 <!-- <app-footer></app-footer> -->

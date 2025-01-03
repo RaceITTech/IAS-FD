@@ -21,7 +21,11 @@ export class MarketingNavComponent {
     // Customize the message based on the URL
     if (currentUrl.includes('/tnpsc-online')) {
       this.whatsappMessage = "I'm Interested in TNPSC Group I course";
-    } else {
+    }
+    else if (currentUrl.includes('/upsc-prelims-2025-super-batch')) {
+      this.whatsappMessage = "I'm Interested in UPSC Prelims Super Batch";
+    }
+    else {
       this.whatsappMessage = "I'm Interested in UPSC Coaching";
     }
 

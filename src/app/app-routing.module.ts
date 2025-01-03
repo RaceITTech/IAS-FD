@@ -39,6 +39,7 @@ const routes: Routes = [
   { path: 'payment-success/:id', loadChildren: () => import('./pages/product/payment/payment-success/payment-success.module').then(m => m.PaymentSuccessModule) },
   { path: 'payment-failed/:id', loadChildren: () => import('./pages/product/payment/payment-failed/payment-failed.module').then(m => m.PaymentFailedModule) },
   { path: 'demo-product', loadChildren: () => import('./pages/product/demo-product/demo-product.module').then(m => m.DemoProductModule) },
+  { path: 'upsc-prelims-2025-super-batch', loadChildren: () => import('./pages/marketing/upsc-prelims/upsc-prelims.module').then(m => m.UpscPrelimsModule) },
 ];
 
 @NgModule({
